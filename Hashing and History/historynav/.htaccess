@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteRule about$ index.html
+RewriteRule contact$ index.html
+RewriteRule home$ index.html

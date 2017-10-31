@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!-- Created by Professor Wergeles for CS4830 at the University of Missouri -->
+
+<html ng-app="listApp" lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="challenge4.js"></script>
+    <!-- <link rel="stylesheet" href="todo.css"> -->
+  </head>
+  <body class="container">
+    <ul class="nav nav-tabs">
+      <li><a href="#students" data-toggle="tab">Students</a></li>
+      <li><a href="#books" data-toggle="tab">Books</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="students" ng-controller="StudentListController as studentList">
+        <h2>Students</h2>
+
+        <span>{{ studentList.remaining() }} of {{ studentList.students.length }} remaining.</span><br>
+        <span>Active Students: {{ studentList.activeStudents }}</span><br>
+        <span>Inactive Students: {{ studentList.inactiveStudents }}</span>
+        [ <a href="" ng-click="studentList.archive()">archive</a> ]
+
+        <!-- <div class="row">
+          <form class="form-horizontal" ng-submit="studentList.addStudent()">
+            <div class="form-group">
+              <label for="number" class="col-sm-1 col-md-1 col-lg-1 control-label">Student #</label>
+              <div class="col-sm-3 col-md-3 col-lg-3">
+                <input type="text" class="form-control" name="number" ng-model="studentList.studentNumber" ng-required="true" size="30" placeholder="#" onkeyup="this.value = this.value.replace(/[^0-9]/, '')">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="number" class="col-sm-1 col-md-1 col-lg-1 control-label">Name</label>
+              <div class="col-sm-3 col-md-3 col-lg-3">
+                <input type="text" class="form-control" name="name" ng-model="studentList.studentName" ng-required="true" size="30" placeholder="Name" onkeyup="this.value = this.value.replace(/[^A-Za-z ]/, '')">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="number" class="col-sm-1 col-md-1 col-lg-1 control-label">Address</label>
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <input type="text" class="form-control" name="address" ng-model="studentList.studentAddress" size="30" placeholder="Address"onkeyup="this.value = this.value.replace(/[^0-9A-Za-z ]/, '')">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="number" class="col-sm-1 col-md-1 col-lg-1 control-label">Phone</label>
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <input type="text" class="form-control" name="phone" ng-model="studentList.studentPhone" size="30" placeholder="Phone #" onkeyup="this.value = this.value.replace(/[^0-9-() ]/, '')">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="number" class="col-sm-1 col-md-1 col-lg-1 control-label">GPA</label>
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <input type="text" class="form-control" name="gpa" ng-model="studentList.studentGPA" size="30" placeholder="GPA" onkeyup="this.value = this.value.replace(/[^0-9.]/, '')">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="number" class="col-sm-1 col-md-1 col-lg-1 control-label">Academic Plan</label>
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <input type="text" class="form-control" name="acadplan" ng-model="studentList.studentAcadPlan" size="30" placeholder="Academic Plan" onkeyup="this.value = this.value.replace(/[^A-Za-z ]/, '')">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="number" class="col-sm-1 col-md-1 col-lg-1 control-label">Level</label>
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <input type="text" class="form-control" name="acadplan" ng-model="studentList.studentLevel" size="30" placeholder="Level" onkeyup="this.value = this.value.replace(/[^A-Za-z]/, '')">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="number" class="col-sm-1 col-md-1 col-lg-1 control-label">Status</label>
+              <div class="col-md-6">
+                <select name="studentStatus" ng-model="studentList.studentStatus" class="form-control">
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                </select>
+              </div>
+            </div>
+            <input class="btn-primary" type="submit" value="add">
+          </form>
+        </div> -->
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Student #</th>
+              <th>Name</th>
+              <th>Adddress</th>
+              <th>Phone</th>
+              <th>GPA</th>
+              <th>Academic Plan</th>
+              <th>Level</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <form class="form-horizontal" ng-submit="studentList.addStudent()">
+                <td></td>
+                <td>
+                  <input type="text" class="form-control" name="number" ng-model="studentList.studentNumber" ng-required="true" size="30" placeholder="#" onkeyup="this.value = this.value.replace(/[^0-9]/, '')">
+                </td>
+                <td>
+                  <input type="text" class="form-control" name="name" ng-model="studentList.studentName" ng-required="true" size="30" placeholder="Name" onkeyup="this.value = this.value.replace(/[^A-Za-z ]/, '')">
+                </td>
+                <td>
+                  <input type="text" class="form-control" name="address" ng-model="studentList.studentAddress" size="30" placeholder="Address"onkeyup="this.value = this.value.replace(/[^0-9A-Za-z ]/, '')">
+                </td>
+                <td>
+                  <input type="text" class="form-control" name="phone" ng-model="studentList.studentPhone" size="30" placeholder="Phone #" onkeyup="this.value = this.value.replace(/[^0-9-() ]/, '')">
+                </td>
+                <td>
+                  <input type="text" class="form-control" name="gpa" ng-model="studentList.studentGPA" size="30" placeholder="GPA" onkeyup="this.value = this.value.replace(/[^0-9.]/, '')">
+                </td>
+                <td>
+                  <input type="text" class="form-control" name="acadplan" ng-model="studentList.studentAcadPlan" size="30" placeholder="Academic Plan" onkeyup="this.value = this.value.replace(/[^A-Za-z ]/, '')">
+                </td>
+                <td>
+                  <input type="text" class="form-control" name="acadplan" ng-model="studentList.studentLevel" size="30" placeholder="Level" onkeyup="this.value = this.value.replace(/[^A-Za-z]/, '')">
+                </td>
+                <td>
+                  <select name="studentStatus" ng-model="studentList.studentStatus" class="form-control">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                  </select>
+                </td>
+                <td>
+                  <input class="btn btn-primary" type="submit" value="add">
+                </td>
+              </form>
+            </tr>
+            <tr ng-repeat="student in studentList.students track by $index">
+              <td>
+                <input type="checkbox" ng-model="student.done" ng-click="studentList.refresh(this)">
+              </td>
+              <td>
+                <span class="done-{{ student.done }}">{{ student.number }}</span>
+              </td>
+              <td>
+                <span class="done-{{ student.done }}">{{ student.name }} </span>
+              </td>
+              <td>
+                <span class="done-{{ student.done }}">{{ student.address }}</span>
+              </td>
+              <td>
+                <span class="done-{{ student.done }}">{{ student.phone }}</span>
+              </td>
+              <td>
+                <span class="done-{{ student.done }}">{{ student.gpa }}</span>
+              </td>
+              <td>
+                <span class="done-{{ student.done }}">{{ student.acad_plan }}</span>
+              </td>
+              <td>
+                <span class="done-{{ student.done }}">{{ student.level }}</span>
+              </td>
+              <td>
+                <span class="done-{{ student.done }}">{{ student.status }}</span>
+              </td>
+              <td>
+                <i class="material-icons" ng-click="studentList.removeStudent(student)">delete_forever</i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane active" id="books" ng-controller="BookListController as bookList">
+        <h2>Books</h2>
+
+        <span>{{ bookList.remaining() }} of {{ bookList.books.length }} remaining</span><br>
+        <span>Books In-stock: {{ bookList.inBooks }}</span><br>
+        <span>Books Out-of-stock: {{ bookList.outBooks }}</span>
+        [ <a href="" ng-click="bookList.archive()">archive</a> ]
+
+        <!-- <ul class="unstyled">
+          <li ng-repeat="book in bookList.books track by $index">
+            <label class="checkbox">
+              <input type="checkbox" ng-model="book.done" ng-click="bookList.refresh(this)">
+              <span class="done-{{ book.done }}">{{ book.name }}</span>
+          </label>
+          </li>
+        </ul> -->
+        <!-- <form ng-submit="bookList.addBook()">
+          <input type="text" ng-model="bookList.bookIsbn" size="30" placeholder="ISBN" >
+          <input type="text" ng-model="bookList.bookName" size="30" placeholder="Name" >
+          <input type="text" ng-model="bookList.bookAuthor" size="30" placeholder="Author">
+          <input type="text" ng-model="bookList.bookPublisher" size="30" placeholder="Publisher">
+          <input type="text" ng-model="bookList.bookYear" size="30" placeholder="Year">
+          <input type="text" ng-model="bookList.bookType" size="30" placeholder="Type">
+          <input type="text" ng-model="bookList.bookEdition" size="30" placeholder="Edition">
+          <select name="bookStatus" ng-model="bookList.bookStatus">
+            <option value="in-stock">In stock</option>
+            <option value="out-of-stock">Out of stock</option>
+          </select>
+          <input class="btn-primary" type="submit" value="add">
+        </form> -->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th></th>
+              <th>ISBN</th>
+              <th>Name</th>
+              <th>Author</th>
+              <th>Publisher</th>
+              <th>Year</th>
+              <th>Type</th>
+              <th>Edition</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <form class="form-horizontal" ng-submit="bookList.addBook()">
+                <td></td>
+                <td>
+                  <input type="text" class="form-control" ng-model="bookList.bookIsbn" ng-required="true" size="30" placeholder="ISBN" onkeyup="this.value = this.value.replace(/[^0-9]/, '')">
+                </td>
+                <td>
+                  <input type="text" class="form-control" ng-model="bookList.bookName" ng-required="true" size="30" placeholder="Name" onkeyup="this.value = this.value.replace(/[^0-9A-Za-z- ]/, '')">
+                </td>
+                <td>
+                  <input type="text" class="form-control" ng-model="bookList.bookAuthor" size="30" placeholder="Author" onkeyup="this.value = this.value.replace(/[^A-Za-z ]/, '')">
+                </td>
+                <td>
+                  <input type="text" class="form-control" ng-model="bookList.bookPublisher" size="30" placeholder="Publisher" onkeyup="this.value = this.value.replace(/[^0-9A-Za-z ]/, '')">
+                </td>
+                <td>
+                  <input type="text" class="form-control" ng-model="bookList.bookYear" size="30" placeholder="Year" onkeyup="this.value = this.value.replace(/[^0-9.]/, '')">
+                </td>
+                <td>
+                  <input type="text" class="form-control" ng-model="bookList.bookType" size="30" placeholder="Type" onkeyup="this.value = this.value.replace(/[^A-Za-z ]/, '')">
+                </td>
+                <td>
+                  <input type="text" class="form-control" ng-model="bookList.bookEdition" size="30" placeholder="Edition" onkeyup="this.value = this.value.replace(/[^0-9A-Za-z]/, '')">
+                </td>
+                <td>
+                  <select name="bookStatus" ng-model="bookList.bookStatus">
+                    <option value="in-stock">In stock</option>
+                    <option value="out-of-stock">Out of stock</option>
+                  </select>
+                </td>
+                <td>
+                  <input class="btn btn-primary" type="submit" value="add">
+                </td>
+              </form>
+            </tr>
+            <tr ng-repeat="book in bookList.students track by $index">
+              <td>
+                <input type="checkbox" ng-model="book.done" ng-click="bookList.refresh(this)">
+              </td>
+              <td>
+                <span class="done-{{ book.done }}">{{ book.isbn }}</span>
+              </td>
+              <td>
+                <span class="done-{{ book.done }}">{{ book.name }} </span>
+              </td>
+              <td>
+                <span class="done-{{ book.done }}">{{ book.author }}</span>
+              </td>
+              <td>
+                <span class="done-{{ book.done }}">{{ book.publisher }}</span>
+              </td>
+              <td>
+                <span class="done-{{ book.done }}">{{ book.year }}</span>
+              </td>
+              <td>
+                <span class="done-{{ book.done }}">{{ book.type }}</span>
+              </td>
+              <td>
+                <span class="done-{{ book.done }}">{{ book.edition }}</span>
+              </td>
+              <td>
+                <span class="done-{{ book.done }}">{{ book.status }}</span>
+              </td>
+              <td>
+                <i class="material-icons" ng-click="studentList.removeStudent(student)">delete_forever</i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+/* Created by Professor Wergeles for CS4830 at the University of Missouri */
+table.table {
+    margin: 25px auto;
+    font-size: 1.2em;
+    font-family: arial;
+    color: #333;
+    background-color: #FCFCFC;
+    border-collapse: collapse;
+}
+table.table th {
+    color: white;
+    background-color: #5C9D40;
+}
+table.table th, table.table td {
+    border: 1px solid #CCC;
+    padding: 10px 30px;
+}
+table.table td:last-child {
+    text-align: center;
+}
+
+.planet {
+    text-align: center;
+    display: inline-block;
+    margin: 30px 10px;
+}
+.planet > div {
+    border-radius: 100%;
+    margin: 0 auto 10px;
+}
+.planet > span {
+    font-family: monospace;
+    font-size: 1.6em;
+}

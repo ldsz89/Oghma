@@ -1,0 +1,13 @@
+{{#alerts}}
+  <div class="alert {{#type}}alert-{{type}}{{/type}} alert-dismissible" role="alert">
+    {{#close}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    {{/close}}
+
+    {{#title}} <!-- Section - if there is a title set, this will display -->
+      <strong>{{title}}</strong>
+    {{/title}}
+
+    {{message}}
+  </div>
+{{/alerts}}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>REST Client</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<style>
+            #url {
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+		</style>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script>
+            $(function() {
+                // Default method = GET
+                var method = "GET";
+                
+                
+                
+                // If one of the methods buttons is clicked...
+                $(".methods > button").click(function() {
+                    
+                    // Grab the new method
+                    method = $(this).html();
+                    
+                    // Reset the buttons
+                    $(".methods > button")
+                        .removeClass("btn-primary")
+                        .addClass("btn-default");
+                    
+                    // Make the selected button active
+                    $(this)
+                        .removeClass("btn-default")
+                        .addClass("btn-primary");
+                    
+                });
+                
+                
+                $("#value").keyup(function(e) {
+                    // If the user hits the "enter" key while on the #value text field:
+                    if (e.keyCode == 13) {
+                        // Create a new row in the table and insert the text field data
+                        var row = $("<tr>");
+                        var key = $("<td>").html($("#key").val());
+                        var value = $("<td>").html($(this).val());
+                        
+                        row.append(key, value);
+                        
+                        $("#dataset").append(row);
+                        
+                        $("#key, #value").val('');
+                        $("#key").focus();
+                    }
+                });
+                
+                
+                
+                $("#send").click(function() {
+                    var data = "";
+                    $("#dataset > tr").each(function() {
+                        var tds = $(this).find("td");
+                        data += encodeURIComponent(tds[0].innerHTML) + "=" + encodeURIComponent(tds[1].innerHTML) + "&";
+                    });
+                    
+                    data = data.slice(0, -1);
+                    
+                    console.log(method + " " + $("#url").val());
+                    if (data) console.log("Body:", data);
+                    
+                    
+                });
+            });
+        </script>
+	</head>
+	<body>
+		<div class="container">
+            <h1>REST Client</h1>
+            <hr>
+            <div class="methods btn-group" role="group">
+                <button type="button" class="btn btn-primary">GET</button>
+                <button type="button" class="btn btn-default">POST</button>
+                <button type="button" class="btn btn-default">PUT</button>
+                <button type="button" class="btn btn-default">DELETE</button>
+            </div>
+            <input type="text" id="url" class="form-control" placeholder="URL...">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="dataset"></tbody>
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="key" class="form-control"></td>
+                        <td><input type="text" id="value" class="form-control"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="send" class="btn btn-success btn-large pull-right">Send</button>
+        </div>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- Created by Professor Wergeles for CS4830 at the University of Missouri -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Mustache</title>
+		<script src="js/mustache.js"></script>
+	</head>
+	<body>
+		<div id="display"></div>
+
+		<!-- Script tags with an unknown "type" attribute will not be executed by the JavaScript parser -->
+		<script id="template" type="x-tmpl-mustache">
+			<h1>Welcome to the {{name}}</h1>
+			<p>There are {{animalCount}} animals</p>
+			<ul>
+				{{#exhibits}}<li>{{.}}</li>{{/exhibits}}
+
+				{{^animals}}<p>Sorry, the animals are not here right now :( </p>{{/animals}}
+			</ul>
+		</script>
+
+	<script>
+		// Reference: https://github.com/janl/mustache.js
+		var zoo = {
+			name: "Henry Doorly Zoo",
+			animalCount: function() {
+				return 100;
+			},
+			exhibits: [
+				"Aquarium",
+				"Desert Dome",
+				"Jungle"
+			],
+			animals: []//["Lion", "Tiger", "Bear"]
+		};
+
+		// var template = "Welcome to the {{name}}";
+		// var hash = zoo;
+
+		var template = document.getElementById("template");
+
+		var output = Mustache.render(template.innerHTML, zoo);
+
+		var display = document.getElementById("display");
+		display.innerHTML = output;
+	</script>
+	</body>
+</html>

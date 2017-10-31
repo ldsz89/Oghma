@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- Created by Professor Wergeles for CS4830 at the University of Missouri -->
+<html>
+    <head>
+        <title>Templates</title>
+        <meta charset="utf-8">
+        <style>
+            ul {
+                list-style: none;
+                width: 500px;
+                margin: 25px auto;
+                padding-left: 0;
+            }
+            li {
+                margin-bottom: 40px;
+            }
+            .profileImage {
+                width: 50px;
+                height: 50px;
+                background-color: coral;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            h2 {
+                display: inline-block;
+                margin: 0;
+                vertical-align: middle;
+                margin-left: 10px;
+                font-size: 2.2em;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="postList"></ul>
+        <template id="post">
+          <li>
+            <div class="profileImage"></div>
+            <h2></h2>
+            <p></p>
+          </li>
+        </template>
+
+
+        <script>
+
+            var posts = [
+                {
+                    user: "Prof. Wergeles",
+                    color: "coral",
+                    post: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non auctor diam, at volutpat elit. Duis imperdiet blandit sem, id vulputate nibh faucibus ut."
+                },
+                {
+                    user: "Mr. Ipsum",
+                    color: "cornflowerblue",
+                    post: "Aenean quis eros venenatis est elementum varius. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam in nibh a sem dictum tempor eget non orci."
+                },
+                {
+                    user: "Ms. Lorem",
+                    color: "coral",
+                    post: "In eros nibh, bibendum quis faucibus ac, consectetur ullamcorper felis."
+                },
+                {
+                    user: "Mrs. Dolar",
+                    color: "lightgreen",
+                    post: "Etiam ornare libero ut lacus tempor, nec posuere mi consectetur. Vivamus ornare tellus mauris, id facilisis lorem tincidunt at. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+                },
+                {
+                    user: "Caffeine",
+                    color: "dark and heavy",
+                    post: "Etiam ornare libero ut lacus tempor, nec posuere mi consectetur. Vivamus ornare tellus mauris, id facilisis lorem tincidunt at. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+                }
+            ];
+
+            var postList = document.getElementById("postList");
+            var template = document.getElementById("post").content;
+
+            posts.forEach(function(post) {
+              var li = template.cloneNode(true);
+
+              li.querySelector(".profileImage").style.backgroundColor = post.color;
+              li.querySelector("h2").innerHTML = post.user;
+              li.querySelector("p").innerHTML = post.post;
+
+              postList.appendChild(li);
+            });
+
+        </script>
+
+    </body>
+</html>
