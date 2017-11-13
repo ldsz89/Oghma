@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Created by Professor Wergeles for CS4830 at the University of Missouri -->
-<!-- References: 
+<!-- References:
 		1. https://www.w3schools.com/angular/angular_directives.asp
 -->
 <html ng-app="space">
@@ -23,9 +23,39 @@
             }
         </style>
 		<script src="angular.min.js"></script>
-		
+
+		<script>
+			angular.module("space", [])
+			.controller("spaceCtrl", function($scope) {})
+			.directive("planet", function() {
+				return {
+					// "E" looks for elements
+					restrict: "E",
+
+					// this means that <planet> will be replaced by a tempalte
+					replace: true,
+
+					// templates can be defined via a url or a string like so:
+					template: "<div class=\"planet\"><div</div><span> {{name}} </span></div>",
+
+					// change the DOM dynamically we link
+					link: function(scope, elem, attrs) {
+						// attach the name to scope
+						// This allows Angular to replcase {{name}} with <planet>'s custom attribute name
+						scope.name = attrs.name;
+
+						elem.find("div").css("background-color", attrs.color);
+
+						elem.find("div").css("width", (attrs.radius / 69911 * 300) + "px");
+						elem.find("div").css("height", (attrs.radius / 69911 * 300) + "px");
+					}
+				};
+			});
+		</script>
+
 	</head>
 	<body ng-controller="spaceCtrl">
-		
+		<planet data-name="Earth" data-color="blue" data-radius="6371"></planet>
+		<planet data-name="Mars" data-color="brown" data-radius="3389.5"></planet>
 	</body>
 </html>
