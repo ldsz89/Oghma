@@ -1,0 +1,15 @@
+$black-color: #3C4858 !default;
+$gray-color: #999999 !default;
+$white-color: #FFFFFF !default;
+$rgb-black: "0,0,0" !default;
+$mdb-text-color-primary: unquote("rgba(#{$rgb-black}, 0.87)") !default;
+$mdb-card-body-text: $mdb-text-color-primary !default;
+$mdb-card-body-background: #fff !default;
+
+// Variables
+@import "variables";
+
+// Core
+@import "sidebar-and-main-panel";
+@import "cards";
+@import "jumbotron";

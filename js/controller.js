@@ -1,0 +1,71 @@
+var createrApp = angular.module('createrApp', []);
+  createrApp.controller('CharacterCreatorAppController', function($scope) {
+    var characterList = this;
+
+    characterList.characters = (localStorage.getItem('characters') !== null) ? JSON.parse(localStorage.getItem('characters')) : [];
+
+    characterList.addCharacter = function() {
+      // Add character to chracters array
+      characterList.characters.push( {
+        name: characterList.characterName,
+        level: characterList.characterLevel,
+        class: characterList.characterClass,
+        race: characterList.characterRace,
+        background: characterList.characterBackground,
+        alignment: characterList.characterAlignment,
+        strength: characterList.characterStrength,
+        dexterity: characterList.characterDexterity,
+        constitution: characterList.characterConstitution,
+        intelligence: characterList.characterIntelligence,
+        wisdom: characterList.characterWisdom,
+        charisma: characterList.characterCharisma,
+        acrobatics: characterList.characterAcrobatics,
+        acrobatics_prof: characterList.characterAcrobaticsProf,
+        animal_handling: characterList.characterAnimalHandling,
+        animal_handling_prof: characterList.characterAnimalHandlingProf,
+        arcana: characterList.characterArcana,
+        arcana_prof: characterList.characterArcanaProf,
+        athletics: characterList.characterAthletics,
+        athletics_prof: characterList.characterAthleticsProf,
+        deception: characterList.characterDeception,
+        deception_prof: characterList.characterDeceptionProf,
+        history: characterList.characterHistory,
+        history_prof: characterList.characterHistoryProf,
+        insight: characterList.characterInsight,
+        insight_prof: characterList.characterInsightProf,
+        intimidation: characterList.characterIntimidation,
+        intimidation_prof: characterList.characterIntimidationProf,
+        investigation: characterList.characterInvestigation,
+        investigation_prof: characterList.characterInvestigationProf,
+        medicine: characterList.characterMedicine,
+        medicine_prof: characterList.characterMedicineProf,
+        nature: characterList.characterNature,
+        nature_prof: characterList.characterNatureProf,
+        perception: characterList.characterPerception,
+        perception_prof: characterList.characterPerceptionProf,
+        performance: characterList.characterPerformance,
+        performance_prof: characterList.characterPerformanceProf,
+        persuasion: characterList.characterPersuasion,
+        persuasion_prof: characterList.characterPersuasionProf,
+        religion: characterList.characterReligion,
+        religion_prof: characterList.characterReligionProf,
+        sleight_of_hand: characterList.characterSleightOfHand,
+        sleight_of_hand_prof: characterList.characterSleightOfHandProf,
+        stealth: characterList.characterStealth,
+        stealth_prof: characterList.characterStealthProf,
+        survival: characterList.characterSurvival,
+        survival_prof: characterList.characterSurvivalProf,
+        armor_class: characterList.characterArmorClass,
+        speed: characterList.characterSpeed,
+        hp: characterList.characterHP,
+        personality: characterList.characterPersonality,
+        ideals: characterList.characterIdeals,
+        bonds: characterList.characterBonds,
+        flaws: characterList.characterFlaws,
+        feat: characterList.characterFeat,
+        language: characterList.characterLanguage,
+        equipment: characterList.characterEquipment,
+        spell: characterList.characterSpell
+      })
+    }
+  });

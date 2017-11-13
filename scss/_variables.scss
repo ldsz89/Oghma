@@ -1,0 +1,20 @@
+// Colors
+$red: #f44336 !default;
+$pink: #e91e63 !default;
+$purple: #9c27b0 !default;
+$blue: #2196f3 !default;
+$green: #4caf50 !default;
+$yellow: #fec60a !default;
+$orange: #ff9800 !default;
+$grey: #999999 !default;
+$black: #000000 !default;
+$white: #ffffff !default;
+
+// Content Values
+$border-radius-base: 3px !default;
+$sidebar-width: calc(100% - 260px) !default;
+$padding-base: 15px !default;
+$margin-base: 15px !default;
+$card-body-text: $white;
+$card-body-background: $white;
+$shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
