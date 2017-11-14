@@ -61,10 +61,11 @@ angular.module('creatorApp', [])
   }
   // Called to create a new project
   $scope.newCharacter = function() {
-    var characterName = prompt('Character name');
-    if(characterName) {
-      createCharacter(characterName);
-    }
+      var characterName = document.getElementById("newCharacter").value;
+      if(characterName) {
+        createCharacter(characterName);
+      }
+      document.location.href = "index.html";
   };
 
   // Called to select the given project
