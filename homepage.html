@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Oghma | Character Creator</title>
+    <meta charset="utf-8">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet">
+    <link rel="stylesheet" href="css/output.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script>
+      var data = null;
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
+        }
+      });
+
+      xhr.open("GET", "http://www.dnd5eapi.co/api/classes/");
+      xhr.withCredentials = false;
+
+      xhr.send(data);
+    </script>
+  </head>
+  <body ng-app="creatorApp" ng-controller="CharacterCtrl">
+    <div class="wrapper">
+  <!--    <div class="sidebar">
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="active">
+              <a href="index.html" data-color="purple">
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="material-icons">person</i>
+                <p>Classes</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="material-icons">delete</i>
+                <p>Races</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="material-icons">delete</i>
+                <p>Abilities</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="material-icons">delete</i>
+                <p>Other Stuff</p>
+              </a>
+            </li>
+          </ul>
+        </div> 
+      </div>  -->
+
+      <div class="main-panel" style="float: none; width: auto">
+        <div class="content">
+          <div class="container-fluid">
+            <div class="jumbotron">
+              <h1>Dungeons & Dragons</h1>
+              <p>Welcome! Let's create a new character</p>
+              <a class="btn btn-primary" ng-click="newCharacter()">Go!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

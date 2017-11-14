@@ -34,8 +34,8 @@ angular.module('creatorApp', [])
 
 .controller('CharacterCtrl', function($scope, $timeout, Characters) {
 
-  // A utility function for creating a new project
-  // with the given projectTitle
+  // A utility function for creating a new character
+  // with the given characterName
   var createCharacter = function(characterName) {
     var newCharacter = Characters.newCharacter(characterName);
     $scope.characters.push(newCharacter);
