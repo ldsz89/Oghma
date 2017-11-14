@@ -1,19 +1,138 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>Oghma</title>
+    <title>Exploration 3</title>
+    <meta charset="utf-8">
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet">
+    <link rel="stylesheet" href="css/output.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
+    <script>
+      var data = null;
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
+        }
+      });
+
+      xhr.open("GET", "http://www.dnd5eapi.co/api/classes/");
+      xhr.withCredentials = false;
+
+      xhr.send(data);
+    </script>
   </head>
-  <body class="container">
-    
+  <body>
+    <div class="wrapper">
+      <div class="sidebar">
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="active">
+              <a href="index.html" data-color="purple">
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="material-icons">person</i>
+                <p>Classes</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="material-icons">delete</i>
+                <p>Races</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="material-icons">delete</i>
+                <p>Abilities</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="material-icons">delete</i>
+                <p>Other Stuff</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="main-panel">
+        <div class="content">
+          <div class="container-fluid">
+            <div class="jumbotron">
+              <h1>Dungeons & Dragons</h1>
+              <p>A helpful guide</p>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card">
+                  <div class="card-header" data-background-color="purple">
+                    <h4>Classes</h4>
+                  </div>
+                  <div class="card-content">
+                    <p class="category">Who are you?</p>
+                  </div>
+                  <div class="card-footer">
+                    <a class="btn btn-primary">More</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card">
+                  <div class="card-header" data-background-color="purple">
+                    <h4>Races</h4>
+                  </div>
+                  <div class="card-content">
+                    <p class="category">What are you</p>
+                  </div>
+                  <div class="card-footer">
+                    <a class="btn btn-primary">More</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card">
+                  <div class="card-header" data-background-color="purple">
+                    <h4>Abilities</h4>
+                  </div>
+                  <div class="card-content">
+                    <p class="category">Used space</p>
+                  </div>
+                  <div class="card-footer">
+                    <a class="btn btn-primary">More</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card">
+                  <div class="card-header" data-background-color="purple">
+                    <h4>Other Stuff</h4>
+                  </div>
+                  <div class="card-content">
+                    <p class="category">Used space</p>
+                  </div>
+                  <div class="card-footer">
+                    <a class="btn btn-primary">More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </body>
 </html>
