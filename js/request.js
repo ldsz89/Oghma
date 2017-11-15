@@ -36,7 +36,7 @@ function requestClassDetail(url) {
   requestResource(url, function(results) {
     var data = JSON.parse(results);
     $("#classModalContentInfo").html(
-      "<h2>Class: " + data.name + "</h2>" +
+      "<h2> Class: " + data.name + "</h2>" +
       "<p>Hit Die: " + data.hit_die + "</p>" +
       "<div class='col-lg-6 col-md-6 col-sm-6'>" +
         "<h3>Proficiencies</h3>" +
