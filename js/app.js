@@ -47,6 +47,8 @@ angular.module('creatorApp', [])
   // Load or initialize projects
   $scope.characters = Characters.all();
 
+  console.log($scope.characters);
+  console.log(Characters.getLastActiveIndex());
   // Grab the last active, or the first project
   $scope.activeCharacter = $scope.characters[Characters.getLastActiveIndex()];
 
