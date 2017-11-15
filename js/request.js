@@ -96,3 +96,13 @@ function requestRaces() {
     });
   });
 }
+
+function requestRaceDetail(url) {
+  requestResource(url, function(results) {
+    var data = JSON.parse(results);
+    console.log(data);
+    $("#raceModalContentInfo").append(
+      "<h2>" + data.name + "</h2>"
+    );
+  })
+}
