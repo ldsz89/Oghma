@@ -67,7 +67,7 @@ angular.module('creatorApp', [])
       if(characterName) {
         createCharacter(characterName);
       }
-      document.location.href = "index.html";
+      document.location.href = "mainPage.html";
   };
 
   // Called to select the given project
