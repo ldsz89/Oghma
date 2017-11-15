@@ -54,11 +54,11 @@ angular.module('creatorApp', [])
 
   $scope.remaining = function(){
       var count = 0;
-      
+
       angular.forEach($scope.activeCharacter.qualities, function(listAttr){
          count += listAttr.done ? 0 : 1;
       });
-      
+
       return count;
   }
   // Called to create a new project
@@ -68,7 +68,7 @@ angular.module('creatorApp', [])
         createCharacter(characterName);
       }
       document.getElementById("newCharacter").value = "";
-      document.location.href = "mainPage.html";
+      document.location.href = "dashboard.html";
   };
 
   // Called to select the given project
@@ -115,33 +115,33 @@ angular.module('creatorApp', [])
 //  $scope.toggleCharacters = function() {
 //    $ionicSideMenuDelegate.toggleLeft();
 //  };
-    
+
   //Called to archive selected projects
 //  $scope.archive = function() {
 //       var oldTasks = $scope.activeProject.tasks;
 //       $scope.activeProject.tasks = [];
 //       angular.forEach(oldTasks, function(todo) {
-//           if (!todo.done) 
+//           if (!todo.done)
 //               $scope.activeProject.tasks.push(todo);
 //               Projects.save($scope.projects);
 //       });
 //   };
-    
+
 //   $scope.archiveAll = function(index) {
 //       var oldTasks = $scope.projects[index].tasks;
 //       $scope.projects[index].tasks = [];
 //    };
-    
+
    //Called to delete a selected project
 //   $scope.delete = function(index) {
 //       $scope.projects[index].remove = true;
 //       console.log(index);
 //       $scope.archiveAll(index);
-//       
+//
 //       var projects = $scope.projects;
 //       $scope.projects = [];
 //       angular.forEach(projects, function(todo) {
-//           if (!todo.remove) 
+//           if (!todo.remove)
 //               $scope.projects.push(todo);
 //               Projects.save($scope.projects);
 //       });
