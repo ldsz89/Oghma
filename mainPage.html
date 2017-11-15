@@ -9,11 +9,9 @@
             height:60px;
         }
         .image2{
-
+       
             }
     </style>
-
-    <link href='https://fonts.googleapis.com/css?family=Creepster' rel='stylesheet'>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -73,102 +71,104 @@
       }
     </script>
   </head>
-  <body style="font-family: 'Creepster'">
+  <body ng-app="creatorApp" ng-controller="CharacterCtrl">
     <div class="wrapper">
-      <div class="sidebar" style="background-attachment: fixed; background-image:url(test.jpg);">
+      <div class="sidebar">
         <div class="sidebar-wrapper">
           <ul class="nav">
             <li class="active">
-              <a href="index.html" style="background-color: FireBrick;">
-                <i class="material-icons" style="color: white">dashboard</i>
-                <p style="color: white;">Dashboard</p>
+              <a href="index.html" data-color="purple">
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="material-icons" style="color: white">class</i>
-                <p style="color: white;">Classes</p>
+                <i class="material-icons">person</i>
+                <p>Classes</p>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="material-icons" style="color: white">face</i>
-                <p style="color: white;">Races</p>
+                <i class="material-icons">delete</i>
+                <p>Races</p>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="material-icons" style="color: white">pan_tool</i>
-                <p style="color: white;">Abilities</p>
+                <i class="material-icons">delete</i>
+                <p>Abilities</p>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="material-icons" style="color: white">extension</i>
-                <p style="color: white;">Other Stuff</p>
+                <i class="material-icons">delete</i>
+                <p>Other Stuff</p>
               </a>
             </li>
           </ul>
         </div>
       </div>
 
-      <div class="main-panel" style="background-attachment: fixed; background-image: url(test.jpg);">
+      <div class="main-panel">
         <div class="content">
           <div class="container-fluid">
             <div class="jumbotron">
               <h1>Dungeons & Dragons</h1>
+              <p>{{activeCharacter.title}}</p>
+              <button class="btn btn-success" id="myBtn">Go</button>
               <p>A helpful guide</p>
             </div>
             <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card">
-                  <div class="card-header" style="background-color: FireBrick;">
+                  <div class="card-header" data-background-color="purple">
                     <h4>Classes</h4>
                   </div>
                   <div class="card-content">
                     <p class="category">Who are you?</p>
                   </div>
                   <div class="card-footer">
-                    <a class="btn btn-primary" style="background-color: FireBrick" id="classModalBtn" ng-click="newProject()">More</a>
+                    <a class="btn btn-primary" id="classModalBtn" ng-click="newProject()">More</a>
                   </div>
                 </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card">
-                  <div class="card-header" style="background-color: FireBrick;">
+                  <div class="card-header" data-background-color="purple">
                     <h4>Races</h4>
                   </div>
                   <div class="card-content">
                     <p class="category">What are you</p>
                   </div>
                   <div class="card-footer">
-                    <a class="btn btn-primary" style="background-color: FireBrick" id="raceModalBtn" ng-click="newProject()">More</a>
+                    <btn class="btn btn-primary" id="raceModalBtn">More</btn>
                   </div>
                 </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card">
-                  <div class="card-header" style="background-color: FireBrick;">
+                  <div class="card-header" data-background-color="purple">
                     <h4>Abilities</h4>
                   </div>
                   <div class="card-content">
                     <p class="category">Used space</p>
                   </div>
                   <div class="card-footer">
-                    danger<a class="btn btn-danger" style="background-color: FireBrick">More</a>
+                    <a class="btn btn-primary">More</a>
                   </div>
                 </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card">
-                  <div class="card-header" style="background-color: FireBrick;">
+                  <div class="card-header" data-background-color="purple">
                     <h4>Other Stuff</h4>
                   </div>
                   <div class="card-content">
                     <p class="category">Used space</p>
                   </div>
                   <div class="card-footer">
-                    danger<a class="btn btn-danger" style="background-color: FireBrick">More</a>
+                    <a class="btn btn-primary">More</a>
                   </div>
                 </div>
               </div>
@@ -182,7 +182,7 @@
         <!-- Modal content -->
         <div class="modal-content">
           <span class="close">&times;</span>
-          <p>Some text in the Modal..</p>
+          <p>Add character name</p>
           <div id="modal-content" class="row"></div>
           <form><div id="class-info" class="row"></div></form>
         </div>
