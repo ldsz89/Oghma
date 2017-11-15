@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Oghma | Character Creator</title>
     <meta charset="utf-8">
     <style>
-        .image1{
-            width:50px;
-            height:60px;
-        }
-        .image2{
+      .image1 {
+        width: 50px;
+        height: 60px;
+      }
 
-            }
+      .image2 {}
     </style>
 
     <link href='https://fonts.googleapis.com/css?family=Creepster' rel='stylesheet'>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet">
     <link rel="stylesheet" href="css/output.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -25,54 +24,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
     <script src="js/app.js"></script>
-    <script src="js/request.js"></script>
-
-    <script>
-      function requestResource(url, onComplete) {
-        var data = null;
-
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
-
-        xhr.addEventListener("readystatechange", function () {
-          if (this.readyState === 4) {
-            // console.log(this.responseText);
-            onComplete(this.responseText);
-          }
-        });
-
-        xhr.open("GET", url);
-        xhr.withCredentials = false;
-
-        xhr.send(data);
-      }
-
-      function requestClasses() {
-        console.log("requestClasses");
-        requestResource("http://www.dnd5eapi.co/api/classes/", function(results) {
-          var data = JSON.parse(results);
-          data.results.forEach(function(result) {
-            console.log(result.name);
-            $("#modal-content").append("<div class='col-lg-2 col-md-2 col-sm-2'><div class='card text-center'><div class='card-content' onclick='requestClassDetail(&quot " + result.url + " &quot)'>" + result.name + "</div></div></div>");
-          });
-        });
-      }
-
-      function requestClassDetail(url) {
-        console.log("Class clicked");
-        console.log("URL: " + url);
-        requestResource(url, function(results) {
-          var data = JSON.parse(results);
-          $("#class-info").html(
-            "<h2>Class: " + data.name + "</h2>" +
-            "<p>Hit Die: " + data.hit_die + "</p>" +
-            "<div><h3>Proficiency Choices</h3>" +
-            "</div>"
-          );
-        });
-      }
-    </script>
   </head>
+
   <body style="font-family: 'Creepster'">
     <div class="wrapper">
       <div class="sidebar" style="background-attachment: fixed; background-image:url(test.jpg);">
@@ -80,33 +33,33 @@
           <ul class="nav">
             <li class="active">
               <a href="index.html" style="background-color: FireBrick;">
-                <i class="material-icons" style="color: white">dashboard</i>
-                <p style="color: white;">Dashboard</p>
-              </a>
+                  <i class="material-icons" style="color: white">dashboard</i>
+                  <p style="color: white;">Dashboard</p>
+                </a>
             </li>
             <li>
               <a href="#">
-                <i class="material-icons" style="color: white">class</i>
-                <p style="color: white;">Classes</p>
-              </a>
+                  <i class="material-icons" style="color: white">class</i>
+                  <p style="color: white;">Classes</p>
+                </a>
             </li>
             <li>
               <a href="#">
-                <i class="material-icons" style="color: white">face</i>
-                <p style="color: white;">Races</p>
-              </a>
+                  <i class="material-icons" style="color: white">face</i>
+                  <p style="color: white;">Races</p>
+                </a>
             </li>
             <li>
               <a href="#">
-                <i class="material-icons" style="color: white">pan_tool</i>
-                <p style="color: white;">Abilities</p>
-              </a>
+                  <i class="material-icons" style="color: white">pan_tool</i>
+                  <p style="color: white;">Abilities</p>
+                </a>
             </li>
             <li>
               <a href="#">
-                <i class="material-icons" style="color: white">extension</i>
-                <p style="color: white;">Other Stuff</p>
-              </a>
+                  <i class="material-icons" style="color: white">extension</i>
+                  <p style="color: white;">Other Stuff</p>
+                </a>
             </li>
           </ul>
         </div>
@@ -184,62 +137,38 @@
           <span class="close">&times;</span>
           <p>Some text in the Modal..</p>
           <div id="modal-content" class="row"></div>
-          <form><div id="class-info" class="row"></div></form>
+          <form>
+            <div id="class-info" class="row"></div>
+          </form>
         </div>
-
       </div>
     </div>
 
-
-    <script>
-      // Get the modal
-      var modal = document.getElementById('myModal');
-
-      // Get the button that opens the modal
-      var btn = document.getElementById("myBtn");
-
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-
-      // When the user clicks the button, open the modal
-      btn.onclick = function() {
-          modal.style.display = "block";
-          requestClasses();
-      }
-
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-          modal.style.display = "none";
-      }
-
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-          if (event.target == modal) {
-              modal.style.display = "none";
-          }
-      }
-    </script>
-      <!-- Class Modal -->
-      <div id="classModal" class="modal">
-        <!-- Class Modal Content -->
-        <div id="classModalContent" class="modal-content row">
-          <span id="classClose" class="close">&times;</span>
-            <h2>Classes <img src="image/dragon.png" class="image1"></h2>
-          <div id="classModalContentInterior"></div>
-          <form><div id="classModalContentInfo"></div></form>
-        </div>
+    <!-- Class Modal -->
+    <div id="classModal" class="modal">
+      <!-- Class Modal Content -->
+      <div id="classModalContent" class="modal-content row">
+        <span id="classClose" class="close">&times;</span>
+        <h2>Classes <img src="image/dragon.png" class="image1"></h2>
+        <div id="classModalContentInterior"></div>
+        <form>
+          <div id="classModalContentInfo"></div>
+        </form>
       </div>
+    </div>
 
-      <!-- Race Modal -->
-      <div id="raceModal" class="modal">
-        <!-- Race Modal Content -->
-        <div id="raceModalContent" class="modal-content">
-          <span id="raceClose" class="close">&times;</span>
-          <h2>Races</h2>
-        </div>
+    <!-- Race Modal -->
+    <div id="raceModal" class="modal">
+      <!-- Race Modal Content -->
+      <div id="raceModalContent" class="modal-content">
+        <span id="raceClose" class="close">&times;</span>
+        <h2>Races</h2>
+        <div id="raceModalContentInterior"></div>
       </div>
+    </div>
 
     <script src="js/request.js"></script>
     <script src="js/modal.js"></script>
   </body>
+
 </html>

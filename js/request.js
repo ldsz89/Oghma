@@ -71,7 +71,7 @@ function requestRaces() {
   requestResource("http://www.dnd5eapi.co/api/races/", function(results) {
     var data = JSON.parse(results);
     data.results.forEach(function(race) {
-      $("#raceModalContent").append(race.name);
+      $("#raceModalContentInterior").append(race.name);
     });
   });
 }
