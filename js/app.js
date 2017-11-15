@@ -67,6 +67,7 @@ angular.module('creatorApp', [])
       if(characterName) {
         createCharacter(characterName);
       }
+      document.getElementById("newCharacter").value = "";
       document.location.href = "mainPage.html";
   };
 
@@ -84,21 +85,20 @@ angular.module('creatorApp', [])
 //    scope: $scope
 //  });
 
-  $scope.createListAttr = function(attr) {
+  $scope.addClass = function(attrClass) {
     if(!$scope.activeCharacter || !attr) {
       return;
     }
     $scope.activeCharacter.qualities.push({
-      title: attr.class
-//      class: task.class,
-//      due: task.due,
-//      done: task.done
+      class: attrClass.class,
+      proficiencies: attrClass.proficiencies,
+      customProf: attrClass.customProf,
     });
 //    $scope.characterModal.hide();
 
     // Inefficient, but save all the projects
     Characters.save($scope.characters);
-      attr.class
+//    attr.class = "";
 //    task.title = "";
 //    task.class = "";
 //    task.due = "";
