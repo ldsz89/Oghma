@@ -25,7 +25,14 @@ function requestClasses() {
     var data = JSON.parse(results);
     console.log("Classes returned");
     data.results.forEach(function(result) {
-      $("#classModalContentInterior").append("<div class='col-lg-2 col-md-2 col-sm-2'><div class='card text-center'><div class='card-content' onclick='requestClassDetail(&quot " + result.url + " &quot)'>" + result.name + "</div></div></div>");
+      $("#classModalContentInterior").append(
+        "<div class='col-lg-2 col-md-2 col-sm-2'>" +
+          "<div class='card text-center'>" +
+          "<div class='card-content' onclick='requestClassDetail(&quot " + result.url + " &quot)'>" +
+            result.name +
+          "</div>" +
+        "</div>" +
+      "</div>");
     });
   });
 }
@@ -77,7 +84,15 @@ function requestRaces() {
   requestResource("http://www.dnd5eapi.co/api/races/", function(results) {
     var data = JSON.parse(results);
     data.results.forEach(function(race) {
-      $("#raceModalContentInterior").append(race.name);
+      $("#raceModalContentInterior").append(
+        "<div class='col-lg-2 col-md-2 col-sm-2'>" +
+          "<div class='card text-center'>" +
+            "<div class='card-content' onclick='requestRaceDetail(&quot " + race.url + " &quot)'>" +
+              race.name +
+            "</div>" +
+          "</div>" +
+        "</div>"
+      );
     });
   });
 }
