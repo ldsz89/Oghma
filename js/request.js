@@ -46,6 +46,7 @@ function requestClassDetail(url) {
       "</div>" +
       "<div class='col-lg-6 col-md-6 col-sm-6'>" +
         "<h3>Skill Proficiency Choices</h3>" +
+        "<h5>(Limit " + data.proficiency_choices[0].choose + ")</h5>" +
         "<div id='skill_prof_choices'></div>" +
       "</div>"
     );
@@ -55,11 +56,16 @@ function requestClassDetail(url) {
     });
 
     data.proficiency_choices[0].from.forEach(function(prof) {
-      // $("#skill_prof_choices").append(prof.name);
       $("#skill_prof_choices").append(
-        "<input type='checkbox' name='skill_prof' value='" + prof.name + "' />" +
+        "<input class='limit-checkbox' type='checkbox' name='skill_prof' value='" + prof.name + "' />" +
         "<label>" + prof.name + "</label><br />"
       );
+    });
+    var limit = data.proficiency_choices[0].choose;
+    $("input.limit-checkbox").on('change', function(evt) {
+      if ($(this).siblings(':checked').length >= limit) {
+        this.checked = false;
+      }
     });
   });
 }
