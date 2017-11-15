@@ -26,7 +26,8 @@
       background: rgba(200, 200, 200, 0.2);
       color: #000000; }
     .sidebar .nav li.active > a {
-      color: #FFFFFF; }
+      color: #FFFFFF;
+      background: #B22222; }
       .sidebar .nav li.active > a i {
         color: #FFFFFF; }
     .sidebar .nav p {
