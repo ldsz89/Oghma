@@ -1,6 +1,7 @@
 // Class Modal
 var classModal = document.getElementById("classModal");
 var classModalBtn = document.getElementById("classModalBtn");
+var classModalBtn2 = document.getElementById("classModalBtn2");
 var classClose = document.getElementById("classClose");
 
 // Open Class Modal
