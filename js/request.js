@@ -103,10 +103,30 @@ function requestRaceDetail(url) {
   requestResource(url, function(results) {
     var data = JSON.parse(results);
     console.log(data);
-    $("#raceModalContentInfo").append(
+    $("#raceModalContentInfo").html(
       "<div class = col-lg-12 col-md-12>" +
-        "<h2>" + data.name + "</h2>" +
+        "<h2>Race: " + data.name + " <small>Speed: " + data.speed + "</small></h2>" +
+        "<div id='ability_bonuses'></div>" +
+        "<h4>Alignment: " + data.alignment + "</h4>" +
+        "<h4>" + data.age + "</h4>" +
+        "<h4>" + data.size + " <small>" + data.size_description + "</small></h4>" +
+        "<div id='starting_proficiencies'></div>" +
+        "<div id='languages'></div>" +
+        "<div id='traits'></div>" +
       "</div>"
     );
+
+    var abilities = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
+    data.ability_bonuses.forEach(function(abl) {
+      $("#ability_bonuses").append(
+        "<div class='col-lg-2 col-md-2'>" +
+          "<div class='card text-center'>" +
+            "<div class='card-content'>" +
+              abl +
+            "</div>" +
+          "</div>" +
+        "</div>"
+      );
+    });
   })
 }
