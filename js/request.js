@@ -87,7 +87,7 @@ function requestRaces() {
       $("#raceModalContentInterior").append(
         "<div class='col-lg-2 col-md-2 col-sm-2'>" +
           "<div class='card text-center'>" +
-            "<div class='card-content' onclick='requestRaceDetail(&quot " + race.url + " &quot)'>" +
+            "<div style='background-color: firebrick; color: white;' class='card-content' onclick='requestRaceDetail(&quot " + race.url + " &quot)'>" +
               race.name +
             "</div>" +
           "</div>" +
@@ -102,7 +102,7 @@ function requestRaceDetail(url) {
     var data = JSON.parse(results);
     console.log(data);
     $("#raceModalContentInfo").html(
-      "<div class = col-lg-12 col-md-12>" +
+      "<div style='color: white;' class = col-lg-12 col-md-12>" +
         "<h2>Race: " + data.name + " <small>Speed: " + data.speed + "</small></h2>" +
         "<div id='ability_bonuses'></div>" +
         "<h4>Alignment: " + data.alignment + "</h4>" +
