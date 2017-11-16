@@ -28,7 +28,7 @@ function requestClasses() {
       $("#classModalContentInterior").append(
         "<div class='col-lg-2 col-md-2 col-sm-2'>" +
           "<div class='card text-center'>" +
-          "<div class='card-content' onclick='requestClassDetail(&quot " + result.url + " &quot)'>" +
+          "<div class='card-content' onclick='requestClassDetail(&quot " + result.url + " &quot)' style='background-color: firebrick; color: white;'>" +
             result.name +
           "</div>" +
         "</div>" +
@@ -44,18 +44,18 @@ function requestClassDetail(url) {
     var data = JSON.parse(results);
     $("#classModalContentInfo").html(
       
-      "<legend> Class: " + data.name + "</legend>" +
-      "<p>Hit Die: " + data.hit_die + "</p>" +
+      "<legend style='color: white;'> Class: " + data.name + "</legend>" +
+      "<p style='color: white;'>Hit Die: " + data.hit_die + "</p>" +
       "<div class='col-lg-6 col-md-6 col-sm-6'>" +
-        "<h3>Proficiencies</h3>" +
-        "<div>" +
-          "<ul id='proficiencies'></ul>" +
+        "<h3 style='color: white;'>Proficiencies</h3>" +
+        "<div style='color: white;'>" +
+          "<ul style='color: white;' id='proficiencies'></ul>" +
         "</div>" +
       "</div>" +
-      "<div class='col-lg-6 col-md-6 col-sm-6'>" +
-        "<h3>Skill Proficiency Choices</h3>" +
-        "<h5>(Limit " + data.proficiency_choices[0].choose + ")</h5>" +
-        "<div id='skill_prof_choices'></div>" +
+      "<div style='color: white;' class='col-lg-6 col-md-6 col-sm-6'>" +
+        "<h3 style='color: white;'>Skill Proficiency Choices</h3>" +
+        "<h5 style='color: white;'>(Limit " + data.proficiency_choices[0].choose + ")</h5>" +
+        "<div style='color: white;' id='skill_prof_choices'></div>" +
       "</div>" 
        
     );
