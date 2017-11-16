@@ -43,7 +43,7 @@ function requestClassDetail(url) {
   requestResource(url, function(results) {
     var data = JSON.parse(results);
     $("#classModalContentInfo").html(
-      
+
       "<legend> Class: " + data.name + "</legend>" +
       "<p>Hit Die: " + data.hit_die + "</p>" +
       "<div class='col-lg-6 col-md-6 col-sm-6'>" +
@@ -56,8 +56,8 @@ function requestClassDetail(url) {
         "<h3>Skill Proficiency Choices</h3>" +
         "<h5>(Limit " + data.proficiency_choices[0].choose + ")</h5>" +
         "<div id='skill_prof_choices'></div>" +
-      "</div>" 
-       
+      "</div>"
+
     );
 
     data.proficiencies.forEach(function(prof) {
@@ -104,7 +104,9 @@ function requestRaceDetail(url) {
     var data = JSON.parse(results);
     console.log(data);
     $("#raceModalContentInfo").append(
-      "<h2>" + data.name + "</h2>"
+      "<div class = col-lg-12 col-md-12>" +
+        "<h2>" + data.name + "</h2>" +
+      "</div>"
     );
   })
 }
