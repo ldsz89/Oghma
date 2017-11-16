@@ -109,22 +109,57 @@ function requestRaceDetail(url) {
         "<h4>" + data.age + "</h4>" +
         "<h4>" + data.size + " <small>" + data.size_description + "</small></h4>" +
         "<div id='starting_proficiencies'></div>" +
-        "<div id='languages'></div>" +
-        "<div id='traits'></div>" +
+        "<div id='languages' class='col-lg-12'></div>" +
+        "<div id='traits' class='col-lg-12'></div>" +
       "</div>"
     );
 
     var abilities = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
+    var count = 0;
     data.ability_bonuses.forEach(function(abl) {
       $("#ability_bonuses").append(
         "<div class='col-lg-2 col-md-2'>" +
           "<div class='card text-center'>" +
             "<div class='card-content'>" +
+              abilities[count] +
+              "<br>" +
               abl +
             "</div>" +
           "</div>" +
         "</div>"
       );
+
+      count += 1;
     });
-  })
+
+    $("#languages").append("<h4>Languages</h4>");
+
+    data.languages.forEach(function(lang) {
+      $("#languages").append(
+        "<div class='col-lg-2 col-md-2'>" +
+          "<div class='card text-center'>" +
+            "<div class='card-content'>" +
+              lang.name +
+            "</div>" +
+          "</div>" +
+        "</div>"
+      );
+    });
+
+    $("#languages").append("<br><h5>" + data.language_desc + "</h5>");
+
+    $("#traits").append("<h4>Traits</h4>");
+
+    data.traits.forEach(function(trait) {
+      $("#traits").append(
+        "<div class='col-lg-2 col-md-2'>" +
+          "<div class='card text-center'>" +
+            "<div class='card-content'>" +
+              trait.name +
+            "</div>" +
+          "</div>" +
+        "</div>"
+      );
+    });
+  });
 }
