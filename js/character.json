@@ -1,0 +1,23 @@
+{
+  "name": "",
+  "qualities" : [
+    {
+      "level": 1,
+      "age": 0,
+      "alignment": "",
+      "background": ""
+    },
+    {
+      "class": "",
+      "proficiencies": [],
+      "customProf": []
+    },
+    {
+      "race": "",
+      "size": "",
+      "speed": "",
+      "languages": [],
+      "traits": []
+    }
+  ]
+}
