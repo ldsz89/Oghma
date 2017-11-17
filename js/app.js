@@ -1,6 +1,6 @@
 angular.module('creatorApp', [])
 /**
- * The Projects factory handles saving and loading projects
+ * The Characters factory handles saving and loading projects
  * from local storage, and also lets us save and load the
  * last active project index.
  */
@@ -19,7 +19,7 @@ angular.module('creatorApp', [])
     newCharacter: function(characterName) {
       // Add a new character
       return {
-        title: characterName,
+        name: characterName,
         qualities: [],
       };
     },
@@ -44,12 +44,12 @@ angular.module('creatorApp', [])
   }
 
 
-  // Load or initialize projects
+  // Load or initialize characters
   $scope.characters = Characters.all();
 
   console.log($scope.characters);
   console.log(Characters.getLastActiveIndex());
-  // Grab the last active, or the first project
+  // Grab the last active, or the first character
   $scope.activeCharacter = $scope.characters[Characters.getLastActiveIndex()];
 
   $scope.remaining = function(){
@@ -61,7 +61,7 @@ angular.module('creatorApp', [])
 
       return count;
   }
-  // Called to create a new project
+  // Called to create a new character
   $scope.newCharacter = function() {
       var characterName = document.getElementById("newCharacter").value;
       if(characterName) {
@@ -71,7 +71,7 @@ angular.module('creatorApp', [])
       document.location.href = "dashboard.html";
   };
 
-  // Called to select the given project
+  // Called to select the given character
   $scope.selectCharacter = function(character, index) {
     $scope.activeCharacter = character;
     Characters.setLastActiveIndex(index);

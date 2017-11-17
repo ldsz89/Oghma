@@ -68,22 +68,6 @@
 
   <script src="js/app.js"></script>
   <script>
-    var data = null;
-
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-
-    xhr.addEventListener("readystatechange", function() {
-      if (this.readyState === 4) {
-        console.log(this.responseText);
-      }
-    });
-
-    xhr.open("GET", "http://www.dnd5eapi.co/api/classes/");
-    xhr.withCredentials = false;
-
-    xhr.send(data);
-
     window.onload = function() {
       var modal = document.getElementById('newCharacterModal');
 
