@@ -87,10 +87,9 @@ angular.module('creatorApp', [])
 
   $scope.addBasicInfo = function(info) {
     console.log("Saving basic info");
-    console.log(!$scope.activeCharacter);
-    console.log(!info);
-    if(!scope.activeCharacter || !info) {
-      console.log("Something was false?");
+    console.log($scope.activeCharacter);
+    if(!$scope.activeCharacter || !info) {
+      console.log("Something was false");
       return;
     }
     $scope.activeCharacter.qualities.push({
@@ -100,6 +99,7 @@ angular.module('creatorApp', [])
       background: info.background
     });
 
+    console.log("success!");
     Characters.save($scope.characters);
   };
 
