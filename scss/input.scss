@@ -6,11 +6,15 @@ $mdb-text-color-primary: unquote("rgba(#{$rgb-black}, 0.87)") !default;
 $mdb-card-body-text: $mdb-text-color-primary !default;
 $mdb-card-body-background: #fff !default;
 
-// Variables
+// Variables and mixins
 @import "variables";
+@import "mixins";
 
 // Core
 @import "sidebar-and-main-panel";
 @import "cards";
 @import "jumbotron";
 @import "modal";
+@import "forms";
+@import "inputs";
+@import "checkboxes";

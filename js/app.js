@@ -1,6 +1,6 @@
 angular.module('creatorApp', [])
 /**
- * The Projects factory handles saving and loading projects
+ * The Characters factory handles saving and loading projects
  * from local storage, and also lets us save and load the
  * last active project index.
  */
@@ -19,7 +19,7 @@ angular.module('creatorApp', [])
     newCharacter: function(characterName) {
       // Add a new character
       return {
-        title: characterName,
+        name: characterName,
         qualities: [],
       };
     },
@@ -44,34 +44,34 @@ angular.module('creatorApp', [])
   }
 
 
-  // Load or initialize projects
+  // Load or initialize characters
   $scope.characters = Characters.all();
 
   console.log($scope.characters);
   console.log(Characters.getLastActiveIndex());
-  // Grab the last active, or the first project
+  // Grab the last active, or the first character
   $scope.activeCharacter = $scope.characters[Characters.getLastActiveIndex()];
 
   $scope.remaining = function(){
       var count = 0;
-      
+
       angular.forEach($scope.activeCharacter.qualities, function(listAttr){
          count += listAttr.done ? 0 : 1;
       });
-      
+
       return count;
   }
-  // Called to create a new project
+  // Called to create a new character
   $scope.newCharacter = function() {
       var characterName = document.getElementById("newCharacter").value;
       if(characterName) {
         createCharacter(characterName);
       }
       document.getElementById("newCharacter").value = "";
-      document.location.href = "mainPage.html";
+      document.location.href = "dashboard.html";
   };
 
-  // Called to select the given project
+  // Called to select the given character
   $scope.selectCharacter = function(character, index) {
     $scope.activeCharacter = character;
     Characters.setLastActiveIndex(index);
@@ -84,6 +84,24 @@ angular.module('creatorApp', [])
 //  }, {
 //    scope: $scope
 //  });
+
+  $scope.addBasicInfo = function(info) {
+    console.log("Saving basic info");
+    console.log(!$scope.activeCharacter);
+    console.log(!info);
+    if(!scope.activeCharacter || !info) {
+      console.log("Something was false?");
+      return;
+    }
+    $scope.activeCharacter.qualities.push({
+      level: info.level,
+      age: info.age,
+      alignment: info.alignment,
+      background: info.background
+    });
+
+    Characters.save($scope.characters);
+  };
 
   $scope.addClass = function(attrClass) {
     if(!$scope.activeCharacter || !attr) {
@@ -115,33 +133,33 @@ angular.module('creatorApp', [])
 //  $scope.toggleCharacters = function() {
 //    $ionicSideMenuDelegate.toggleLeft();
 //  };
-    
+
   //Called to archive selected projects
 //  $scope.archive = function() {
 //       var oldTasks = $scope.activeProject.tasks;
 //       $scope.activeProject.tasks = [];
 //       angular.forEach(oldTasks, function(todo) {
-//           if (!todo.done) 
+//           if (!todo.done)
 //               $scope.activeProject.tasks.push(todo);
 //               Projects.save($scope.projects);
 //       });
 //   };
-    
+
 //   $scope.archiveAll = function(index) {
 //       var oldTasks = $scope.projects[index].tasks;
 //       $scope.projects[index].tasks = [];
 //    };
-    
+
    //Called to delete a selected project
 //   $scope.delete = function(index) {
 //       $scope.projects[index].remove = true;
 //       console.log(index);
 //       $scope.archiveAll(index);
-//       
+//
 //       var projects = $scope.projects;
 //       $scope.projects = [];
 //       angular.forEach(projects, function(todo) {
-//           if (!todo.remove) 
+//           if (!todo.remove)
 //               $scope.projects.push(todo);
 //               Projects.save($scope.projects);
 //       });

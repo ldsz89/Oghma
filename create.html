@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Oghma | Character Creator</title>
+    <meta charset="utf-8">
+    <style>
+      .image1 {
+        width: 50px;
+        height: 60px;
+      }
+
+      .image2 {}
+    </style>
+
+    <link href='https://fonts.googleapis.com/css?family=Creepster' rel='stylesheet'>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet">
+    <link rel="stylesheet" href="css/output.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <script src="js/app.js"></script>
+  </head>
+
+  <body ng-app="creatorApp" ng-controller="CharacterCtrl">
+    <div class="wrapper">
+      <div class="sidebar" style="background-attachment: fixed; background-image:url(test.jpg);">
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li>
+              <a href="dashboard.html">
+                  <i class="material-icons">dashboard</i>
+                  <p style="color: white;">Dashboard</p>
+              </a>
+            </li>
+            <li class="active">
+              <a href="create.html">
+                <i class="material-icons">person_add</i>
+                <p style="color: white;">Create Character</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                  <i class="material-icons">class</i>
+                  <p style="color: white;">Classes</p>
+                </a>
+            </li>
+            <li>
+              <a href="#">
+                  <i class="material-icons">face</i>
+                  <p style="color: white;">Races</p>
+                </a>
+            </li>
+            <li>
+              <a href="#">
+                  <i class="material-icons">pan_tool</i>
+                  <p style="color: white;">Abilities</p>
+                </a>
+            </li>
+            <li>
+              <a href="#">
+                  <i class="material-icons">extension</i>
+                  <p style="color: white;">Other Stuff</p>
+                </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="main-panel" style="background-attachment: fixed; background-image: url(test.jpg);">
+        <div class="content">
+          <div class="container-fluid">
+            <div class="jumbotron">
+              <h1>Create New Character</h1>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <form ng-submit="addBasicInfo(info)">
+                  <div class="card">
+                    <div class="card-header" style="background-color: FireBrick;">
+                      <h4>Basic Info</h4>
+                    </div>
+                    <div class="card-content">
+                      <div class="row">
+                        <div class="col-lg-1">
+                          <div class="form-group label-floating">
+  													<label class="control-label" ng-model="info.level">Level</label>
+  													<input type="number" class="form-control">
+  												</div>
+                        </div>
+                        <div class="col-lg-1">
+                          <div class="form-group label-floating">
+  													<label class="control-label" ng-model="info.age">Age</label>
+  													<input type="number" class="form-control">
+  												</div>
+                        </div>
+                        <div class="col-lg-5">
+                          <div class="form-group label-floating">
+                            <label class="control-label" ng-model="info.alignment">Alignment</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-lg-5">
+                          <div class="form-group label-floating">
+                            <label class="control-label" ng-model="info.background">Background</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card">
+                  <div class="card-header" style="background-color: FireBrick;">
+                    <h4>Classes</h4>
+                  </div>
+                  <div class="card-content">
+                    <p class="category">Who are you?</p>
+                  </div>
+                  <div class="card-footer">
+                    <a class="btn" style="background-color: FireBrick; color: white;" id="classModalBtn">More</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card">
+                  <div class="card-header" style="background-color: FireBrick; color: white;">
+                    <h4>Races</h4>
+                  </div>
+                  <div class="card-content">
+                    <p class="category">What are you</p>
+                  </div>
+                  <div class="card-footer">
+                    <a class="btn" style="background-color: FireBrick; color: white;" id="raceModalBtn" ng-click="newProject()">More</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card">
+                  <div class="card-header" style="background-color: FireBrick;">
+                    <h4>Abilities</h4>
+                  </div>
+                  <div class="card-content">
+                    <p class="category">Used space</p>
+                  </div>
+                  <div class="card-footer">
+                    danger<a class="btn" style="background-color: FireBrick; color: white;">More</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card">
+                  <div class="card-header" style="background-color: FireBrick;">
+                    <h4>Other Stuff</h4>
+                  </div>
+                  <div class="card-content">
+                    <p class="category">Used space</p>
+                  </div>
+                  <div class="card-footer">
+                    danger<a class="btn" style="background-color: FireBrick;  color: white;">More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Some text in the Modal..</p>
+          <div id="modal-content" class="row"></div>
+          <form>
+            <div id="class-info" class="row"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Class Modal -->
+    <div id="classModal" class="modal">
+      <!-- Class Modal Content -->
+      <div id="classModalContent" class="modal-content row" style="background-image:url(test.jpg);">
+        <span id="classClose" class="close">&times;</span>
+        <h2 style="color: white;">Classes <img src="image/dragon.png" class="image1"></h2>
+        <form ng-submit="addClass(attrClass)">
+          <div id="classModalContentInterior"></div>
+          <div id="classModalContentInfo"></div>
+          <div align="right">
+            <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Add Class</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Race Modal -->
+    <div id="raceModal" class="modal">
+      <!-- Race Modal Content -->
+      <div id="raceModalContent" class="modal-content row" style="background-image:url(test.jpg);">
+        <span id="raceClose" class="close">&times;</span>
+        <h2 style="color: white;">Races <img src="image/dragon.png" class="image1"></h2>
+        <div id="raceModalContentInterior"></div>
+        <form>
+          <div id="raceModalContentInfo"></div>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/request.js"></script>
+    <script src="js/modal.js"></script>
+  </body>
+
+</html>

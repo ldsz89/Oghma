@@ -12,11 +12,13 @@ classModalBtn.onclick = function() {
 // Close Class Modal when x is clicked
 classClose.onclick = function() {
   classModal.style.display = "none";
+  $("#classModalContentInterior").html("");
 }
 
 window.onclick = function(event) {
   if(event.target == classModal) {
     classModal.style.display = "none";
+    $("#classModalContentInterior").html("");
   }
 }
 
@@ -34,13 +36,13 @@ raceModalBtn.onclick = function() {
 // When the user clicks on <span> (x), close the modal
 raceClose.onclick = function() {
     raceModal.style.display = "none";
-    // clearModal();
+    $("#raceModalContentInterior").html("");
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == raceModal) {
         raceModal.style.display = "none";
-        // clearModal();
+        $("#raceModalContentInterior").html("");
     }
 }
