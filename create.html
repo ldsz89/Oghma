@@ -79,24 +79,36 @@
             </div>
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <form>
+                <form ng-submit="addBasicInfo(info)">
                   <div class="card">
                     <div class="card-header" style="background-color: FireBrick;">
                       <h4>Basic Info</h4>
                     </div>
                     <div class="card-content">
                       <div class="row">
-                        <div class="col-lg-5">
+                        <div class="col-lg-1">
                           <div class="form-group label-floating">
-  													<label class="control-label">Name</label>
-  													<input type="text" class="form-control">
+  													<label class="control-label" ng-model="info.level">Level</label>
+  													<input type="number" class="form-control">
   												</div>
                         </div>
                         <div class="col-lg-1">
                           <div class="form-group label-floating">
-  													<label class="control-label">Level</label>
+  													<label class="control-label" ng-model="info.age">Age</label>
   													<input type="number" class="form-control">
   												</div>
+                        </div>
+                        <div class="col-lg-5">
+                          <div class="form-group label-floating">
+                            <label class="control-label" ng-model="info.alignment">Alignment</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-lg-5">
+                          <div class="form-group label-floating">
+                            <label class="control-label" ng-model="info.background">Background</label>
+                            <input type="text" class="form-control">
+                          </div>
                         </div>
                       </div>
                     </div>

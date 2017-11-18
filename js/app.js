@@ -85,6 +85,24 @@ angular.module('creatorApp', [])
 //    scope: $scope
 //  });
 
+  $scope.addBasicInfo = function(info) {
+    console.log("Saving basic info");
+    console.log(!$scope.activeCharacter);
+    console.log(!info);
+    if(!scope.activeCharacter || !info) {
+      console.log("Something was false?");
+      return;
+    }
+    $scope.activeCharacter.qualities.push({
+      level: info.level,
+      age: info.age,
+      alignment: info.alignment,
+      background: info.background
+    });
+
+    Characters.save($scope.characters);
+  };
+
   $scope.addClass = function(attrClass) {
     if(!$scope.activeCharacter || !attr) {
       return;
