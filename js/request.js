@@ -43,7 +43,8 @@ function requestClassDetail(url) {
   requestResource(url, function(results) {
     var data = JSON.parse(results);
     $("#classModalContentInfo").html(
-      "<legend style='color: white;' ng-model='attrClass.class'> Class: " + data.name + "</legend>" +
+      "<legend style='color: white;'> Class: " + data.name + "</legend>" +
+      "<input type='hidden' value='" + data.name + "' ng-model='attrClass.class'>" +
       "<p style='color: white;'>Hit Die: " + data.hit_die + "</p>" +
       "<div class='col-lg-6 col-md-6 col-sm-6'>" +
         "<h3 style='color: white;'>Proficiencies</h3>" +
@@ -104,6 +105,7 @@ function requestRaceDetail(url) {
     $("#raceModalContentInfo").html(
       "<div style='color: white;' class = col-lg-12 col-md-12>" +
         "<h2>Race: " + data.name + " <small>Speed: " + data.speed + "</small></h2>" +
+        "<input type='hidden' value='" + data.name + "'>" +
         "<div id='ability_bonuses'></div>" +
         "<h4>Alignment: " + data.alignment + "</h4>" +
         "<h4>" + data.age + "</h4>" +
@@ -161,5 +163,11 @@ function requestRaceDetail(url) {
         "</div>"
       );
     });
+
+    // $("raceModalContentInfo").append(
+    //   "<div align='right'>" +
+    //     "<button type='submit' class='btn' style='background-color: FireBrick; color: white;'>Submit</button>" +
+    //   "</div>"
+    // );
   });
 }

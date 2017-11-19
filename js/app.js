@@ -87,9 +87,7 @@ angular.module('creatorApp', [])
 
   $scope.addBasicInfo = function(info) {
     console.log("Saving basic info");
-    console.log($scope.activeCharacter);
     if(!$scope.activeCharacter || !info) {
-      console.log("Something was false");
       return;
     }
     $scope.activeCharacter.qualities.push({
@@ -104,7 +102,9 @@ angular.module('creatorApp', [])
   };
 
   $scope.addClass = function(attrClass) {
-    if(!$scope.activeCharacter || !attr) {
+    console.log("Adding class info");
+    console.log(attrClass);
+    if(!$scope.activeCharacter || !attrClass) {
       return;
     }
     $scope.activeCharacter.qualities.push({
@@ -115,11 +115,26 @@ angular.module('creatorApp', [])
 //    $scope.characterModal.hide();
 
     // Inefficient, but save all the projects
+    console.log("Class info added");
     Characters.save($scope.characters);
 //    attr.class = "";
 //    task.title = "";
 //    task.class = "";
 //    task.due = "";
+  };
+
+  $scope.addRace = function(race) {
+    console.log("Adding race info");
+    console.log(race);
+    if (!$scope.activeCharacter || !race) {
+      return;
+    }
+    $scope.activeCharacter.qualities.push({
+      race: race.name
+    });
+
+    console.log("Race info added");
+    Characters.save($scope.characters);
   };
 
 //  $scope.newAttr = function() {
