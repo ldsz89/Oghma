@@ -169,19 +169,4 @@ angular.module('creatorApp', [])
 //      Projects.save($scope.projects);
 //  }
 
-  // Try to create the first project, make sure to defer
-  // this by using $timeout so everything is initialized
-  // properly
-//  $timeout(function() {
-//    if($scope.characters.length == 0) {
-//      while(true) {
-//        var characterName = prompt('Your first project title:');
-//        if(characterName) {
-//          createCharacter(characterName);
-//          break;
-//        }
-//      }
-//    }
-//  }, 1000);
-
 })

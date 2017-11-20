@@ -59,12 +59,12 @@ function requestClassDetail(url) {
     );
 
     data.proficiencies.forEach(function(prof) {
-      $("#proficiencies").append("<li>" + prof.name + "</li>");
+      $("#proficiencies").append("<li ng-model='attrClass.proficiency'>" + prof.name + "</li>");
     });
 
     data.proficiency_choices[0].from.forEach(function(prof) {
       $("#skill_prof_choices").append(
-        "<input class='limit-checkbox' type='checkbox' name='skill_prof' value='" + prof.name + "' />" +
+        "<input ng-model='attrClass.prof' class='limit-checkbox' type='checkbox' name='skill_prof' value='" + prof.name + "' />" +
         "<label>" + prof.name + "</label><br />"
       );
     });
