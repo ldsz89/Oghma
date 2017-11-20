@@ -32,8 +32,7 @@ angular.module('creatorApp', [])
   }
 })
 
-.controller('CharacterCtrl', function($scope, $timeout, Characters) {
-
+.controller('CharacterCtrl', function($scope, $timeout, Characters, $compile) {
   // A utility function for creating a new character
   // with the given characterName
   var createCharacter = function(characterName) {
@@ -87,9 +86,7 @@ angular.module('creatorApp', [])
 
   $scope.addBasicInfo = function(info) {
     console.log("Saving basic info");
-    console.log($scope.activeCharacter);
     if(!$scope.activeCharacter || !info) {
-      console.log("Something was false");
       return;
     }
     $scope.activeCharacter.qualities.push({
@@ -104,7 +101,9 @@ angular.module('creatorApp', [])
   };
 
   $scope.addClass = function(attrClass) {
-    if(!$scope.activeCharacter || !attr) {
+    console.log("Adding class info");
+    console.log(attrClass);
+    if(!$scope.activeCharacter || !attrClass) {
       return;
     }
     $scope.activeCharacter.qualities.push({
@@ -115,11 +114,72 @@ angular.module('creatorApp', [])
 //    $scope.characterModal.hide();
 
     // Inefficient, but save all the projects
+    console.log("Class info added");
     Characters.save($scope.characters);
 //    attr.class = "";
 //    task.title = "";
 //    task.class = "";
 //    task.due = "";
+  };
+
+  $scope.addRace = function(race) {
+    console.log("Adding race info");
+    console.log(race);
+    if (!$scope.activeCharacter || !race) {
+      return;
+    }
+    $scope.activeCharacter.qualities.push({
+      race: race.name
+    });
+
+    console.log("Race info added");
+    Characters.save($scope.characters);
+  };
+
+  // API testing
+  $scope.requestResource = function(url) {
+    console.log("URL: " + url);
+    var data = null;
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4) {
+        // console.log(this.responseText);
+        onComplete(this.responseText);
+      }
+    });
+
+    xhr.open("GET", url);
+    xhr.withCredentials = false;
+
+    xhr.send(data);
+  };
+
+  $scope.getClasses = function() {
+    console.log("Getting classes");
+    requestResource("http://www.dnd5eapi.co/api/classes/", function(results) {
+      var data = JSON.parse(results);
+      console.log(data);
+
+      var display = "";
+      data.results.forEach(function(result) {
+        display +=
+          "<div class='col-lg-2 col-md-2 col-sm-2'>" +
+            "<div class='card text-center'>" +
+              "<div class='card-content' onclick='requestClassDetail(&quot " + result.url + " &quot)' style='background-color: firebrick; color: white;'>" +
+                result.name +
+              "</div>" +
+            "</div>" +
+          "</div>";
+      });
+
+      console.log(display);
+      $scope.classDisplay = $compile(display)($scope);
+      console.log($scope.classDisplay);
+      // $scope.classDisplay = display;
+    });
   };
 
 //  $scope.newAttr = function() {
