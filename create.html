@@ -185,10 +185,10 @@
         <span id="classClose" class="close">&times;</span>
         <h2 style="color: white;">Classes <img src="image/dragon.png" class="image1"></h2>
         <form ng-submit="addClass(attrClass)">
-          <div id="classModalContentInterior" ng-model="classDisplay"></div>
+          <div id="classModalContentInterior"></div>
           <div id="classModalContentInfo"></div>
           <div align="right">
-            <input type="text" id="class_name" value="none" ng-model="attrClass.class" style="color: black;" />
+            <!-- <input type="text" id="class_name" value="none" ng-model="attrClass.class" ng-init="attrClass.class='Dwarf'" style="color: black;" /> -->
             <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Add Class</button>
           </div>
         </form>

@@ -32,8 +32,7 @@ angular.module('creatorApp', [])
   }
 })
 
-.controller('CharacterCtrl', function($scope, $timeout, Characters) {
-
+.controller('CharacterCtrl', function($scope, $timeout, Characters, $compile) {
   // A utility function for creating a new character
   // with the given characterName
   var createCharacter = function(characterName) {
@@ -177,7 +176,9 @@ angular.module('creatorApp', [])
       });
 
       console.log(display);
-      $scope.classDisplay = display;
+      $scope.classDisplay = $compile(display)($scope);
+      console.log($scope.classDisplay);
+      // $scope.classDisplay = display;
     });
   };
 

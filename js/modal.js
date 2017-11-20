@@ -6,7 +6,7 @@ var classClose = document.getElementById("classClose");
 // Open Class Modal
 classModalBtn.onclick = function() {
   classModal.style.display = "block";
-  // requestClasses();
+  requestClasses();
 }
 
 // Close Class Modal when x is clicked
