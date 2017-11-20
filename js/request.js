@@ -32,7 +32,8 @@ function requestClasses() {
             result.name +
           "</div>" +
         "</div>" +
-      "</div>");
+      "</div>"
+      );
     });
   });
 }
@@ -42,9 +43,11 @@ function requestClassDetail(url) {
   console.log("URL: " + url);
   requestResource(url, function(results) {
     var data = JSON.parse(results);
+    console.log($("#class_name").val());
+    $("#class_name").val(data.name);
+    console.log($("#class_name").val());
     $("#classModalContentInfo").html(
       "<legend style='color: white;'> Class: " + data.name + "</legend>" +
-      "<input type='hidden' value='" + data.name + "' ng-model='attrClass.class'>" +
       "<p style='color: white;'>Hit Die: " + data.hit_die + "</p>" +
       "<div class='col-lg-6 col-md-6 col-sm-6'>" +
         "<h3 style='color: white;'>Proficiencies</h3>" +

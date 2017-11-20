@@ -137,6 +137,50 @@ angular.module('creatorApp', [])
     Characters.save($scope.characters);
   };
 
+  // API testing
+  $scope.requestResource = function(url) {
+    console.log("URL: " + url);
+    var data = null;
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4) {
+        // console.log(this.responseText);
+        onComplete(this.responseText);
+      }
+    });
+
+    xhr.open("GET", url);
+    xhr.withCredentials = false;
+
+    xhr.send(data);
+  };
+
+  $scope.getClasses = function() {
+    console.log("Getting classes");
+    requestResource("http://www.dnd5eapi.co/api/classes/", function(results) {
+      var data = JSON.parse(results);
+      console.log(data);
+
+      var display = "";
+      data.results.forEach(function(result) {
+        display +=
+          "<div class='col-lg-2 col-md-2 col-sm-2'>" +
+            "<div class='card text-center'>" +
+              "<div class='card-content' onclick='requestClassDetail(&quot " + result.url + " &quot)' style='background-color: firebrick; color: white;'>" +
+                result.name +
+              "</div>" +
+            "</div>" +
+          "</div>";
+      });
+
+      console.log(display);
+      $scope.classDisplay = display;
+    });
+  };
+
 //  $scope.newAttr = function() {
 //    $scope.characterModal.show();
 //  };

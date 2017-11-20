@@ -129,7 +129,7 @@
                     <p class="category">Who are you?</p>
                   </div>
                   <div class="card-footer">
-                    <a class="btn" style="background-color: FireBrick; color: white;" id="classModalBtn">More</a>
+                    <button class="btn" style="background-color: FireBrick; color: white;" id="classModalBtn" ng-click="getClasses()">More</button>
                   </div>
                 </div>
               </div>
@@ -185,9 +185,10 @@
         <span id="classClose" class="close">&times;</span>
         <h2 style="color: white;">Classes <img src="image/dragon.png" class="image1"></h2>
         <form ng-submit="addClass(attrClass)">
-          <div id="classModalContentInterior"></div>
+          <div id="classModalContentInterior" ng-model="classDisplay"></div>
           <div id="classModalContentInfo"></div>
           <div align="right">
+            <input type="text" id="class_name" value="none" ng-model="attrClass.class" style="color: black;" />
             <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Add Class</button>
           </div>
         </form>
