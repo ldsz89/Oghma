@@ -26,7 +26,7 @@
     <script src="js/app.js"></script>
   </head>
 
-  <body ng-app="creatorApp" ng-controller="CharacterCtrl">
+  <body ng-app="creatorApp" ng-controller="CharacterCtrl as ChCtrl">
     <div class="wrapper">
       <div class="sidebar" style="background-attachment: fixed; background-image:url(test.jpg);">
         <div class="sidebar-wrapper">
@@ -185,7 +185,15 @@
         <span id="classClose" class="close">&times;</span>
         <h2 style="color: white;">Classes <img src="image/dragon.png" class="image1"></h2>
         <form ng-submit="addClass(attrClass)">
-          <div id="classModalContentInterior"></div>
+          <div id="classModalContentInterior">
+            <div class="col-lg-2 col-md-2 col-sm-2" ng-repeat="cl in classList track by $index">
+              <div class="card text-center">
+                <div class="card-content">
+                  {{ cl.className }}
+                </div>
+              </div>
+            </div>
+          </div>
           <div id="classModalContentInfo"></div>
           <div align="right">
             <!-- <input type="text" id="class_name" value="none" ng-model="attrClass.class" ng-init="attrClass.class='Dwarf'" style="color: black;" /> -->
