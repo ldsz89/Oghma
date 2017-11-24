@@ -48,17 +48,18 @@ function requestClassDetail(url) {
     console.log($("#class_name").val());
     $("#classModalContentInfo").html(
       "<legend style='color: white;'> Class: " + data.name + "</legend>" +
+      "<input ng-model='attrClass.name' ng-init='attrClass.class=\' " + data.name + " \''  value='" + data.name + "' style='color: black;' />" +
       "<p style='color: white;'>Hit Die: " + data.hit_die + "</p>" +
       "<div class='col-lg-6 col-md-6 col-sm-6'>" +
-        "<h3 style='color: white;'>Proficiencies</h3>" +
+        "<h3>Proficiencies</h3>" +
         "<div style='color: white;'>" +
           "<ul style='color: white;' id='proficiencies'></ul>" +
         "</div>" +
       "</div>" +
-      "<div style='color: white;' class='col-lg-6 col-md-6 col-sm-6'>" +
-        "<h3 style='color: white;'>Skill Proficiency Choices</h3>" +
-        "<h5 style='color: white;'>(Limit " + data.proficiency_choices[0].choose + ")</h5>" +
-        "<div style='color: white;' id='skill_prof_choices'></div>" +
+      "<div class='col-lg-6 col-md-6 col-sm-6'>" +
+        "<h3>Skill Proficiency Choices</h3>" +
+        "<h5>(Limit " + data.proficiency_choices[0].choose + ")</h5>" +
+        "<div id='skill_prof_choices'></div>" +
       "</div>"
     );
 
@@ -69,7 +70,7 @@ function requestClassDetail(url) {
     data.proficiency_choices[0].from.forEach(function(prof) {
       $("#skill_prof_choices").append(
         "<input class='limit-checkbox' type='checkbox' name='skill_prof' value='" + prof.name + "' />" +
-        "<label>" + prof.name + "</label><br />"
+        "<label style='color: white;'>" + prof.name + "</label><br />"
       );
     });
     var limit = data.proficiency_choices[0].choose;

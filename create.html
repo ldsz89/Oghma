@@ -129,7 +129,7 @@
                     <p class="category">Who are you?</p>
                   </div>
                   <div class="card-footer">
-                    <button class="btn" style="background-color: FireBrick; color: white;" id="classModalBtn" ng-click="getClasses()">More</button>
+                    <button class="btn" style="background-color: FireBrick; color: white;" id="classModalBtn">More</button>
                   </div>
                 </div>
               </div>
@@ -186,17 +186,18 @@
         <h2 style="color: white;">Classes <img src="image/dragon.png" class="image1"></h2>
         <form ng-submit="addClass(attrClass)">
           <div id="classModalContentInterior">
-            <div class="col-lg-2 col-md-2 col-sm-2" ng-repeat="cl in classList track by $index">
+            <div class="col-lg-2 col-md-2 col-sm-2" ng-repeat="cl in ChCtrl.classList track by $index">
               <div class="card text-center">
-                <div class="card-content">
+                <div class="card-content" ng-click="getClassInfo(cl.classURL)" style="background-color: firebrick; color: white;">
                   {{ cl.className }}
                 </div>
               </div>
             </div>
           </div>
-          <div id="classModalContentInfo"></div>
+          <div id="classModalContentInfo" style="color: white;"></div>
           <div align="right">
-            <!-- <input type="text" id="class_name" value="none" ng-model="attrClass.class" ng-init="attrClass.class='Dwarf'" style="color: black;" /> -->
+            <!-- <input type="text" ng-model="attrClass.name" style="color: black;" /> -->
+            <!-- <input type="hidden" id="class_name" value="none" ng-model="attrClass.name" ng-init="attrClass.class='Barbarian'" style="color: black;" /> -->
             <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Add Class</button>
           </div>
         </form>

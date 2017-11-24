@@ -36,7 +36,20 @@ angular.module('creatorApp', [])
 
     var ChCtrl = this;
     // Classes to be loaded by API call
-    ChCtrl.classList = [];
+    ChCtrl.classList = [
+                        {className: "Barbarian", classURL: "http://www.dnd5eapi.co/api/classes/1"},
+                        {className: "Bard", classURL: "http://www.dnd5eapi.co/api/classes/2"},
+                        {className: "Cleric", classURL: "http://www.dnd5eapi.co/api/classes/3"},
+                        {className: "Druid", classURL: "http://www.dnd5eapi.co/api/classes/4"},
+                        {className: "Fighter", classURL: "http://www.dnd5eapi.co/api/classes/5"},
+                        {className: "Monk", classURL: "http://www.dnd5eapi.co/api/classes/6"},
+                        {className: "Paladin", classURL: "http://www.dnd5eapi.co/api/classes/7"},
+                        {className: "Ranger", classURL: "http://www.dnd5eapi.co/api/classes/8"},
+                        {className: "Rogue", classURL: "http://www.dnd5eapi.co/api/classes/9"},
+                        {className: "Sorcerer", classURL: "http://www.dnd5eapi.co/api/classes/10"},
+                        {className: "Warlock", classURL: "http://www.dnd5eapi.co/api/classes/11"},
+                        {className: "Wizard", classURL: "http://www.dnd5eapi.co/api/classes/12"}
+                      ];
 
     // A utility function for creating a new character
     // with the given characterName
@@ -125,32 +138,42 @@ angular.module('creatorApp', [])
       Characters.save($scope.characters);
     };
 
-    $scope.getClasses = function() {
-      console.log("Getting classes");
-      ChCtrl.classList = [];
-      requestResource("http://www.dnd5eapi.co/api/classes/", function(results) {
-        var data = JSON.parse(results);
-        console.log(data);
+    // $scope.getClasses = function() {
+    //   console.log("Getting classes");
+    //   ChCtrl.classList = [];
+    //   requestResource("http://www.dnd5eapi.co/api/classes/", function(results) {
+    //     var data = JSON.parse(results);
+    //     console.log(data);
+    //
+    //     $scope.$apply(){
+    //       ChCtrl.classList = data.results;
+    //
+    //     }
+    //     console.log(ChCtrl.classList);
+    //
+    //     var display = "";
+    //     data.results.forEach(function(result) {
+    //       display +=
+    //         "<div class='col-lg-2 col-md-2 col-sm-2'>" +
+    //           "<div class='card text-center'>" +
+    //             "<div class='card-content' onclick='requestClassDetail(&quot " + result.url + " &quot)' style='background-color: firebrick; color: white;'>" +
+    //               result.name +
+    //             "</div>" +
+    //           "</div>" +
+    //         "</div>";
+    //     });
+    //
+    //   });
+    // };
 
-        $scope.$apply(){
-          ChCtrl.classList = data.results;
-
-        }
-        console.log(ChCtrl.classList);
-
-        // var display = "";
-        // data.results.forEach(function(result) {
-        //   display +=
-        //     "<div class='col-lg-2 col-md-2 col-sm-2'>" +
-        //       "<div class='card text-center'>" +
-        //         "<div class='card-content' onclick='requestClassDetail(&quot " + result.url + " &quot)' style='background-color: firebrick; color: white;'>" +
-        //           result.name +
-        //         "</div>" +
-        //       "</div>" +
-        //     "</div>";
-        // });
-
-      });
+    // $scope.chClass.name = "";
+    $scope.getClassInfo = function(url) {
+      console.log("Getting class information");
+      requestClassDetail(url);
+      // requestResource(url, function(results) {
+      //     var data = JSON.parse(results);
+      //     console.log(data);
+      // });
     };
 
     $scope.addClass = function(attrClass) {
@@ -168,6 +191,7 @@ angular.module('creatorApp', [])
 
       // Inefficient, but save all the projects
       console.log("Class info added");
+      console.log($scope.activeCharacter);
       Characters.save($scope.characters);
       //    attr.class = "";
       //    task.title = "";
