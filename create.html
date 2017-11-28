@@ -4,14 +4,6 @@
   <head>
     <title>Oghma | Character Creator</title>
     <meta charset="utf-8">
-    <style>
-      .image1 {
-        width: 50px;
-        height: 60px;
-      }
-
-      .image2 {}
-    </style>
 
     <link href='https://fonts.googleapis.com/css?family=Creepster' rel='stylesheet'>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -24,6 +16,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
     <script src="js/app.js"></script>
+    <style>
+      .image1 {
+        width: 50px;
+        height: 60px;
+      }
+
+      .class {
+        background-color: firebrick;
+        color: white;
+      }
+
+      .class:hover {
+        background-color: #d73030;
+        cursor: pointer;
+      }
+    </style>
   </head>
 
   <body ng-app="creatorApp" ng-controller="CharacterCtrl as ChCtrl">
@@ -43,34 +51,6 @@
                 <p style="color: white;">Create Character</p>
               </a>
             </li>
-<!--
-            <li>
-              <a href="create.html">
-                  <i class="material-icons">class</i>
-                  <p style="color: white;">Update Character</p>
-                </a>
-            </li>
--->
-<!--
-            <li>
-              <a href="#">
-                  <i class="material-icons">face</i>
-                  <p style="color: white;">Races</p>
-                </a>
-            </li>
-            <li>
-              <a href="#">
-                  <i class="material-icons">pan_tool</i>
-                  <p style="color: white;">Abilities</p>
-                </a>
-            </li>
-            <li>
-              <a href="#">
-                  <i class="material-icons">extension</i>
-                  <p style="color: white;">Other Stuff</p>
-                </a>
-            </li>
--->
           </ul>
         </div>
       </div>
@@ -186,7 +166,7 @@
           <div id="classModalContentInterior">
             <div class="col-lg-2 col-md-2 col-sm-2" ng-repeat="cl in ChCtrl.classList track by $index">
               <div class="card text-center">
-                <div class="card-content" ng-click="getClassInfo(cl.classURL)" style="background-color: firebrick; color: white;">
+                <div class="card-content class" ng-click="getClassInfo(cl.classURL)" style="color: white;">
                   {{ cl.className }}
                 </div>
               </div>
@@ -230,7 +210,7 @@
         <div id="raceModalContentInterior" class="col-lg-12 col-md-12">
           <div class="col-lg-2 col-md-2" ng-repeat="race in ChCtrl.raceList track by $index">
             <div class="card text-center">
-              <div style='background-color: firebrick; color: white;' class="card-content" ng-click="getRaceInfo(race.raceURL)">
+              <div style='color: white;' class="card-content class" ng-click="getRaceInfo(race.raceURL)">
                 {{race.raceName}}
               </div>
             </div>
