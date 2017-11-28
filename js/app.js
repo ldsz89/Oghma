@@ -99,7 +99,7 @@ angular.module('creatorApp', [])
         createCharacter(characterName);
       }
       document.getElementById("newCharacter").value = "";
-      document.location.href = "dashboard.html";
+      document.location.href = "create.html";
     };
 
     // Called to select the given character

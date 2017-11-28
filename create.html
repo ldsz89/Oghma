@@ -43,6 +43,7 @@
                 <p style="color: white;">Create Character</p>
               </a>
             </li>
+<!--
             <li>
               <a href="#">
                   <i class="material-icons">class</i>
@@ -67,6 +68,7 @@
                   <p style="color: white;">Other Stuff</p>
                 </a>
             </li>
+-->
           </ul>
         </div>
       </div>
@@ -124,7 +126,8 @@
               <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card">
                   <div class="card-header" style="background-color: FireBrick;">
-                    <h4>Classes</h4>
+                    <i class="material-icons">class</i>
+                    <h4 style="display: inline-block">Class</h4>
                   </div>
                   <div class="card-content">
                     <p ng-if="activeCharacter.class[0].class" class="category">{{activeCharacter.class[0].class}}</p>
@@ -138,7 +141,8 @@
               <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card">
                   <div class="card-header" style="background-color: FireBrick; color: white;">
-                    <h4>Races</h4>
+                    <i class="material-icons">face</i>
+                    <h4 style="display: inline-block">Race</h4>
                   </div>
                   <div class="card-content">
                     <p ng-if="activeCharacter.race[0].race" class="category">{{activeCharacter.race[0].race}}</p>
@@ -152,26 +156,14 @@
               <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card">
                   <div class="card-header" style="background-color: FireBrick;">
-                    <h4>Abilities</h4>
+                    <i class="material-icons">pan_tool</i>
+                    <h4 style="display: inline-block">Abilities</h4>
                   </div>
                   <div class="card-content">
                     <p class="category">Used space</p>
                   </div>
                   <div class="card-footer">
-                    danger<a class="btn" style="background-color: FireBrick; color: white;">More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="card">
-                  <div class="card-header" style="background-color: FireBrick;">
-                    <h4>Other Stuff</h4>
-                  </div>
-                  <div class="card-content">
-                    <p class="category">Used space</p>
-                  </div>
-                  <div class="card-footer">
-                    danger<a class="btn" style="background-color: FireBrick;  color: white;">More</a>
+                    danger<a class="btn" style="background-color: FireBrick; color: white;">Add Abilities</a>
                   </div>
                 </div>
               </div>
