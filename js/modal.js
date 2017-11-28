@@ -2,6 +2,7 @@
 var classModal = document.getElementById("classModal");
 var classModalBtn = document.getElementById("classModalBtn");
 var classClose = document.getElementById("classClose");
+var addClassBtn = document.getElementById("addClassBtn");
 
 // Open Class Modal
 classModalBtn.onclick = function() {
@@ -11,6 +12,10 @@ classModalBtn.onclick = function() {
 
 // Close Class Modal when x is clicked
 classClose.onclick = function() {
+  classModal.style.display = "none";
+}
+
+addClassBtn.onclick = function() {
   classModal.style.display = "none";
 }
 
