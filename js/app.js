@@ -74,11 +74,10 @@ angular.module('creatorApp', [])
       Characters.save($scope.characters);
       $scope.selectCharacter(newCharacter, $scope.characters.length - 1);
     };
-    
-    $scope.openCharacter = function(index){
+
+    $scope.openCharacter = function(character, index){
       console.log(index);
-      console.log("Testing");
-      $scope.activeCharacter = $scope.characters[index];
+      $scope.selectCharacter(character, index);
       document.location.href = "create.html";
     };
 
@@ -86,14 +85,14 @@ angular.module('creatorApp', [])
       $scope.characters[index].remove = true;
       var characters = $scope.characters;
       $scope.characters = [];
-      
+
       angular.forEach(characters, function(update) {
                if (!update.remove)
                    $scope.characters.push(update);
                    Characters.save($scope.characters);
            });
     };
-              
+
     // Load or initialize characters
     $scope.characters = Characters.all();
 
@@ -154,7 +153,7 @@ angular.module('creatorApp', [])
       
       $("#green_check").css("display", "inline");
       $scope.activeCharacter.basic = [];
-      
+
       $scope.activeCharacter.basic.push({
         level: info.level,
         age: info.age,
@@ -209,7 +208,7 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter) {
         return;
       }
-      
+
       $scope.activeCharacter.race = [];
        $scope.activeCharacter.race.push({
          race: ChCtrl.activeRace.name,

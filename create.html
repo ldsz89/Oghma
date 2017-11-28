@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 
@@ -282,3 +283,300 @@
   </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Oghma | Character Creator</title>
+  <meta charset="utf-8">
+
+  <link href='https://fonts.googleapis.com/css?family=Creepster' rel='stylesheet'>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet">
+  <link rel="stylesheet" href="css/output.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+  <script src="js/app.js"></script>
+
+  <style>
+    .image1 {
+      width: 50px;
+      height: 60px;
+    }
+
+    .image2 {}
+
+    .class:hover {
+      background: #d73030;
+      cursor: pointer;
+    }
+
+    .class{
+      background-color: firebrick;
+      color: white;
+    }
+  </style>
+
+</head>
+
+<body ng-app="creatorApp" ng-controller="CharacterCtrl as ChCtrl">
+  <div class="wrapper">
+    <div class="sidebar" style="background-attachment: fixed; background-image:url(test.jpg);">
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+            <a href="dashboard.html">
+                  <i class="material-icons">dashboard</i>
+                  <p style="color: white;">Dashboard</p>
+              </a>
+          </li>
+          <li class="active">
+            <a href="index.html">
+                <i class="material-icons">person_add</i>
+                <p style="color: white;">Create Character</p>
+              </a>
+          </li>
+          <!--
+            <li>
+              <a href="create.html">
+                  <i class="material-icons">class</i>
+                  <p style="color: white;">Update Character</p>
+                </a>
+            </li>
+-->
+          <!--
+            <li>
+              <a href="#">
+                  <i class="material-icons">face</i>
+                  <p style="color: white;">Races</p>
+                </a>
+            </li>
+            <li>
+              <a href="#">
+                  <i class="material-icons">pan_tool</i>
+                  <p style="color: white;">Abilities</p>
+                </a>
+            </li>
+            <li>
+              <a href="#">
+                  <i class="material-icons">extension</i>
+                  <p style="color: white;">Other Stuff</p>
+                </a>
+            </li>
+-->
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-panel" style="background-attachment: fixed; background-image: url(test.jpg);">
+      <div class="content">
+        <div class="container-fluid">
+          <div class="jumbotron">
+            <h1 style="font-family: Creepster;">Create New Character</h1>
+            <h2 style="font-family: Creepster;">Name:  {{activeCharacter.name}}</h2>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <form ng-submit="addBasicInfo(info)">
+                <div class="card">
+                  <div class="card-header" style="background-color: FireBrick;">
+                    <h4>Basic Info</h4>
+                  </div>
+                  <div class="card-content">
+                    <div class="row">
+                      <div class="col-lg-1">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Level</label>
+                          <input ng-model="info.level" type="number" class="form-control" ng-value="activeCharacter.basic[0].level">
+                        </div>
+                      </div>
+                      <div class="col-lg-1">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Age</label>
+                          <input ng-model="info.age" type="number" class="form-control" ng-value="activeCharacter.basic[0].age">
+                        </div>
+                      </div>
+                      <div class="col-lg-5">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Alignment</label>
+                          <input ng-model="info.alignment" type="text" class="form-control" ng-value="activeCharacter.basic[0].alignment">
+                        </div>
+                      </div>
+                      <div class="col-lg-5">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Background</label>
+                          <input ng-model="info.background" type="text" class="form-control" ng-value="activeCharacter.basic[0].background">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="card">
+                <div class="card-header" style="background-color: FireBrick;">
+                  <i class="material-icons">class</i>
+                  <h4 style="display: inline-block">Class</h4>
+                </div>
+                <div class="card-content">
+                  <p ng-if="activeCharacter.class[0].class" class="category">{{activeCharacter.class[0].class}}</p>
+                  <p ng-if="!activeCharacter.class[0].class" class="category">Who are you?</p>
+                </div>
+                <div class="card-footer">
+                  <button class="btn" style="background-color: FireBrick; color: white;" id="classModalBtn">Add Class</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="card">
+                <div class="card-header" style="background-color: FireBrick; color: white;">
+                  <i class="material-icons">face</i>
+                  <h4 style="display: inline-block">Race</h4>
+                </div>
+                <div class="card-content">
+                  <p ng-if="activeCharacter.race[0].race" class="category">{{activeCharacter.race[0].race}}</p>
+                  <p ng-if="!activeCharacter.race[0].race" class="category">What are you?</p>
+                </div>
+                <div class="card-footer">
+                  <button class="btn" style="background-color: FireBrick; color: white;" id="raceModalBtn">Add Race</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="card">
+                <div class="card-header" style="background-color: FireBrick;">
+                  <i class="material-icons">pan_tool</i>
+                  <h4 style="display: inline-block">Abilities</h4>
+                </div>
+                <div class="card-content">
+                  <p class="category">Used space</p>
+                </div>
+                <div class="card-footer">
+                  danger<a class="btn" style="background-color: FireBrick; color: white;">Add Abilities</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Class Modal -->
+  <div id="classModal" class="modal">
+    <!-- Class Modal Content -->
+    <div id="classModalContent" class="modal-content row" style="background-image:url(test.jpg);">
+      <span id="classClose" class="close">&times;</span>
+      <h2 style="color: white;">Classes <img src="image/dragon.png" class="image1"></h2>
+      <form ng-submit="addClass(attrClass)">
+        <div id="classModalContentInterior">
+          <div class="col-lg-2 col-md-2 col-sm-2" ng-repeat="cl in ChCtrl.classList track by $index">
+            <div class="card text-center">
+              <div style="color: white;" class="card-content class" ng-click="getClassInfo(cl.classURL)">
+                {{ cl.className }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="classModalContentInfo" style="color: white;">
+          <legend style="color: white;">Class: {{ChCtrl.activeClass.name}}</legend>
+          <p>Hit Die: {{ChCtrl.activeClass.hit_die}}</p>
+          <div class="col-lg-6 col-md-6">
+            <h3>Proficiencies</h3>
+            <ul>
+              <li ng-repeat="prof in ChCtrl.activeClass.proficiencies track by $index">
+                {{prof.name}}
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <h3>Proficiency Choices</h3>
+            <h5>(Limit {{ChCtrl.activeClass.proficiency_choices[0].choose}})</h5>
+            <ul>
+              <li ng-repeat="prof in ChCtrl.activeClass.proficiency_choices[0].from track by $index">
+                <input class='limit-checkbox' type='checkbox' name='skill_prof' value="{{prof.name}}" />
+                <label>{{prof.name}}</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div align="right">
+          <button type="submit" class="btn" id="addClassBtn" style="background-color: FireBrick; color: white;">Add Class</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Race Modal -->
+  <div id="raceModal" class="modal">
+    <!-- Race Modal Content -->
+    <div id="raceModalContent" class="modal-content row" style="background-image:url(test.jpg);">
+      <span id="raceClose" class="close">&times;</span>
+      <h2 style="color: white;">Races <img src="image/dragon.png" class="image1"></h2>
+      <div id="raceModalContentInterior" class="col-lg-12 col-md-12">
+        <div class="col-lg-2 col-md-2" ng-repeat="race in ChCtrl.raceList track by $index">
+          <div class="card text-center">
+            <div style='color: white;' class="card-content class" ng-click="getRaceInfo(race.raceURL)">
+              {{race.raceName}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <form ng-submit="addRace(race)">
+        <div id="raceModalContentInfo" style="color: white;">
+          <div class="col-lg-12 col-md-12">
+            <h2>Race: {{ChCtrl.activeRace.name}}</h2>
+            <div class="col-lg-2 col-md-2" ng-repeat="abl in ChCtrl.activeRace.ability_bonuses track by $index">
+              <div class="card text-center">
+                <div class="card-content">
+                  {{abl}}
+                </div>
+              </div>
+            </div>
+            <h4>Alignment: <small style="color: white;">{{ChCtrl.activeRace.alignment}}</small></h4>
+            <h4>Age: <small style="color: white;">{{ChCtrl.activeRace.age}}</small></h4>
+            <h4>Size: <small style="color: white;">{{ChCtrl.activeRace.size_description}}</small></h4>
+            <h4>Languages:</h4>
+            <div class="col-lg-12 col-md-12">
+              <div class="col-lg-2 col-md-2" ng-repeat="lang in ChCtrl.activeRace.languages">
+                <div class="card text-center">
+                  <div class="card-content">
+                    {{lang.name}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div align="right">
+          <button type="submit" id="addRaceBtn" class="btn" style="background-color: FireBrick; color: white;">Add Race</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    var limit = ChCtrl.activeClass.proficiency_choices[0].choose;
+    $("input.limit-checkbox").on('change', function(evt) {
+      if ($(this).siblings(':checked').length >= limit) {
+        this.checked = false;
+      }
+    });
+  </script>
+  <script src="js/request.js"></script>
+  <script src="js/modal.js"></script>
+</body>
+
+</html>
+>>>>>>> 9736846f641ae8f0a0d732657aa44f5875d192f4
