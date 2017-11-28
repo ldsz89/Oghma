@@ -79,7 +79,8 @@
                     <div class="card-content" style="color: white;">
                       {{char.name}}
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer" style="white-space: nowrap; overflow: hidden;">
+                      <span class="btn" ng-click="openCharacter($index)"><i class="material-icons">edit</i></span>
                       <span class="btn" ng-click="delete($index)">
                         <i class="material-icons">delete</i>
                       </span>
