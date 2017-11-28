@@ -37,11 +37,12 @@
               </a>
             </li>
             <li>
-              <a href="create.html">
+              <a href="index.html">
                 <i class="material-icons">person_add</i>
                 <p style="color: white;">Create Character</p>
               </a>
             </li>
+<!--
             <li>
               <a href="#">
                   <i class="material-icons">class</i>
@@ -66,6 +67,7 @@
                   <p style="color: white;">Other Stuff</p>
                 </a>
             </li>
+-->
           </ul>
         </div>
       </div>
@@ -79,11 +81,10 @@
             </div>
             <div class="row">
               <div class="col-lg-2 col-md-2" ng-repeat="char in characters track by $index">
-                <div class="card text-center" style="background-color: firebrick;">
-                  <div class="card-content" style="color: white;">
-                    {{char.name}}
-                  </div>
-                </div>
+<!--                <div class="card text-center" style="background-color: firebrick;">-->
+                  <p class="btn card text-center" ng-click="openCharacter($index)" style="background: FireBrick; color: white;">{{char.name}}
+                  </p>
+<!--                </div>-->
               </div>
             </div>
           </div>

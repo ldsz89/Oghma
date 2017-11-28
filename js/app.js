@@ -72,7 +72,14 @@ angular.module('creatorApp', [])
       $scope.characters.push(newCharacter);
       Characters.save($scope.characters);
       $scope.selectCharacter(newCharacter, $scope.characters.length - 1);
-    }
+    };
+    
+    $scope.openCharacter = function(index){
+      console.log(index);
+      console.log("Testing");
+      $scope.activeCharacter = $scope.characters[index];
+      document.location.href = "create.html";
+    };
 
 
     // Load or initialize characters
@@ -106,7 +113,6 @@ angular.module('creatorApp', [])
     $scope.selectCharacter = function(character, index) {
       $scope.activeCharacter = character;
       Characters.setLastActiveIndex(index);
-      //    $ionicSideMenuDelegate.toggleLeft(false);
     };
 
     $scope.requestResource = function(url) {
