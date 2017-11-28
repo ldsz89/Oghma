@@ -140,6 +140,8 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter || !info) {
         return;
       }
+      $scope.activeCharacter.basic = [];
+      
       $scope.activeCharacter.basic.push({
         level: info.level,
         age: info.age,
@@ -166,6 +168,7 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter) {
         return;
       }
+      $scope.activeCharacter.class = [];
        $scope.activeCharacter.class.push({
          class: ChCtrl.activeClass.name,
          proficiencies: ChCtrl.activeClass.proficiencies,
@@ -196,6 +199,8 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter) {
         return;
       }
+      
+      $scope.activeCharacter.race = [];
        $scope.activeCharacter.race.push({
          race: ChCtrl.activeRace.name,
          languages: ChCtrl.activeRace.languages,
