@@ -83,15 +83,15 @@ angular.module('creatorApp', [])
     };
 
     $scope.delete = function(index){
-      console.log($scope[index]);
-//      var characters = $scope.characters;
-//      $scope.characters = [];
-//      
-//      angular.forEach(characters, function(update) {
-//               if (!update.remove)
-//                   $scope.characters.push(update);
-//                   Characters.save($scope.characters);
-//           });
+      $scope.characters[index].remove = true;
+      var characters = $scope.characters;
+      $scope.characters = [];
+      
+      angular.forEach(characters, function(update) {
+               if (!update.remove)
+                   $scope.characters.push(update);
+                   Characters.save($scope.characters);
+           });
     };
               
     // Load or initialize characters
