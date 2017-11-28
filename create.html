@@ -194,9 +194,11 @@
               </div>
             </div>
           </div>
-          <div id="classModalContentInfo" style="color: white;"></div>
+          <div id="classModalContentInfo" style="color: white;">
+            <h1>{{ChCtrl.activeClass.name}}</h1>
+          </div>
           <div align="right">
-            <!-- <input type="text" ng-model="attrClass.name" style="color: black;" /> -->
+            <input type="text" ng-model="attrClass.class" style="color: black;" />
             <!-- <input type="hidden" id="class_name" value="none" ng-model="attrClass.name" ng-init="attrClass.class='Barbarian'" style="color: black;" /> -->
             <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Add Class</button>
           </div>

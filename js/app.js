@@ -51,6 +51,8 @@ angular.module('creatorApp', [])
                         {className: "Wizard", classURL: "http://www.dnd5eapi.co/api/classes/12"}
                       ];
 
+    ChCtrl.activeClass = {name: "none"};
+
     // A utility function for creating a new character
     // with the given characterName
     var createCharacter = function(characterName) {
@@ -138,54 +140,28 @@ angular.module('creatorApp', [])
       Characters.save($scope.characters);
     };
 
-    // $scope.getClasses = function() {
-    //   console.log("Getting classes");
-    //   ChCtrl.classList = [];
-    //   requestResource("http://www.dnd5eapi.co/api/classes/", function(results) {
-    //     var data = JSON.parse(results);
-    //     console.log(data);
-    //
-    //     $scope.$apply(){
-    //       ChCtrl.classList = data.results;
-    //
-    //     }
-    //     console.log(ChCtrl.classList);
-    //
-    //     var display = "";
-    //     data.results.forEach(function(result) {
-    //       display +=
-    //         "<div class='col-lg-2 col-md-2 col-sm-2'>" +
-    //           "<div class='card text-center'>" +
-    //             "<div class='card-content' onclick='requestClassDetail(&quot " + result.url + " &quot)' style='background-color: firebrick; color: white;'>" +
-    //               result.name +
-    //             "</div>" +
-    //           "</div>" +
-    //         "</div>";
-    //     });
-    //
-    //   });
-    // };
-
-    // $scope.chClass.name = "";
     $scope.getClassInfo = function(url) {
       console.log("Getting class information");
-      requestClassDetail(url);
-      // requestResource(url, function(results) {
-      //     var data = JSON.parse(results);
-      //     console.log(data);
-      // });
+      requestResource(url, function(results) {
+          var data = JSON.parse(results);
+          console.log("Active Class: " + ChCtrl.activeClass.name);
+          console.log(data);
+          ChCtrl.activeClass = angular.fromJson(results);
+          console.log("Active Class: " + ChCtrl.activeClass.name);
+          $scope.$apply();
+      });
     };
 
     $scope.addClass = function(attrClass) {
       console.log("Adding class info");
-      console.log(attrClass);
-      if (!$scope.activeCharacter || !attrClass) {
+      // console.log(attrClass);
+      if (!$scope.activeCharacter) {
         return;
       }
       $scope.activeCharacter.qualities.push({
-        class: attrClass.class,
-        proficiencies: attrClass.proficiencies,
-        customProf: attrClass.customProf,
+        class: ChCtrl.activeClass.name,
+        // proficiencies: attrClass.proficiencies,
+        // customProf: attrClass.customProf,
       });
       //    $scope.characterModal.hide();
 
