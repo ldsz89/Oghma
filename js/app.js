@@ -157,16 +157,16 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter) {
         return;
       }
-      // $scope.activeCharacter.qualities.push({
-      //   class: ChCtrl.activeClass.name,
-      //   proficiencies: ChCtrl.activeClass.proficiencies,
-      //   // customProf: attrClass.customProf,
-      // });
-      var addItem = {
-        class: ChCtrl.activeClass.name,
-        proficiencies: ChCtrl.activeClass.proficiencies,
-      }
-      $scope.activeCharacter.class = addItem;
+       $scope.activeCharacter.qualities.push({
+         class: ChCtrl.activeClass.name,
+         proficiencies: ChCtrl.activeClass.proficiencies,
+         hit_die: ChCtrl.activeClass.hit_die
+       });
+//      var addItem = {
+//        class: ChCtrl.activeClass.name,
+//        proficiencies: ChCtrl.activeClass.proficiencies,
+//      }
+//      $scope.activeCharacter.class = addItem;
 
       // Inefficient, but save all the projects
       console.log("Class info added");

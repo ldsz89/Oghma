@@ -47,9 +47,9 @@ function requestClassDetail(url) {
     $("#class_name").val(data.name);
     console.log($("#class_name").val());
     $("#classModalContentInfo").html(
-      "<legend style='color: white;'> Class: " + data.name + "</legend>" +
+      "<legend ng-model='attrClass.name' style='color: white;'> Class: " + data.name + "</legend>" +
       "<input ng-model='attrClass.name' ng-init='attrClass.class=\' " + data.name + " \''  value='" + data.name + "' style='color: black;' />" +
-      "<p style='color: white;'>Hit Die: " + data.hit_die + "</p>" +
+      "<p ng-model='attrClass.hit_die' style='color: white;'>Hit Die: " + data.hit_die + "</p>" +
       "<div class='col-lg-6 col-md-6 col-sm-6'>" +
         "<h3>Proficiencies</h3>" +
         "<div style='color: white;'>" +
