@@ -100,6 +100,7 @@ angular.module('creatorApp', [])
     console.log(Characters.getLastActiveIndex());
     // Grab the last active, or the first character
     $scope.activeCharacter = $scope.characters[Characters.getLastActiveIndex()];
+    console.log($scope.activeCharacter.name);
 
     $scope.remaining = function() {
       var count = 0;
