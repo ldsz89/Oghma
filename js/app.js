@@ -148,10 +148,11 @@ angular.module('creatorApp', [])
     };
 
     $scope.addBasicInfo = function(info) {
-      console.log("Saving basic info");
       if (!$scope.activeCharacter || !info) {
         return;
       }
+      
+      $("#green_check").css("display", "inline");
       $scope.activeCharacter.basic = [];
       
       $scope.activeCharacter.basic.push({
@@ -160,9 +161,10 @@ angular.module('creatorApp', [])
         alignment: info.alignment,
         background: info.background
       });
-
-      console.log("success!");
       Characters.save($scope.characters);
+      console.log("testing");
+//      setTimeout(function(){      $("#green_check").css("display": "inline");
+//      },2000);
     };
 
     $scope.getClassInfo = function(url) {
