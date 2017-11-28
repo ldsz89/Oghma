@@ -20,7 +20,10 @@ angular.module('creatorApp', [])
         // Add a new character
         return {
           name: characterName,
-          qualities: [],
+          basic: [],
+          race: [],
+          class: [],
+          abilities: [],
         };
       },
       getLastActiveIndex: function() {
@@ -83,7 +86,7 @@ angular.module('creatorApp', [])
     $scope.remaining = function() {
       var count = 0;
 
-      angular.forEach($scope.activeCharacter.qualities, function(listAttr) {
+      angular.forEach($scope.activeCharacter, function(listAttr) {
         count += listAttr.done ? 0 : 1;
       });
 
@@ -131,7 +134,7 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter || !info) {
         return;
       }
-      $scope.activeCharacter.qualities.push({
+      $scope.activeCharacter.basic.push({
         level: info.level,
         age: info.age,
         alignment: info.alignment,
@@ -157,7 +160,7 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter) {
         return;
       }
-       $scope.activeCharacter.qualities.push({
+       $scope.activeCharacter.class.push({
          class: ChCtrl.activeClass.name,
          proficiencies: ChCtrl.activeClass.proficiencies,
          hit_die: ChCtrl.activeClass.hit_die
@@ -187,19 +190,19 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter) {
         return;
       }
-      // $scope.activeCharacter.qualities.push({
-      //   race: ChCtrl.activeRace.name,
-      //   languages: ChCtrl.activeRace.languages,
-      //   ability_bonuses: ChCtrl.activeRace.ability_bonuses,
-      //   traits: ChCtrl.activeRace.traits
-      // });
-      var addItem = {
-        race: ChCtrl.activeRace.name,
-        languages: ChCtrl.activeRace.languages,
-        ability_bonuses: ChCtrl.activeRace.ability_bonuses,
-        traits: ChCtrl.activeRace.traits
-      };
-      $scope.activeCharacter.race = addItem;
+       $scope.activeCharacter.race.push({
+         race: ChCtrl.activeRace.name,
+         languages: ChCtrl.activeRace.languages,
+         ability_bonuses: ChCtrl.activeRace.ability_bonuses,
+         traits: ChCtrl.activeRace.traits
+       });
+//      var addItem = {
+//        race: ChCtrl.activeRace.name,
+//        languages: ChCtrl.activeRace.languages,
+//        ability_bonuses: ChCtrl.activeRace.ability_bonuses,
+//        traits: ChCtrl.activeRace.traits
+//      };
+//      $scope.activeCharacter.race = addItem;
 
       console.log("Race info added");
       console.log($scope.activeCharacter);

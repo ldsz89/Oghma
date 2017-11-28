@@ -29,6 +29,7 @@ window.onclick = function(event) {
 var raceModal = document.getElementById("raceModal");
 var raceModalBtn = document.getElementById("raceModalBtn");
 var raceClose = document.getElementById("raceClose");
+var addRaceBtn = document.getElementById("addRaceBtn");
 
 // When the user clicks the button, open the modal
 raceModalBtn.onclick = function() {
@@ -37,6 +38,10 @@ raceModalBtn.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 raceClose.onclick = function() {
+    raceModal.style.display = "none";
+}
+
+addRaceBtn.onclick = function() {
     raceModal.style.display = "none";
 }
 

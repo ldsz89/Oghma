@@ -108,7 +108,7 @@ function requestRaceDetail(url) {
     console.log(data);
     $("#raceModalContentInfo").html(
       "<div style='color: white;' class = col-lg-12 col-md-12>" +
-        "<h2>Race: " + data.name + " <small>Speed: " + data.speed + "</small></h2>" +
+        "<h2 ng-model='>Race: " + data.name + " <small>Speed: " + data.speed + "</small></h2>" +
         "<input type='hidden' value='" + data.name + "'>" +
         "<div id='ability_bonuses'></div>" +
         "<h4>Alignment: " + data.alignment + "</h4>" +

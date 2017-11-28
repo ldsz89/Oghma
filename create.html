@@ -89,26 +89,26 @@
                       <div class="row">
                         <div class="col-lg-1">
                           <div class="form-group label-floating">
-            								<label class="control-label">Level</label>
-            								<input ng-model="info.level" type="number" class="form-control">
-            						  </div>
+            					<label class="control-label">Level</label>
+            					<input ng-model="info.level" type="number" class="form-control" ng-value="activeCharacter.basic[0].level">
+            		      </div>
                         </div>
                         <div class="col-lg-1">
                           <div class="form-group label-floating">
                             <label class="control-label">Age</label>
-            								<input ng-model="info.age" type="number" class="form-control">
-  												</div>
+            				<input ng-model="info.age" type="number" class="form-control" ng-value="activeCharacter.basic[0].age">
+  						  </div>
                         </div>
                         <div class="col-lg-5">
                           <div class="form-group label-floating">
                               <label class="control-label">Alignment</label>
-                              <input ng-model="info.alignment" type="text" class="form-control">
+                              <input ng-model="info.alignment" type="text" class="form-control" ng-value="activeCharacter.basic[0].alignment">
                           </div>
                         </div>
                         <div class="col-lg-5">
                           <div class="form-group label-floating">
                               <label class="control-label">Background</label>
-                              <input ng-model="info.background" type="text" class="form-control">
+                              <input ng-model="info.background" type="text" class="form-control" ng-value="activeCharacter.basic[0].background">
                           </div>
                         </div>
                       </div>
@@ -127,11 +127,11 @@
                     <h4>Classes</h4>
                   </div>
                   <div class="card-content">
-                    <p ng-if="activeCharacter.qualities[0].class" class="category">{{activeCharacter.qualities[0].class}}</p>
-                    <p ng-if="!activeCharacter.qualities[0].class" class="category">Who are you?</p>
+                    <p ng-if="activeCharacter.class[0].class" class="category">{{activeCharacter.class[0].class}}</p>
+                    <p ng-if="!activeCharacter.class[0].class" class="category">Who are you?</p>
                   </div>
                   <div class="card-footer">
-                    <button class="btn" style="background-color: FireBrick; color: white;" id="classModalBtn">More</button>
+                    <button class="btn" style="background-color: FireBrick; color: white;" id="classModalBtn">Change</button>
                   </div>
                 </div>
               </div>
@@ -141,10 +141,11 @@
                     <h4>Races</h4>
                   </div>
                   <div class="card-content">
-                    <p class="category">What are you</p>
+                    <p ng-if="activeCharacter.race[0].race" class="category">{{activeCharacter.race[0].race}}</p>
+                    <p ng-if="!activeCharacter.race[0].race" class="category">What are you?</p>
                   </div>
                   <div class="card-footer">
-                    <a class="btn" style="background-color: FireBrick; color: white;" id="raceModalBtn" ng-click="newProject()">More</a>
+                    <button class="btn" style="background-color: FireBrick; color: white;" id="raceModalBtn">Change</button>
                   </div>
                 </div>
               </div>
@@ -267,7 +268,7 @@
             </div>
           </div>
           <div align="right">
-            <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Submit</button>
+            <button type="submit" id="addRaceBtn" class="btn" style="background-color: FireBrick; color: white;">Add Race</button>
           </div>
         </form>
       </div>
