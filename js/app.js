@@ -106,13 +106,6 @@ angular.module('creatorApp', [])
       //    $ionicSideMenuDelegate.toggleLeft(false);
     };
 
-    //  // Create our modal
-    //  $ionicModal.fromTemplateUrl('new-character.html', function(modal) {
-    //    $scope.characterModal = modal;
-    //  }, {
-    //    scope: $scope
-    //  });
-
     $scope.requestResource = function(url) {
       console.log("URL: " + url);
       var data = null;

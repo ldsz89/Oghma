@@ -25,7 +25,7 @@
     <script src="js/app.js"></script>
   </head>
 
-  <body style="font-family: 'Creepster'">
+  <body style="font-family: 'Creepster'" ng-app="creatorApp" ng-controller="CharacterCtrl as ChCtrl">
     <div class="wrapper">
       <div class="sidebar" style="background-attachment: fixed; background-image:url(test.jpg);">
         <div class="sidebar-wrapper">
@@ -74,8 +74,17 @@
         <div class="content">
           <div class="container-fluid">
             <div class="jumbotron">
-              <h1>Characters</h1>
+              <h1>Characters {{activeCharacter.name}}</h1>
               <p>Select a character to see see their character sheet</p>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 col-md-2" ng-repeat="char in characters track by $index">
+                <div class="card text-center" style="background-color: firebrick;">
+                  <div class="card-content" style="color: white;">
+                    {{char.name}}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
