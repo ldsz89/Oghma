@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Oghma | Character Creator</title>
+    <meta charset="utf-8">
+
+    <link href='https://fonts.googleapis.com/css?family=Creepster' rel='stylesheet'>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet">
+    <link rel="stylesheet" href="css/output.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/material.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+
+  <body style="font-family: 'Creepster'" ng-app="creatorApp" ng-controller="CharacterCtrl as ChCtrl">
+    <div class="wrapper">
+      <div class="sidebar" style="background-attachment: fixed; background-image:url(test.jpg);">
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="active">
+              <a href="dashboard.html">
+                <i class="material-icons">dashboard</i>
+                <p style="color:white;">Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="create.html">
+                <i class="material-icons">person_add</i>
+                <p style="color: white;">Create Character</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                  <i class="material-icons">class</i>
+                  <p style="color: white;">Classes</p>
+                </a>
+            </li>
+            <li>
+              <a href="#">
+                  <i class="material-icons">face</i>
+                  <p style="color: white;">Races</p>
+                </a>
+            </li>
+            <li>
+              <a href="#">
+                  <i class="material-icons">pan_tool</i>
+                  <p style="color: white;">Abilities</p>
+                </a>
+            </li>
+            <li>
+              <a href="#">
+                  <i class="material-icons">extension</i>
+                  <p style="color: white;">Other Stuff</p>
+                </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="main-panel" style="background-attachment: fixed; background-image: url(test.jpg);">
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <div class="card card-nav-tab">
+                  <div class="card-header" style="background-color: firebrick;">
+                    <div class="nav-tabs=navigation">
+                      <div class="nav-tabs-wrapper">
+                        <span class="nav-tabs-title">{{activeCharacter.name}}:</span>
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                          <li class="active">
+                            <a href="#general" data-toggle="tab">
+                              General
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#equipment" data-toggle="tab">
+                              Equipment
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#spells" data-toggle="tab">
+                              Spells
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#features" data-toggle="tab">
+                              Features
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#skills" data-toggle="tab">
+                              Skills
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#proficiencies" data-toggle="tab">
+                              Proficiencies
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#traits" data-toggle="tab">
+                              Traits
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#notes" data-toggle="tab">
+                              Notes
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="general">
+                        <div class="row text-center">
+                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">HP</div>
+                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">AC</div>
+                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">Init</div>
+                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">{{activeCharacter.general.level}}<br />Level</div>
+                        </div>
+                        <div class="row text-center">
+                          <div class="col-lg-6 col-md-6 col-sm-3 col-sx-3 well">Strength</div>
+                          <div class="col-lg-6 col-md-6 col-sm-3 col-sx-3 well">Intelligence</div>
+                        </div>
+                        <div class="row text-center">
+                          <div class="col-lg-6 col-md-6 col-sm-3 col-sx-3 well">Dexterity</div>
+                          <div class="col-lg-6 col-md-6 col-sm-3 col-sx-3 well">Wisdom</div>
+                        </div>
+                        <div class="row text-center">
+                          <div class="col-lg-6 col-md-6 col-sm-3 col-sx-3 well">Constitution</div>
+                          <div class="col-lg-6 col-md-6 col-sm-3 col-sx-3 well">Charisma</div>
+                        </div>
+                        <div class="row text-center">
+                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">{{activeCharacter.race.speed}}<br />Speed</div>
+                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">Prof</div>
+                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">Carrying</div>
+                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">Inspiration</div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="equipment"></div>
+                      <div class="tab-pane" id="spells"></div>
+                      <div class="tab-pane" id="features"></div>
+                      <div class="tab-pane" id="skills"></div>
+                      <div class="tab-pane" id="proficiencies"></div>
+                      <div class="tab-pane" id="traits"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
