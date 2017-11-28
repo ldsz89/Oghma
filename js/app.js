@@ -150,16 +150,16 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter || !info) {
         return;
       }
-      
-      $("#green_check").css("display", "inline");
-      $scope.activeCharacter.basic = [];
 
-      $scope.activeCharacter.basic.push({
+      $("#green_check").css("display", "inline");
+
+      $scope.activeCharacter.basic = {
         level: info.level,
         age: info.age,
         alignment: info.alignment,
         background: info.background
-      });
+      }
+
       Characters.save($scope.characters);
       console.log("testing");
 //      setTimeout(function(){      $("#green_check").css("display": "inline");
@@ -182,12 +182,12 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter) {
         return;
       }
-      $scope.activeCharacter.class = [];
-       $scope.activeCharacter.class.push({
+
+       $scope.activeCharacter.class = {
          class: ChCtrl.activeClass.name,
          proficiencies: ChCtrl.activeClass.proficiencies,
          hit_die: ChCtrl.activeClass.hit_die
-       });
+       }
 
       // Inefficient, but save all the projects
       console.log("Class info added");
@@ -209,13 +209,12 @@ angular.module('creatorApp', [])
         return;
       }
 
-      $scope.activeCharacter.race = [];
-       $scope.activeCharacter.race.push({
+      $scope.activeCharacter.race = {
          race: ChCtrl.activeRace.name,
          languages: ChCtrl.activeRace.languages,
          ability_bonuses: ChCtrl.activeRace.ability_bonuses,
          traits: ChCtrl.activeRace.traits
-       });
+       }
 
       console.log("Race info added");
       console.log($scope.activeCharacter);

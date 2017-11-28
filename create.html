@@ -94,31 +94,31 @@
                         <div class="col-lg-1">
                           <div class="form-group label-floating">
             					<label class="control-label">Level</label>
-            					<input ng-model="info.level" type="number" class="form-control" ng-value="activeCharacter.basic[0].level">
+            					<input ng-model="info.level" type="number" class="form-control" ng-value="activeCharacter.basic.level">
             		      </div>
                         </div>
                         <div class="col-lg-1">
                           <div class="form-group label-floating">
                             <label class="control-label">Age</label>
-            				<input ng-model="info.age" type="number" class="form-control" ng-value="activeCharacter.basic[0].age">
-  						  </div>
+                    				<input ng-model="info.age" type="number" class="form-control" ng-value="activeCharacter.basic.age">
+          						  </div>
                         </div>
                         <div class="col-lg-5">
                           <div class="form-group label-floating">
                               <label class="control-label">Alignment</label>
-                              <input ng-model="info.alignment" type="text" class="form-control" ng-value="activeCharacter.basic[0].alignment">
+                              <input ng-model="info.alignment" type="text" class="form-control" ng-value="activeCharacter.basic.alignment">
                           </div>
                         </div>
                         <div class="col-lg-5">
                           <div class="form-group label-floating">
                               <label class="control-label">Background</label>
-                              <input ng-model="info.background" type="text" class="form-control" ng-value="activeCharacter.basic[0].background">
+                              <input ng-model="info.background" type="text" class="form-control" ng-value="activeCharacter.basic.background">
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="card-footer">
-                      <i id="green_check" style="color: #44a944; display: none;" class="material-icons">check_circle</i> 
+                      <i id="green_check" style="color: #44a944; display: none;" class="material-icons">check_circle</i>
                       <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Submit</button>
                     </div>
                   </div>
@@ -133,8 +133,8 @@
                     <h4 style="display: inline-block">Class</h4>
                   </div>
                   <div class="card-content">
-                    <p ng-if="activeCharacter.class[0].class" class="category">{{activeCharacter.class[0].class}}</p>
-                    <p ng-if="!activeCharacter.class[0].class" class="category">Who are you?</p>
+                    <p ng-if="activeCharacter.class.class" class="category">{{activeCharacter.class.class}}</p>
+                    <p ng-if="!activeCharacter.class.class" class="category">Who are you?</p>
                   </div>
                   <div class="card-footer">
                     <button class="btn" style="background-color: FireBrick; color: white;" id="classModalBtn">Change</button>
@@ -148,8 +148,8 @@
                     <h4 style="display: inline-block">Race</h4>
                   </div>
                   <div class="card-content">
-                    <p ng-if="activeCharacter.race[0].race" class="category">{{activeCharacter.race[0].race}}</p>
-                    <p ng-if="!activeCharacter.race[0].race" class="category">What are you?</p>
+                    <p ng-if="activeCharacter.race.race" class="category">{{activeCharacter.race.race}}</p>
+                    <p ng-if="!activeCharacter.race.race" class="category">What are you?</p>
                   </div>
                   <div class="card-footer">
                     <button class="btn" style="background-color: FireBrick; color: white;" id="raceModalBtn">Change</button>
