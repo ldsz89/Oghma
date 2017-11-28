@@ -164,12 +164,16 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter) {
         return;
       }
-      $scope.activeCharacter.qualities.push({
+      // $scope.activeCharacter.qualities.push({
+      //   class: ChCtrl.activeClass.name,
+      //   proficiencies: ChCtrl.activeClass.proficiencies,
+      //   // customProf: attrClass.customProf,
+      // });
+      var addItem = {
         class: ChCtrl.activeClass.name,
         proficiencies: ChCtrl.activeClass.proficiencies,
-        // customProf: attrClass.customProf,
-      });
-      //    $scope.characterModal.hide();
+      }
+      $scope.activeCharacter.class = addItem;
 
       // Inefficient, but save all the projects
       console.log("Class info added");
@@ -190,14 +194,22 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter) {
         return;
       }
-      $scope.activeCharacter.qualities.push({
+      // $scope.activeCharacter.qualities.push({
+      //   race: ChCtrl.activeRace.name,
+      //   languages: ChCtrl.activeRace.languages,
+      //   ability_bonuses: ChCtrl.activeRace.ability_bonuses,
+      //   traits: ChCtrl.activeRace.traits
+      // });
+      var addItem = {
         race: ChCtrl.activeRace.name,
         languages: ChCtrl.activeRace.languages,
         ability_bonuses: ChCtrl.activeRace.ability_bonuses,
         traits: ChCtrl.activeRace.traits
-      });
+      };
+      $scope.activeCharacter.race = addItem;
 
       console.log("Race info added");
+      console.log($scope.activeCharacter);
       Characters.save($scope.characters);
     };
 

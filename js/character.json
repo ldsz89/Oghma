@@ -1,23 +1,21 @@
 {
   "name": "",
-  "qualities" : [
-    {
-      "level": 1,
-      "age": 0,
-      "alignment": "",
-      "background": ""
-    },
-    {
-      "class": "",
-      "proficiencies": [],
-      "customProf": []
-    },
-    {
-      "race": "",
-      "size": "",
-      "speed": "",
-      "languages": [],
-      "traits": []
-    }
-  ]
+  "info": {
+    "level": 1,
+    "age": 0,
+    "alignment": "",
+    "background": ""
+  },
+  "class": {
+    "class": "",
+    "proficiencies": [],
+    "customProf": []
+  },
+  "race": {
+    "race": "",
+    "size": "",
+    "speed": "",
+    "languages": [],
+    "traits": []
+  }
 }
