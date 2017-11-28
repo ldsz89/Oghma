@@ -12,13 +12,11 @@ classModalBtn.onclick = function() {
 // Close Class Modal when x is clicked
 classClose.onclick = function() {
   classModal.style.display = "none";
-  $("#classModalContentInterior").html("");
 }
 
 window.onclick = function(event) {
   if(event.target == classModal) {
     classModal.style.display = "none";
-    $("#classModalContentInterior").html("");
   }
 }
 
