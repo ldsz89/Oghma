@@ -24,6 +24,25 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
   <script src="js/app.js"></script>
+
+  <style>
+    .card {
+    }
+
+    .card-content {
+      cursor: pointer;
+      color: white;
+    }
+
+    .card-footer {
+      display: none;
+    }
+
+    .card:hover .card-footer {
+      display: block;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body style="font-family: 'Creepster'" ng-app="creatorApp" ng-controller="CharacterCtrl as ChCtrl">
@@ -55,11 +74,18 @@
             </div>
             <div class="row">
               <div class="col-lg-2 col-md-2" ng-repeat="char in characters track by $index">
-                
-                  <div class="btn card text-center" ng-click="openCharacter($index)" style="background: FireBrick; color: white;">{{char.name}}
-                    <span class="btn" ng-click="delete($index)" style="float: right">
-                            <i class="material-icons">delete</i>
-                    </span></div>
+
+                  <div class="card text-center" ng-click="openCharacter($index)" style="background: FireBrick; color: white;">
+                    <div class="card-content" style="color: white;">
+                      {{char.name}}
+                    </div>
+                    <div class="card-footer">
+                      <span class="btn" ng-click="delete($index)">
+                        <i class="material-icons">delete</i>
+                      </span>
+                    </div>
+                  </div>
+
               </div>
             </div>
           </div>
