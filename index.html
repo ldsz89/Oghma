@@ -94,42 +94,24 @@
 
 <body ng-app="creatorApp" ng-controller="CharacterCtrl" style="font-family: 'Creepster';">
   <div class="wrapper">
-    <!--    <div class="sidebar">
+    <div class="sidebar" style="background-attachment: fixed; background-image:url(test.jpg); z-index: 10;">
         <div class="sidebar-wrapper">
           <ul class="nav">
             <li class="active">
-              <a href="index.html" data-color="purple">
-                <i class="material-icons">dashboard</i>
-                <p>Dashboard</p>
+              <a href="dashboard.html">
+                  <i class="material-icons">dashboard</i>
+                  <p style="color: white;">Dashboard</p>
               </a>
             </li>
             <li>
-              <a href="#">
-                <i class="material-icons">person</i>
-                <p>Classes</p>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="material-icons">delete</i>
-                <p>Races</p>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="material-icons">delete</i>
-                <p>Abilities</p>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="material-icons">delete</i>
-                <p>Other Stuff</p>
+              <a href="index.html">
+                <i class="material-icons">person_add</i>
+                <p style="color: white;">Create Character</p>
               </a>
             </li>
           </ul>
         </div>
-      </div>  -->
+      </div> 
     <!-- The Modal -->
     <div id="newCharacterModal" class="modal">
 
@@ -141,7 +123,7 @@
       </div>
 
     </div>
-    <div class="main-panel" style="float: none; width: auto; background-image: url('indexBack.jpg'); background-repeat: no-repeat; background-size: 100%;">
+    <div class="main-panel" style="float: none; width: auto; background-image: url('indexBack.jpg'); background-repeat: no-repeat; background-size: 100%; z-index: 0;">
       <div class="content">
         <div class="container-fluid" align="center">
           <div align="center" class="jumbotron" style="width: 50%;">
