@@ -81,14 +81,11 @@
             </div>
             <div class="row">
               <div class="col-lg-2 col-md-2" ng-repeat="char in characters track by $index">
-                <div class="card text-center" style="background-color: firebrick;">
-                  <p class="btn card text-center" ng-click="openCharacter($index)" style="background: FireBrick; color: white;">{{char.name}}
-                   </p>
-                  <div class="btn" ng-click="delete($index)">
-                      <i class="material-icons">delete</i>
-                    </div>
-               
-                </div>
+                
+                  <div class="btn card text-center" ng-click="openCharacter($index)" style="background: FireBrick; color: white;">{{char.name}}
+                    <span class="btn" ng-click="delete($index)" style="float: right">
+                            <i class="material-icons">delete</i>
+                    </span></div>
               </div>
             </div>
           </div>
