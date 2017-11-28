@@ -24,6 +24,7 @@ angular.module('creatorApp', [])
           race: [],
           class: [],
           abilities: [],
+          remove: false
         };
       },
       getLastActiveIndex: function() {
@@ -81,7 +82,18 @@ angular.module('creatorApp', [])
       document.location.href = "create.html";
     };
 
-
+    $scope.delete = function(index){
+      console.log($scope[index]);
+//      var characters = $scope.characters;
+//      $scope.characters = [];
+//      
+//      angular.forEach(characters, function(update) {
+//               if (!update.remove)
+//                   $scope.characters.push(update);
+//                   Characters.save($scope.characters);
+//           });
+    };
+              
     // Load or initialize characters
     $scope.characters = Characters.all();
 
@@ -162,6 +174,7 @@ angular.module('creatorApp', [])
       });
     };
 
+// Add class attribute
     $scope.addClass = function(attrClass) {
       console.log("Adding class info");
       // console.log(attrClass);
@@ -174,11 +187,6 @@ angular.module('creatorApp', [])
          proficiencies: ChCtrl.activeClass.proficiencies,
          hit_die: ChCtrl.activeClass.hit_die
        });
-//      var addItem = {
-//        class: ChCtrl.activeClass.name,
-//        proficiencies: ChCtrl.activeClass.proficiencies,
-//      }
-//      $scope.activeCharacter.class = addItem;
 
       // Inefficient, but save all the projects
       console.log("Class info added");
@@ -207,13 +215,6 @@ angular.module('creatorApp', [])
          ability_bonuses: ChCtrl.activeRace.ability_bonuses,
          traits: ChCtrl.activeRace.traits
        });
-//      var addItem = {
-//        race: ChCtrl.activeRace.name,
-//        languages: ChCtrl.activeRace.languages,
-//        ability_bonuses: ChCtrl.activeRace.ability_bonuses,
-//        traits: ChCtrl.activeRace.traits
-//      };
-//      $scope.activeCharacter.race = addItem;
 
       console.log("Race info added");
       console.log($scope.activeCharacter);
@@ -247,21 +248,6 @@ angular.module('creatorApp', [])
     //       var oldTasks = $scope.projects[index].tasks;
     //       $scope.projects[index].tasks = [];
     //    };
-
-    //Called to delete a selected project
-    //   $scope.delete = function(index) {
-    //       $scope.projects[index].remove = true;
-    //       console.log(index);
-    //       $scope.archiveAll(index);
-    //
-    //       var projects = $scope.projects;
-    //       $scope.projects = [];
-    //       angular.forEach(projects, function(todo) {
-    //           if (!todo.remove)
-    //               $scope.projects.push(todo);
-    //               Projects.save($scope.projects);
-    //       });
-    //   };
 
     //  $scope.refresh = function(checked) {
     //      Projects.save($scope.projects);
