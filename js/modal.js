@@ -28,21 +28,16 @@ var raceClose = document.getElementById("raceClose");
 // When the user clicks the button, open the modal
 raceModalBtn.onclick = function() {
     raceModal.style.display = "block";
-    requestRaces();
 }
 
 // When the user clicks on <span> (x), close the modal
 raceClose.onclick = function() {
     raceModal.style.display = "none";
-    $("#raceModalContentInterior").html("");
-    $("#raceModalContentInfo").html("");
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == raceModal) {
         raceModal.style.display = "none";
-        $("#raceModalContentInterior").html("");
-        $("#raceModalContentInfo").html("");
     }
 }

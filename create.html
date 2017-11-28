@@ -195,11 +195,28 @@
             </div>
           </div>
           <div id="classModalContentInfo" style="color: white;">
-            <h1>{{ChCtrl.activeClass.name}}</h1>
+            <legend style="color: white;">Class: {{ChCtrl.activeClass.name}}</legend>
+            <p>Hit Die: {{ChCtrl.activeClass.hit_die}}</p>
+            <div class="col-lg-6 col-md-6">
+              <h3>Proficiencies</h3>
+              <ul>
+                <li ng-repeat="prof in ChCtrl.activeClass.proficiencies track by $index">
+                  {{prof.name}}
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <h3>Proficiency Choices</h3>
+              <h5>(Limit {{ChCtrl.activeClass.proficiency_choices[0].choose}})</h5>
+              <ul>
+                <li ng-repeat="prof in ChCtrl.activeClass.proficiency_choices[0].from track by $index">
+                  <input class='limit-checkbox' type='checkbox' name='skill_prof' value="{{prof.name}}" />
+                  <label>{{prof.name}}</label>
+                </li>
+              </ul>
+            </div>
           </div>
           <div align="right">
-            <input type="text" ng-model="attrClass.class" style="color: black;" />
-            <!-- <input type="hidden" id="class_name" value="none" ng-model="attrClass.name" ng-init="attrClass.class='Barbarian'" style="color: black;" /> -->
             <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Add Class</button>
           </div>
         </form>
@@ -212,9 +229,41 @@
       <div id="raceModalContent" class="modal-content row" style="background-image:url(test.jpg);">
         <span id="raceClose" class="close">&times;</span>
         <h2 style="color: white;">Races <img src="image/dragon.png" class="image1"></h2>
-        <div id="raceModalContentInterior" class="col-lg-12 col-md-12"></div>
+        <div id="raceModalContentInterior" class="col-lg-12 col-md-12">
+          <div class="col-lg-2 col-md-2" ng-repeat="race in ChCtrl.raceList track by $index">
+            <div class="card text-center">
+              <div style='background-color: firebrick; color: white;' class="card-content" ng-click="getRaceInfo(race.raceURL)">
+                {{race.raceName}}
+              </div>
+            </div>
+          </div>
+        </div>
         <form ng-submit="addRace(race)">
-          <div id="raceModalContentInfo"></div>
+          <div id="raceModalContentInfo" style="color: white;">
+            <div class="col-lg-12 col-md-12">
+              <h2>Race: {{ChCtrl.activeRace.name}}</h2>
+              <div class="col-lg-2 col-md-2" ng-repeat="abl in ChCtrl.activeRace.ability_bonuses track by $index">
+                  <div class="card text-center">
+                    <div class="card-content">
+                      {{abl}}
+                    </div>
+                  </div>
+                </div>
+              <h4>Alignment: <small style="color: white;">{{ChCtrl.activeRace.alignment}}</small></h4>
+              <h4>Age: <small style="color: white;">{{ChCtrl.activeRace.age}}</small></h4>
+              <h4>Size: <small style="color: white;">{{ChCtrl.activeRace.size_description}}</small></h4>
+              <h4>Languages:</h4>
+              <div class="col-lg-12 col-md-12">
+                <div class="col-lg-2 col-md-2" ng-repeat="lang in ChCtrl.activeRace.languages">
+                  <div class="card text-center">
+                    <div class="card-content">
+                      {{lang.name}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div align="right">
             <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Submit</button>
           </div>
@@ -222,6 +271,14 @@
       </div>
     </div>
 
+    <script>
+      var limit = ChCtrl.activeClass.proficiency_choices[0].choose;
+      $("input.limit-checkbox").on('change', function(evt) {
+        if ($(this).siblings(':checked').length >= limit) {
+          this.checked = false;
+        }
+      });
+    </script>
     <script src="js/request.js"></script>
     <script src="js/modal.js"></script>
   </body>

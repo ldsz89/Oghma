@@ -37,21 +37,30 @@ angular.module('creatorApp', [])
     var ChCtrl = this;
     // Classes to be loaded by API call
     ChCtrl.classList = [
-                        {className: "Barbarian", classURL: "http://www.dnd5eapi.co/api/classes/1"},
-                        {className: "Bard", classURL: "http://www.dnd5eapi.co/api/classes/2"},
-                        {className: "Cleric", classURL: "http://www.dnd5eapi.co/api/classes/3"},
-                        {className: "Druid", classURL: "http://www.dnd5eapi.co/api/classes/4"},
-                        {className: "Fighter", classURL: "http://www.dnd5eapi.co/api/classes/5"},
-                        {className: "Monk", classURL: "http://www.dnd5eapi.co/api/classes/6"},
-                        {className: "Paladin", classURL: "http://www.dnd5eapi.co/api/classes/7"},
-                        {className: "Ranger", classURL: "http://www.dnd5eapi.co/api/classes/8"},
-                        {className: "Rogue", classURL: "http://www.dnd5eapi.co/api/classes/9"},
-                        {className: "Sorcerer", classURL: "http://www.dnd5eapi.co/api/classes/10"},
-                        {className: "Warlock", classURL: "http://www.dnd5eapi.co/api/classes/11"},
-                        {className: "Wizard", classURL: "http://www.dnd5eapi.co/api/classes/12"}
-                      ];
+      {className: "Barbarian", classURL: "http://www.dnd5eapi.co/api/classes/1"},
+      {className: "Bard", classURL: "http://www.dnd5eapi.co/api/classes/2"},
+      {className: "Cleric", classURL: "http://www.dnd5eapi.co/api/classes/3"},
+      {className: "Druid", classURL: "http://www.dnd5eapi.co/api/classes/4"},
+      {className: "Fighter", classURL: "http://www.dnd5eapi.co/api/classes/5"},
+      {className: "Monk", classURL: "http://www.dnd5eapi.co/api/classes/6"},
+      {className: "Paladin", classURL: "http://www.dnd5eapi.co/api/classes/7"},
+      {className: "Ranger", classURL: "http://www.dnd5eapi.co/api/classes/8"},
+      {className: "Rogue", classURL: "http://www.dnd5eapi.co/api/classes/9"},
+      {className: "Sorcerer", classURL: "http://www.dnd5eapi.co/api/classes/10"},
+      {className: "Warlock", classURL: "http://www.dnd5eapi.co/api/classes/11"},
+      {className: "Wizard", classURL: "http://www.dnd5eapi.co/api/classes/12"}
+    ];
 
     ChCtrl.activeClass = {name: "none"};
+
+    ChCtrl.raceList = [
+      {raceName: "Dwarf", raceURL: "http://www.dnd5eapi.co/api/races/1"},
+      {raceName: "Elf", raceURL: "http://www.dnd5eapi.co/api/races/2"},
+      {raceName: "Halfling", raceURL: "http://www.dnd5eapi.co/api/races/3"},
+      {raceName: "Human", raceURL: "http://www.dnd5eapi.co/api/races/4"}
+    ];
+
+    ChCtrl.activeRace = {name: "none"};
 
     // A utility function for creating a new character
     // with the given characterName
@@ -143,9 +152,6 @@ angular.module('creatorApp', [])
     $scope.getClassInfo = function(url) {
       console.log("Getting class information");
       requestResource(url, function(results) {
-          var data = JSON.parse(results);
-          console.log("Active Class: " + ChCtrl.activeClass.name);
-          console.log(data);
           ChCtrl.activeClass = angular.fromJson(results);
           console.log("Active Class: " + ChCtrl.activeClass.name);
           $scope.$apply();
@@ -160,7 +166,7 @@ angular.module('creatorApp', [])
       }
       $scope.activeCharacter.qualities.push({
         class: ChCtrl.activeClass.name,
-        // proficiencies: attrClass.proficiencies,
+        proficiencies: ChCtrl.activeClass.proficiencies,
         // customProf: attrClass.customProf,
       });
       //    $scope.characterModal.hide();
@@ -169,20 +175,26 @@ angular.module('creatorApp', [])
       console.log("Class info added");
       console.log($scope.activeCharacter);
       Characters.save($scope.characters);
-      //    attr.class = "";
-      //    task.title = "";
-      //    task.class = "";
-      //    task.due = "";
     };
+
+    $scope.getRaceInfo = function(url) {
+      console.log("Getting race information");
+      requestResource(url, function(results) {
+        ChCtrl.activeRace = angular.fromJson(results);
+        $scope.$apply();
+      });
+    }
 
     $scope.addRace = function(race) {
       console.log("Adding race info");
-      console.log(race);
-      if (!$scope.activeCharacter || !race) {
+      if (!$scope.activeCharacter) {
         return;
       }
       $scope.activeCharacter.qualities.push({
-        race: race.name
+        race: ChCtrl.activeRace.name,
+        languages: ChCtrl.activeRace.languages,
+        ability_bonuses: ChCtrl.activeRace.ability_bonuses,
+        traits: ChCtrl.activeRace.traits
       });
 
       console.log("Race info added");
