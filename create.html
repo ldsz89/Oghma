@@ -75,7 +75,7 @@
         <div class="content">
           <div class="container-fluid">
             <div class="jumbotron">
-              <h1>Create New Character</h1>
+                  <h1>Create New Character {{activeCharacter.name}}</h1>
             </div>
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -184,11 +184,26 @@
       <div id="classModalContent" class="modal-content row" style="background-image:url(test.jpg);">
         <span id="classClose" class="close">&times;</span>
         <h2 style="color: white;">Classes <img src="image/dragon.png" class="image1"></h2>
-        <form ng-submit="addClass(attrClass)">
+        <form ng-submit="addClass(classInfo)">
           <div id="classModalContentInterior"></div>
-          <div id="classModalContentInfo"></div>
+          <div id="classModalContentInfo">
+            <legend style='color: white;' id="className" ng-model='classInfo.name'> Class:</legend>
+            <p ng-model='classInfo.hit_die' id="hit_die" style='color: white;'>Hit Die: </p>
+            <div class='col-lg-6 col-md-6 col-sm-6'>
+              <h3 style='color: white;'>Proficiencies</h3>
+              <div style='color: white;'>
+                <ul style='color: white;' id='proficiencies'></ul>
+              </div>
+            </div>
+            <div style='color: white;' class='col-lg-6 col-md-6 col-sm-6'>
+              <h3 style='color: white;'>Skill Proficiency Choices</h3>
+              <h5 style='color: white;' id="limit">(Limit )</h5>
+              <div style='color: white;' id='skill_prof_choices'></div>
+            </div>
+          
+          </div>
           <div align="right">
-            <!-- <input type="text" id="class_name" value="none" ng-model="attrClass.class" ng-init="attrClass.class='Dwarf'" style="color: black;" /> -->
+            <input id="check1" type="checkbox" ng-model="classInfo.check" />
             <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Add Class</button>
           </div>
         </form>

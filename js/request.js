@@ -27,48 +27,30 @@ function requestClasses() {
     data.results.forEach(function(result) {
       $("#classModalContentInterior").append(
         "<div class='col-lg-2 col-md-2 col-sm-2'>" +
-          "<div class='card text-center'>" +
+          "<div class='card text-center' >" +
           "<div class='card-content' onclick='requestClassDetail(&quot " + result.url + " &quot)' style='background-color: firebrick; color: white;'>" +
             result.name +
           "</div>" +
         "</div>" +
-      "</div>"
-      );
+      "</div>");
     });
   });
 }
 
-function requestClassDetail(url) {
-  console.log("Class clicked");
-  console.log("URL: " + url);
+function requestClassDetail(url, name) {
   requestResource(url, function(results) {
     var data = JSON.parse(results);
-    console.log($("#class_name").val());
-    $("#class_name").val(data.name);
-    console.log($("#class_name").val());
-    $("#classModalContentInfo").html(
-      "<legend style='color: white;'> Class: " + data.name + "</legend>" +
-      "<p style='color: white;'>Hit Die: " + data.hit_die + "</p>" +
-      "<div class='col-lg-6 col-md-6 col-sm-6'>" +
-        "<h3 style='color: white;'>Proficiencies</h3>" +
-        "<div style='color: white;'>" +
-          "<ul style='color: white;' id='proficiencies'></ul>" +
-        "</div>" +
-      "</div>" +
-      "<div style='color: white;' class='col-lg-6 col-md-6 col-sm-6'>" +
-        "<h3 style='color: white;'>Skill Proficiency Choices</h3>" +
-        "<h5 style='color: white;'>(Limit " + data.proficiency_choices[0].choose + ")</h5>" +
-        "<div style='color: white;' id='skill_prof_choices'></div>" +
-      "</div>"
-    );
+    $("#className").html("Class: "+ data.name );
+    $("#hit_die").html("Hit Die: " + data.hit_die);
+    $("#limit").html("(Limit " + data.proficiency_choices[0].choose  + ")");
 
     data.proficiencies.forEach(function(prof) {
-      $("#proficiencies").append("<li ng-model='attrClass.proficiency'>" + prof.name + "</li>");
+      $("#proficiencies").append("<li ng-model='classInfo.proficiency' value=" + prof.name + ">" + prof.name + "</li>");
     });
 
     data.proficiency_choices[0].from.forEach(function(prof) {
       $("#skill_prof_choices").append(
-        "<input ng-model='attrClass.prof' class='limit-checkbox' type='checkbox' name='skill_prof' value='" + prof.name + "' />" +
+        "<input ng-model='classInfo.skill' class='limit-checkbox' type='checkbox' name='skill_prof' value='" + prof.name + "' />" +
         "<label>" + prof.name + "</label><br />"
       );
     });
@@ -108,7 +90,6 @@ function requestRaceDetail(url) {
     $("#raceModalContentInfo").html(
       "<div style='color: white;' class = col-lg-12 col-md-12>" +
         "<h2>Race: " + data.name + " <small>Speed: " + data.speed + "</small></h2>" +
-        "<input type='hidden' value='" + data.name + "'>" +
         "<div id='ability_bonuses'></div>" +
         "<h4>Alignment: " + data.alignment + "</h4>" +
         "<h4>" + data.age + "</h4>" +
@@ -166,11 +147,5 @@ function requestRaceDetail(url) {
         "</div>"
       );
     });
-
-    // $("raceModalContentInfo").append(
-    //   "<div align='right'>" +
-    //     "<button type='submit' class='btn' style='background-color: FireBrick; color: white;'>Submit</button>" +
-    //   "</div>"
-    // );
   });
 }
