@@ -198,7 +198,6 @@ angular.module('creatorApp', [])
       }
 
       Characters.save($scope.characters);
-      console.log("testing");
       setTimeout(function(){      
         $("#green_check").css("display:none");
         $("#green_check").fadeOut(1000);
@@ -213,7 +212,11 @@ angular.module('creatorApp', [])
       $("#attr_green_check").css("display", "inline");
 
       $scope.activeCharacter.basic.attributes = attributes;
-
+      
+      setTimeout(function(){      
+        $("#attr_green_check").css("display:none");
+        $("#attr_green_check").fadeOut(1000);
+      },2000);
       Characters.save($scope.characters);
     };
 
