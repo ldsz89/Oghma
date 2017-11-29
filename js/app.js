@@ -188,7 +188,7 @@ angular.module('creatorApp', [])
         return;
       }
 
-      $("#green_check").css("display", "inline");
+      $("#basic_green_check").css("display", "inline");
 
       $scope.activeCharacter.basic = {
         level: info.level,
@@ -201,6 +201,18 @@ angular.module('creatorApp', [])
       console.log("testing");
 //      setTimeout(function(){      $("#green_check").css("display": "inline");
 //      },2000);
+    };
+
+    $scope.addAttributes = function(attributes) {
+      if (!$scope.activeCharacter || !attributes) {
+        return;
+      }
+
+      $("#attr_green_check").css("display", "inline");
+
+      $scope.activeCharacter.basic.attributes = attributes;
+
+      Characters.save($scope.characters);
     };
 
     $scope.getClassInfo = function(url) {
