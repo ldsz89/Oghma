@@ -81,6 +81,11 @@ angular.module('creatorApp', [])
       document.location.href = "create.html";
     };
 
+    $scope.openCharacterDetail = function(character, index) {
+      $scope.selectCharacter(character, index);
+      document.location.href = "character_detail.html";
+    };
+
     $scope.delete = function(index){
       $scope.characters[index].remove = true;
       var characters = $scope.characters;

@@ -52,15 +52,15 @@
         <ul class="nav">
           <li class="active">
             <a href="dashboard.html">
-                  <i class="material-icons">dashboard</i>
-                  <p style="color: white;">Dashboard</p>
-              </a>
+              <i class="material-icons">dashboard</i>
+              <p style="color: white;">Dashboard</p>
+            </a>
           </li>
           <li>
             <a href="index.html">
-                <i class="material-icons">person_add</i>
-                <p style="color: white;">Create Character</p>
-              </a>
+              <i class="material-icons">person_add</i>
+              <p style="color: white;">Create Character</p>
+            </a>
           </li>
         </ul>
       </div>
@@ -75,9 +75,11 @@
             <div class="row">
               <div class="col-lg-2 col-md-2" ng-repeat="char in characters track by $index">
 
-                  <div class="card text-center" ng-click="openCharacter(char, $index)" style="background: FireBrick; color: white;">
+                  <div class="card text-center" style="background: FireBrick; color: white;">
                     <div class="card-content" style="color: white;">
-                      {{char.name}}
+                      <button class="btn" ng-click="openCharacterDetail(char, $index)" style="background:firebrick; color: white;">
+                        {{char.name}}
+                      </button>
                     </div>
                     <div class="card-footer" style="white-space: nowrap; overflow: hidden;">
                       <span class="btn" ng-click="openCharacter(char, $index)"><i class="material-icons">edit</i></span>
