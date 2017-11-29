@@ -187,8 +187,8 @@ angular.module('creatorApp', [])
       if (!$scope.activeCharacter || !info) {
         return;
       }
-
-      $("#basic_green_check").css("display", "inline");
+      
+      $("#green_check").css("display", "inline");
 
       $scope.activeCharacter.basic = {
         level: info.level,
@@ -199,8 +199,10 @@ angular.module('creatorApp', [])
 
       Characters.save($scope.characters);
       console.log("testing");
-//      setTimeout(function(){      $("#green_check").css("display": "inline");
-//      },2000);
+      setTimeout(function(){      
+        $("#green_check").css("display:none");
+        $("#green_check").fadeOut(1000);
+      },2000);
     };
 
     $scope.addAttributes = function(attributes) {

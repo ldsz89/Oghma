@@ -31,6 +31,11 @@
         background-color: #d73030;
         cursor: pointer;
       }
+      
+      #green_check {
+        color: #44a944; 
+        display: none;
+      }
     </style>
   </head>
 
@@ -82,7 +87,7 @@
                         <div class="col-lg-1">
                           <div class="form-group label-floating">
                             <label class="control-label">Age</label>
-                    				<input ng-model="info.age" type="number" class="form-control" ng-value="activeCharacter.basic.age">
+                    		    <input ng-model="info.age" type="number" class="form-control" ng-value="activeCharacter.basic.age">
           						  </div>
                         </div>
                         <div class="col-lg-5">
@@ -100,7 +105,7 @@
                       </div>
                     </div>
                     <div class="card-footer">
-                      <i id="basic_green_check" style="color: #44a944; display: none;" class="material-icons">check_circle</i>
+                      <i id="green_check" class="material-icons">check_circle</i>
                       <button type="submit" class="btn" style="background-color: FireBrick; color: white;">Submit</button>
                     </div>
                   </div>
