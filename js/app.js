@@ -190,18 +190,13 @@ angular.module('creatorApp', [])
       
       $("#green_check").css("display", "inline");
 
-      $scope.activeCharacter.basic = {
-        level: info.level,
-        age: info.age,
-        alignment: info.alignment,
-        background: info.background
-      }
+      $scope.activeCharacter.basic = info;
 
       Characters.save($scope.characters);
       setTimeout(function(){      
         $("#green_check").css("display:none");
         $("#green_check").fadeOut(1000);
-      },2000);
+      },1000);
     };
 
     $scope.addAttributes = function(attributes) {
@@ -216,7 +211,7 @@ angular.module('creatorApp', [])
       setTimeout(function(){      
         $("#attr_green_check").css("display:none");
         $("#attr_green_check").fadeOut(1000);
-      },2000);
+      },1000);
       Characters.save($scope.characters);
     };
 
