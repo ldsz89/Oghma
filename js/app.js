@@ -66,6 +66,38 @@ angular.module('creatorApp', [])
 
     ChCtrl.activeRace = {name: "none"};
 
+    ChCtrl.skills = [
+      "acrobatics",
+      "animal_handling",
+      "arcana",
+      "athletics",
+      "deception",
+      "history",
+      "insight",
+      "intimidation",
+      "investigation",
+      "medicine",
+      "nature",
+      "perception",
+      "performance",
+      "persuasion",
+      "religion",
+      "sleight_of_hand",
+      "stealth",
+      "survival",
+      "armor_class",
+      "speed",
+      "hp",
+      "personality",
+      "ideals",
+      "bonds",
+      "flaws",
+      "feat",
+      "language",
+      "equipment",
+      "spell"
+    ]
+
     // A utility function for creating a new character
     // with the given characterName
     var createCharacter = function(characterName) {

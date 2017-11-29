@@ -13,11 +13,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="js/material.min.js"></script>
     <script src="js/app.js"></script>
   </head>
 
-  <body style="font-family: 'Creepster'" ng-app="creatorApp" ng-controller="CharacterCtrl as ChCtrl">
+  <!-- <body style="font-family: 'Creepster'" ng-app="creatorApp" ng-controller="CharacterCtrl as ChCtrl"> -->
+  <body ng-app="creatorApp" ng-controller="CharacterCtrl as ChCtrl">
     <div class="wrapper">
       <div class="sidebar" style="background-attachment: fixed; background-image:url(test.jpg);">
         <div class="sidebar-wrapper">
@@ -42,100 +42,110 @@
         <div class="content">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-lg-12 col-md-12">
-                <div class="card card-nav-tab">
-                  <div class="card-header" style="background-color: firebrick;">
-                    <div class="nav-tabs=navigation">
-                      <div class="nav-tabs-wrapper">
-                        <span class="nav-tabs-title">{{activeCharacter.name}}:</span>
-                        <ul class="nav nav-tabs" data-tabs="tabs">
-                          <li class="active">
-                            <a href="#general" data-toggle="tab">
-                              General
-                              <div class="ripple-container"></div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#equipment" data-toggle="tab">
-                              Equipment
-                              <div class="ripple-container"></div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#spells" data-toggle="tab">
-                              Spells
-                              <div class="ripple-container"></div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#features" data-toggle="tab">
-                              Features
-                              <div class="ripple-container"></div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#skills" data-toggle="tab">
-                              Skills
-                              <div class="ripple-container"></div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#proficiencies" data-toggle="tab">
-                              Proficiencies
-                              <div class="ripple-container"></div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#traits" data-toggle="tab">
-                              Traits
-                              <div class="ripple-container"></div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#notes" data-toggle="tab">
-                              Notes
-                              <div class="ripple-container"></div>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+              <div class="col-lg-3 col-md-3">
+                Image
+              </div>
+              <div class="col-lg-9 col-md-9">
+                <div class="card">
+                  <div class="card-header">
+                    General Info
                   </div>
                   <div class="card-content">
-                    <div class="tab-content">
-                      <div class="tab-pane active" id="general">
-                        <div class="row text-center">
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">HP</div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">AC</div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">Init</div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">{{activeCharacter.general.level}}<br />Level</div>
-                        </div>
-                        <div class="row text-center">
-                          <div class="col-lg-6 col-md-6 col-sm-3 col-sx-3 well">Strength</div>
-                          <div class="col-lg-6 col-md-6 col-sm-3 col-sx-3 well">Intelligence</div>
-                        </div>
-                        <div class="row text-center">
-                          <div class="col-lg-6 col-md-6 col-sm-3 col-sx-3 well">Dexterity</div>
-                          <div class="col-lg-6 col-md-6 col-sm-3 col-sx-3 well">Wisdom</div>
-                        </div>
-                        <div class="row text-center">
-                          <div class="col-lg-6 col-md-6 col-sm-3 col-sx-3 well">Constitution</div>
-                          <div class="col-lg-6 col-md-6 col-sm-3 col-sx-3 well">Charisma</div>
-                        </div>
-                        <div class="row text-center">
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">{{activeCharacter.race.speed}}<br />Speed</div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">Prof</div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">Carrying</div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3 well">Inspiration</div>
-                        </div>
-                      </div>
-                      <div class="tab-pane" id="equipment"></div>
-                      <div class="tab-pane" id="spells"></div>
-                      <div class="tab-pane" id="features"></div>
-                      <div class="tab-pane" id="skills"></div>
-                      <div class="tab-pane" id="proficiencies"></div>
-                      <div class="tab-pane" id="traits"></div>
+                    <div class="col-lg-4 col-md-4">
+                      {{activeCharacter.class.class}} - {{activeCharacter.basic.level}}
                     </div>
+                    <div class="col-lg-4 col-md-4">{{activeCharacter.basic.background}}</div>
+                    <div class="col-lg-4 col-md-4">{{activeCharacter.name}}</div>
+                    <div class="col-lg-4 col-md-4">{{activeCharacter.race.race}}</div>
+                    <div class="col-lg-4 col-md-4">{{activeCharacter.basic.alignment}}</div>
+                    <div class="col-lg-4 col-md-4">{{activeCharacter.xp}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- Attributes & Skills -->
+              <div class="col-lg-4 col-md-4">
+                <!-- Attributes -->
+                <div class="col-lg-4 col-md-4">
+                  <div class="card">
+                    <div class="card-content text-center">
+                      <div>Strength</div>
+                      <hr />
+                      <div>Dexterity</div>
+                      <hr />
+                      <div>Constitution</div>
+                      <hr />
+                      <div>Intelligence</div>
+                      <hr />
+                      <div>Wisdom</div>
+                      <hr />
+                      <div>Charisma</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Skills -->
+                <div class="col-lg-8 col-md-8">
+                  <div class="card">
+                    <div class="card-content">
+                      Inspiration
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-content">
+                      proficiency Bonus
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-content">
+                      Saving Throws
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-content" ng-repeat="skill in ChCtrl.skills track by $index">
+                      <div>{{skill}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Life Info -->
+              <div class="col-lg-4 col-md-4">
+                <div class="card">
+                  <div class="card-content">
+                    Hit Point Maximum:
+                    <div>Current HP:</div>
+                    <hr />
+                    <div>Temporary HP:</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Personality & Features -->
+              <div class="col-lg-4 col-md-4">
+                <div class="card">
+                  <div class="card-content">
+                    Personality
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-content">
+                    Ideals
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-content">
+                    Bonds
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-content">
+                    Flaws
+                  </div>
+                </div>
+
+                <!-- Features -->
+                <div class="card">
+                  <div class="card-content">
+                    Features
                   </div>
                 </div>
               </div>
