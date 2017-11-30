@@ -71,11 +71,12 @@ function requestClassDetail(url) {
 
     data.proficiency_choices[0].from.forEach(function(prof) {
       var proficiency = prof.name;
-      console.log(proficiency);
+      var testing = "This is a test";
+      console.log(prof.name);
       proficiency = proficiency.substring(8);
       $("#skill_prof_choices").append(
         "<input class='limit-checkbox' type='checkbox' name='skill_prof' value='" + proficiency + "' />" +
-        "<label style='color: white;'>" + proficiency + "</label><br />"
+        "<label style='color: white;'>" + proficiency + testing +"</label><br />"
       );
     });
     var limit = data.proficiency_choices[0].choose;

@@ -148,8 +148,6 @@ angular.module('creatorApp', [])
     // Load or initialize characters
     $scope.characters = Characters.all();
 
-    console.log($scope.characters);
-    console.log(Characters.getLastActiveIndex());
     // Grab the last active, or the first character
     $scope.activeCharacter = $scope.characters[Characters.getLastActiveIndex()];
 
@@ -247,10 +245,18 @@ angular.module('creatorApp', [])
 
     $scope.getClassInfo = function(url) {
       $scope.hideform1 = false;
-      console.log("Getting class information");
       requestResource(url, function(results) {
           ChCtrl.activeClass = angular.fromJson(results);
-          console.log("Active Class: " + ChCtrl.activeClass.name);
+        var jsonResults = angular.fromJson(results);
+        console.log(jsonResults);
+          angular.forEach(jsonResults.proficiency_choices[0].from, function(index, skill){
+            var choice = skill.name.substring(7);
+            console.log(index);
+            console.log(jsonResults.proficiency_choices[0].from.name);
+            jsonResults.proficiency_choices[0].from.name = choice;
+          });
+        console.log(jsonResults);
+        ChCtrl.activeClass = jsonResults;
           $scope.$apply();
       });
     };
@@ -271,7 +277,6 @@ angular.module('creatorApp', [])
 
       // Inefficient, but save all the projects
       console.log("Class info added");
-      console.log($scope.activeCharacter);
       Characters.save($scope.characters);
     };
 
@@ -296,7 +301,6 @@ angular.module('creatorApp', [])
          traits: ChCtrl.activeRace.traits
        }
 
-      console.log($scope.activeCharacter);
       Characters.save($scope.characters);
     };
 
@@ -315,8 +319,4 @@ angular.module('creatorApp', [])
       },1000);
       Characters.save($scope.characters);
     };
-  
-  $scope.saveEdits = function() {
-     document.location.href = "character_detail.html"
-  }
   })
