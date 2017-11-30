@@ -100,7 +100,8 @@
                         <div class="col-lg-5">
                           <div class="form-group label-floating">
                               <label class="control-label">Alignment</label>
-                              <input ng-model="info.alignment" type="text" class="form-control" ng-value="activeCharacter.basic.alignment">
+                              <select ng-model="info.alignment" ng-options="alignment for alignment in ChCtrl.alignments">
+                              </select>
                           </div>
                         </div>
                         <div class="col-lg-5">
@@ -304,10 +305,10 @@
             <div class="col-lg-6 col-md-6">
               <h3>Proficiency Choices</h3>
               <h5>(Limit {{ChCtrl.activeClass.proficiency_choices[0].choose}})</h5>
-              <ul>
+              <ul style="list-style-type: none;">
                 <li ng-repeat="prof in ChCtrl.activeClass.proficiency_choices[0].from track by $index">
                   <input class='limit-checkbox' type='checkbox' name='skill_prof' value="{{prof.name}}" />
-                  <label>{{prof.name}}</label>
+                  <label style="color: white;">{{prof.name}}</label>
                 </li>
               </ul>
             </div>
