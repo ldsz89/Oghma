@@ -302,4 +302,8 @@ $scope.hideform3 = true;
       },1000);
       Characters.save($scope.characters);
     };
+  
+  $scope.saveEdits = function() {
+     document.location.href = "character_detail.html";
+  }
   })
