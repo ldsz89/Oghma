@@ -1,10 +1,10 @@
-### Peaches4Lyfe
+# Peaches4Lyfe
 
-## Group Members
-Dre Shannon
-Sam Kroeger
-Chaewon Yun
-Julia Wopata
+### Group Members
+#### Dre Shannon
+#### Sam Kroeger
+#### Chaewon Yun
+#### Julia Wopata
 
 ## The Problem
 
@@ -20,14 +20,14 @@ AngularJS, SASS, D&D API, Bootstrap, jQuery
 
 ## Who did what?
 
-# Dre: linking API, organizing where the content loads
-# Julia: managing local storage and user input
-# Sam: front end, styling
-# Chaewon: showing/hiding modals, fixing bugs, adding funtionality
+#### Dre: linking API, organizing where the content loads
+#### Julia: managing local storage and user input
+#### Sam: front end, styling
+#### Chaewon: showing/hiding modals, fixing bugs, adding funtionality
 
-# All: integrating pages, fixing bugs, collaboration. We all worked on various parts of other team member areas, but these were the items we officiallly assigned at the beginning
+#### All: integrating pages, fixing bugs, collaboration. We all worked on various parts of other team member areas, but these were the items we officiallly assigned at the beginning
 
-### Notable Items in the Project
+## Notable Items in the Project
 - Users can easily create, edit, and delete characters
 - Appealing UI
 - Responsive UI based on user state
