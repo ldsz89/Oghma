@@ -208,10 +208,10 @@
                     <h4 style="display: inline-block">Abilities</h4>
                   </div>
                   <div class="card-content">
-                    <p class="category">Used space</p>
+                    <p class="category">What can we do?</p>
                   </div>
                   <div class="card-footer">
-                    danger<a class="btn" style="background-color: FireBrick; color: white;">Add Abilities</a>
+                    danger<a class="btn" style="background-color: FireBrick; color: white;">Change</a>
                   </div>
                 </div>
               </div>
@@ -282,7 +282,7 @@
           </div>
         </div>
         <form ng-submit="addRace(race)">
-          <div id="raceModalContentInfo" style="color: white;">
+          <div id="raceModalContentInfo" style="color: white;" ng-hide="hideform">
             <div class="col-lg-12 col-md-12">
               <h2>Race: {{ChCtrl.activeRace.name}}</h2>
               <div class="col-lg-2 col-md-2" ng-repeat="abl in ChCtrl.activeRace.ability_bonuses track by $index">
@@ -306,9 +306,9 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div align="right">
+            <div align="right">
             <button type="submit" id="addRaceBtn" class="btn" style="background-color: FireBrick; color: white;">Add Race</button>
+          </div>
           </div>
         </form>
       </div>
