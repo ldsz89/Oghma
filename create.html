@@ -56,6 +56,12 @@
                 <p style="color: white;">Create Character</p>
               </a>
             </li>
+            <li>
+              <a href="character_detail.html">
+                <i class="material-icons">done</i>
+                <p style="color: white;">Done</p>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -74,7 +80,8 @@
                 <form ng-submit="addBasicInfo(info)">
                   <div class="card">
                     <div class="card-header" style="background-color: FireBrick;">
-                      <h4>Basic Info</h4>
+                      <i class="material-icons">assignment</i>
+                      <h4 style="display: inline-block">Basic Info</h4>
                     </div>
                     <div class="card-content">
                       <div class="row">
@@ -120,7 +127,8 @@
                 <form ng-submit="addAttributes(attributes)">
                   <div class="card">
                     <div class="card-header" style="background-color: FireBrick;">
-                      <h4>Attributes <button class="btn" style="background-color: firebrick;" ng-click="randomizeAttr()"><i class="material-icons">shuffle</i></button></h4>
+                      <button class="btn" style="background-color: firebrick;" ng-click="randomizeAttr()"><i class="material-icons">shuffle</i></button>
+                      <h4 style="display: inline-block">Attributes </h4>
                     </div>
                     <div class="card-content">
                       <div class="row">
@@ -176,7 +184,8 @@
                 <form ng-submit="addPersonality(personality)">
                   <div class="card">
                     <div class="card-header" style="background-color: FireBrick;">
-                      <h4>Personality & Features </h4>
+                      <i class="material-icons">perm_identity</i>
+                      <h4 style="display: inline-block">Personality & Features </h4>
                     </div>
                     <div class="card-content">
                       <div class="row">
