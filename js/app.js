@@ -247,6 +247,7 @@ $scope.hideform = true;
 
     $scope.getRaceInfo = function(url) {
       console.log("Getting race information");
+      $scope.hideform = false;
       requestResource(url, function(results) {
         ChCtrl.activeRace = angular.fromJson(results);
         $scope.$apply();
@@ -260,7 +261,6 @@ $scope.hideform = true;
       }
 
       $scope.activeCharacter.race = {
-         
          race: ChCtrl.activeRace.name,
          languages: ChCtrl.activeRace.languages,
          ability_bonuses: ChCtrl.activeRace.ability_bonuses,
