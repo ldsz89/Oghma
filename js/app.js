@@ -96,10 +96,23 @@ angular.module('creatorApp', [])
       "language",
       "equipment",
       "spell"
-    ]
-$scope.hideform1 = true;
-$scope.hideform2 = true;
-$scope.hideform3 = true;
+    ];
+
+    ChCtrl.alignments = [
+      "Lawful good",
+      "Lawful neutral",
+      "Lawful evil",
+      "Neutral good",
+      "(True) neutral",
+      "Neutral evil",
+      "Chaotic good",
+      "Chaotic neutral",
+      "Chaotic evil"
+    ];
+    
+    $scope.hideform1 = true;
+    $scope.hideform2 = true;
+    $scope.hideform3 = true;
     // A utility function for creating a new character
     // with the given characterName
     var createCharacter = function(characterName) {
@@ -291,7 +304,7 @@ $scope.hideform3 = true;
       if (!$scope.activeCharacter || !personality) {
         return;
       }
-      
+
        $("#personality_green_check").css("display", "inline");
 
       $scope.activeCharacter.personality = personality;
