@@ -1,6 +1,6 @@
 # Peaches4Lyfe
 
-[Link to website, www.oghma.me/oghma/](http://www.oghma.me/oghma/)
+[Link to website -- www.oghma.me/oghma/](http://www.oghma.me/oghma/)
 
 ### Group Members
 #### Dre Shannon
