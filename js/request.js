@@ -65,12 +65,17 @@ function requestClassDetail(url) {
 
     data.proficiencies.forEach(function(prof) {
       $("#proficiencies").append("<li>" + prof.name + "</li>");
+      var proficiency = prof.name;
+      console.log("testgin" + proficiency);
     });
 
     data.proficiency_choices[0].from.forEach(function(prof) {
+      var proficiency = prof.name;
+      console.log(proficiency);
+      proficiency = proficiency.substring(8);
       $("#skill_prof_choices").append(
-        "<input class='limit-checkbox' type='checkbox' name='skill_prof' value='" + prof.name + "' />" +
-        "<label style='color: white;'>" + prof.name + "</label><br />"
+        "<input class='limit-checkbox' type='checkbox' name='skill_prof' value='" + proficiency + "' />" +
+        "<label style='color: white;'>" + proficiency + "</label><br />"
       );
     });
     var limit = data.proficiency_choices[0].choose;
