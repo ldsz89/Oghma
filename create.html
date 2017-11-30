@@ -237,7 +237,7 @@
               </div>
             </div>
           </div>
-          <div id="classModalContentInfo" style="color: white;">
+          <div id="classModalContentInfo" style="color: white;" ng-hide="hideform">
             <legend style="color: white;">Class: {{ChCtrl.activeClass.name}}</legend>
             <p>Hit Die: {{ChCtrl.activeClass.hit_die}}</p>
             <div class="col-lg-6 col-md-6">
@@ -258,10 +258,10 @@
                 </li>
               </ul>
             </div>
-          </div>
-          <div align="right">
+            <div align="right">
             <button type="submit" class="btn" id="addClassBtn" style="background-color: FireBrick; color: white;">Add Class</button>
-          </div>
+          </div>  
+        </div>
         </form>
       </div>
     </div>
