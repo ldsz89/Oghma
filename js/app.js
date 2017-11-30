@@ -272,7 +272,6 @@ $scope.hideform3 = true;
     }
 
     $scope.addRace = function(race) {
-      console.log("Adding race info");
       if (!$scope.activeCharacter) {
         return;
       }
@@ -284,56 +283,23 @@ $scope.hideform3 = true;
          traits: ChCtrl.activeRace.traits
        }
 
-      console.log("Race info added");
       console.log($scope.activeCharacter);
       Characters.save($scope.characters);
     };
 
-    //  $scope.newAttr = function() {
-    //    $scope.characterModal.show();
-    //  };
+    $scope.addPersonality = function(personality) {
+      if (!$scope.activeCharacter || !personality) {
+        return;
+      }
+      
+       $("#personality_green_check").css("display", "inline");
 
-    //  $scope.closeNewTask = function() {
-    //    $scope.characterModal.hide();
-    //  }
+      $scope.activeCharacter.personality = personality;
 
-    //  $scope.toggleCharacters = function() {
-    //    $ionicSideMenuDelegate.toggleLeft();
-    //  };
-
-    //Called to archive selected projects
-    //  $scope.archive = function() {
-    //       var oldTasks = $scope.activeProject.tasks;
-    //       $scope.activeProject.tasks = [];
-    //       angular.forEach(oldTasks, function(todo) {
-    //           if (!todo.done)
-    //               $scope.activeProject.tasks.push(todo);
-    //               Projects.save($scope.projects);
-    //       });
-    //   };
-
-    //   $scope.archiveAll = function(index) {
-    //       var oldTasks = $scope.projects[index].tasks;
-    //       $scope.projects[index].tasks = [];
-    //    };
-
-    //  $scope.refresh = function(checked) {
-    //      Projects.save($scope.projects);
-    //  }
-
-    // Try to create the first project, make sure to defer
-    // this by using $timeout so everything is initialized
-    // properly
-    //  $timeout(function() {
-    //    if($scope.characters.length == 0) {
-    //      while(true) {
-    //        var characterName = prompt('Your first project title:');
-    //        if(characterName) {
-    //          createCharacter(characterName);
-    //          break;
-    //        }
-    //      }
-    //    }
-    //  }, 1000);
-
+      setTimeout(function(){
+        $("#personality_green_check").css("display:none");
+        $("#personality_green_check").fadeOut(1000);
+      },1000);
+      Characters.save($scope.characters);
+    };
   })
