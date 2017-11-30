@@ -97,7 +97,9 @@ angular.module('creatorApp', [])
       "equipment",
       "spell"
     ]
-$scope.hideform = true; 
+$scope.hideform1 = true;
+$scope.hideform2 = true;
+$scope.hideform3 = true;
     // A utility function for creating a new character
     // with the given characterName
     var createCharacter = function(characterName) {
@@ -187,13 +189,13 @@ $scope.hideform = true;
       if (!$scope.activeCharacter || !info) {
         return;
       }
-      
+
       $("#green_check").css("display", "inline");
 
       $scope.activeCharacter.basic = info;
 
       Characters.save($scope.characters);
-      setTimeout(function(){      
+      setTimeout(function(){
         $("#green_check").css("display:none");
         $("#green_check").fadeOut(1000);
       },1000);
@@ -207,16 +209,31 @@ $scope.hideform = true;
       $("#attr_green_check").css("display", "inline");
 
       $scope.activeCharacter.basic.attributes = attributes;
-      
-      setTimeout(function(){      
+
+      setTimeout(function(){
         $("#attr_green_check").css("display:none");
         $("#attr_green_check").fadeOut(1000);
       },1000);
       Characters.save($scope.characters);
     };
 
+    $scope.random = function(limit) {
+      return Math.floor(Math.random() * limit);
+    }
+
+    $scope.randomizeAttr = function() {
+      $scope.activeCharacter.basic.attributes.strength = ($scope.random(5) + 1) + ($scope.random(5) + 1) + ($scope.random(5) + 1);
+      $scope.activeCharacter.basic.attributes.dexterity = ($scope.random(5) + 1) + ($scope.random(5) + 1) + ($scope.random(5) + 1);
+      $scope.activeCharacter.basic.attributes.constitution = ($scope.random(5) + 1) + ($scope.random(5) + 1) + ($scope.random(5) + 1);
+      $scope.activeCharacter.basic.attributes.intelligence = ($scope.random(5) + 1) + ($scope.random(5) + 1) + ($scope.random(5) + 1);
+      $scope.activeCharacter.basic.attributes.wisdom = ($scope.random(5) + 1) + ($scope.random(5) + 1) + ($scope.random(5) + 1);
+      $scope.activeCharacter.basic.attributes.charisma = ($scope.random(5) + 1) + ($scope.random(5) + 1) + ($scope.random(5) + 1);
+      Characters.save($scope.characters);
+      console.log($scope.activeCharacter);
+    }
+
     $scope.getClassInfo = function(url) {
-    $scope.hideform = false;
+      $scope.hideform1 = false;
       console.log("Getting class information");
       requestResource(url, function(results) {
           ChCtrl.activeClass = angular.fromJson(results);
@@ -246,8 +263,8 @@ $scope.hideform = true;
     };
 
     $scope.getRaceInfo = function(url) {
+        $scope.hideform2 = false;
       console.log("Getting race information");
-      $scope.hideform = false;
       requestResource(url, function(results) {
         ChCtrl.activeRace = angular.fromJson(results);
         $scope.$apply();
