@@ -14,6 +14,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="js/app.js"></script>
+    
+    <style>
+      #class_image{
+        width: 255px;
+        height: auto;
+      }
+    </style>
   </head>
 
   <!-- <body style="font-family: 'Creepster'" ng-app="creatorApp" ng-controller="CharacterCtrl as ChCtrl"> -->
@@ -42,8 +49,11 @@
         <div class="content">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-lg-3 col-md-3">
+              <div ng-if="activeCharacter.class.class" class="col-lg-3 col-md-3">
                 <img id="class_image" ng-src="image/{{activeCharacter.class.class}}.jpg" alt="activeCharacter.class.class">
+              </div>
+              <div ng-if="!activeCharacter.class.class" class="col-lg-3 col-md-3">
+                <img id="class_image" ng-src="image/person.png" alt="activeCharacter.class.class">
               </div>
               <div class="col-lg-9 col-md-9">
                 <div class="card">
