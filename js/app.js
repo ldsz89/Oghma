@@ -254,16 +254,15 @@ angular.module('creatorApp', [])
     $scope.getClassInfo = function(url) {
       $scope.hideform1 = false;
       requestResource(url, function(results) {
-          ChCtrl.activeClass = angular.fromJson(results);
+        ChCtrl.activeClass = angular.fromJson(results);
         var jsonResults = angular.fromJson(results);
-        console.log(jsonResults);
-          angular.forEach(jsonResults.proficiency_choices[0].from, function(index, skill){
-            var choice = skill.name.substring(7);
-            console.log(index);
-            console.log(jsonResults.proficiency_choices[0].from.name);
-            jsonResults.proficiency_choices[0].from.name = choice;
+        var i = 0;
+          angular.forEach(jsonResults.proficiency_choices[0].from, function(){
+            var skill = jsonResults.proficiency_choices[0].from[i].name;
+            var choice = skill.substring(7);
+            jsonResults.proficiency_choices[0].from[i].name = choice;
+            i++;
           });
-        console.log(jsonResults);
         ChCtrl.activeClass = jsonResults;
           $scope.$apply();
       });
