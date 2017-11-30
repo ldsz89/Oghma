@@ -31,9 +31,9 @@
         background-color: #d73030;
         cursor: pointer;
       }
-      
+
       #green_check {
-        color: #44a944; 
+        color: #44a944;
         display: none;
       }
     </style>
@@ -119,7 +119,7 @@
                 <form ng-submit="addAttributes(attributes)">
                   <div class="card">
                     <div class="card-header" style="background-color: FireBrick;">
-                      <h4>Attributes</h4>
+                      <h4>Attributes <button class="btn" style="background-color: firebrick;" ng-click="randomizeAttr()"><i class="material-icons">shuffle</i></button></h4>
                     </div>
                     <div class="card-content">
                       <div class="row">
