@@ -21,15 +21,16 @@ AngularJS, SASS, D&D API, Bootstrap, jQuery
 ## Who did what?
 
 #### Dre: 
-linking API, organizing where the content loads
+Linking API, organizing where the content loads
 #### Julia: 
-managing local storage and user input
+Managing local storage and user input
 #### Sam: 
-front end, styling
+Front end, styling
 #### Chaewon: 
-showing/hiding modals, fixing bugs, adding funtionality
+Showing/hiding modals, fixing bugs, adding funtionality
 
-#### All: integrating pages, fixing bugs, collaboration. We all worked on various parts of other team member areas, but these were the items we officiallly assigned at the beginning
+#### All: 
+Integrating pages, fixing bugs, collaboration. We all worked on various parts of other team member areas, but these were the items we officiallly assigned at the beginning
 
 ## Notable Items in the Project
 - Users can easily create, edit, and delete characters
