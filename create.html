@@ -93,7 +93,8 @@
                         <div class="col-lg-5">
                           <div class="form-group label-floating">
                               <label class="control-label">Alignment</label>
-                              <input ng-model="info.alignment" type="text" class="form-control" ng-value="activeCharacter.basic.alignment">
+                              <select ng-model="info.alignment" ng-options="alignment for alignment in ChCtrl.alignments">
+                              </select>
                           </div>
                         </div>
                         <div class="col-lg-5">
