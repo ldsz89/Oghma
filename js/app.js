@@ -109,7 +109,7 @@ angular.module('creatorApp', [])
       "Chaotic neutral",
       "Chaotic evil"
     ];
-    
+
     $scope.hideform1 = true;
     $scope.hideform2 = true;
     $scope.hideform3 = true;
@@ -219,7 +219,15 @@ angular.module('creatorApp', [])
 
       $("#attr_green_check").css("display", "inline");
 
-      $scope.activeCharacter.basic.attributes = attributes;
+      $scope.activeCharacter.basic.attributes = {
+        strength: attributes.strength + $scope.activeCharacter.race.ability_bonuses[0],
+        dexterity: attributes.dexterity + $scope.activeCharacter.race.ability_bonuses[1],
+        constitution: attributes.constitution + $scope.activeCharacter.race.ability_bonuses[2],
+        intelligence: attributes.intelligence + $scope.activeCharacter.race.ability_bonuses[3],
+        wisdom: attributes.wisdom + $scope.activeCharacter.race.ability_bonuses[4],
+        charisma: attributes.charisma + $scope.activeCharacter.race.ability_bonuses[5],
+      };
+      console.log($scope.activeCharacter.basic.attributes);
 
       setTimeout(function(){
         $("#attr_green_check").css("display:none");
