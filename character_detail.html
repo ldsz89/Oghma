@@ -41,6 +41,12 @@
                 <p style="color: white;">Create Character</p>
               </a>
             </li>
+            <li>
+              <a href="create.html">
+                <i class="material-icons">build</i>
+                <p style="color: white;">Edit {{activeCharacter.name}}</p>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -57,18 +63,17 @@
               </div>
               <div class="col-lg-9 col-md-9">
                 <div class="card">
-                  <div class="card-header">
+                  <div class="card-header" style="background-color: firebrick">
                     General Info
                   </div>
                   <div class="card-content">
-                    <div class="col-lg-4 col-md-4">
-                      {{activeCharacter.class.class}} - {{activeCharacter.basic.level}}
-                    </div>
-                    <div class="col-lg-4 col-md-4">{{activeCharacter.basic.background}}</div>
-                    <div class="col-lg-4 col-md-4">{{activeCharacter.name}}</div>
-                    <div class="col-lg-4 col-md-4">{{activeCharacter.race.race}}</div>
-                    <div class="col-lg-4 col-md-4">{{activeCharacter.basic.alignment}}</div>
-                    <div class="col-lg-4 col-md-4">{{activeCharacter.xp}}</div>
+                    <div class="col-lg-2 col-md-4">{{activeCharacter.class.class}}</div>
+                    <div class="col-lg-2 col-md-4">- {{activeCharacter.basic.level}}</div>
+                    <div class="col-lg-2 col-md-4">{{activeCharacter.basic.background}}</div>
+                    <div class="col-lg-2 col-md-4">{{activeCharacter.name}}</div>
+                    <div class="col-lg-2 col-md-4">{{activeCharacter.race.race}}</div>
+                    <div class="col-lg-2 col-md-4">{{activeCharacter.basic.alignment}}</div>
+                    <div class="col-lg-2 col-md-4">{{activeCharacter.xp}}</div>
                   </div>
                 </div>
               </div>
@@ -77,28 +82,28 @@
               <!-- Attributes & Skills -->
               <div class="col-lg-4 col-md-4">
                 <!-- Attributes -->
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-5 col-md-5">
                   <div class="card">
                     <div class="card-content text-center">
-                      <div>Strength</div>
+                      <div>Strength: {{activeCharacter.basic.attributes.strength}}</div>
                       <hr />
-                      <div>Dexterity</div>
+                      <div>Dexterity: {{activeCharacter.basic.attributes.dexterity}}</div>
                       <hr />
-                      <div>Constitution</div>
+                      <div>Constitution: {{activeCharacter.basic.attributes.constitution}}</div>
                       <hr />
-                      <div>Intelligence</div>
+                      <div>Intelligence: {{activeCharacter.basic.attributes.intelligence}}</div>
                       <hr />
-                      <div>Wisdom</div>
+                      <div>Wisdom: {{activeCharacter.basic.attributes.wisdom}}</div>
                       <hr />
-                      <div>Charisma</div>
+                      <div>Charisma: {{activeCharacter.basic.attributes.charisma}}</div>
                     </div>
                   </div>
                 </div>
                 <!-- Skills -->
-                <div class="col-lg-8 col-md-8">
+                <div class="col-lg-6 col-md-6">
                   <div class="card">
                     <div class="card-content">
-                      Inspiration
+                      Inspiration: 
                     </div>
                   </div>
                   <div class="card">
