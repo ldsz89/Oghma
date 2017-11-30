@@ -97,7 +97,9 @@ angular.module('creatorApp', [])
       "equipment",
       "spell"
     ]
-$scope.hideform = true; 
+$scope.hideform1 = true; 
+$scope.hideform2 = true; 
+$scope.hideform3 = true; 
     // A utility function for creating a new character
     // with the given characterName
     var createCharacter = function(characterName) {
@@ -216,7 +218,7 @@ $scope.hideform = true;
     };
 
     $scope.getClassInfo = function(url) {
-    $scope.hideform = false;
+      $scope.hideform1 = false; 
       console.log("Getting class information");
       requestResource(url, function(results) {
           ChCtrl.activeClass = angular.fromJson(results);
@@ -246,8 +248,8 @@ $scope.hideform = true;
     };
 
     $scope.getRaceInfo = function(url) {
+        $scope.hideform2 = false; 
       console.log("Getting race information");
-      $scope.hideform = false;
       requestResource(url, function(results) {
         ChCtrl.activeRace = angular.fromJson(results);
         $scope.$apply();
