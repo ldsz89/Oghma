@@ -307,14 +307,14 @@
               <h5>(Limit {{ChCtrl.activeClass.proficiency_choices[0].choose}})</h5>
               <ul style="list-style-type: none;">
                 <li ng-repeat="prof in ChCtrl.activeClass.proficiency_choices[0].from track by $index">
-                  <input class='limit-checkbox' type='checkbox' name='skill_prof' value="{{prof.name}}" />
+                  <input class='limit-checkbox' type='checkbox' name='selectedSkills[]' value="{{prof.name}}" ng-model="attrClass.proficiency_choices[$index]" ng-click="toggleSelection(prof)" />
                   <label style="color: white;">{{prof.name}}</label>
                 </li>
               </ul>
             </div>
             <div align="right">
-            <button type="submit" class="btn" id="addClassBtn" style="background-color: FireBrick; color: white;">Add Class</button>
-          </div>
+              <button type="submit" class="btn" id="addClassBtn" style="background-color: FireBrick; color: white;">Add Class</button>
+            </div>
           </div>
         </form>
       </div>
@@ -368,13 +368,13 @@
       </div>
     </div>
 
-    <script>
-      var limit = ChCtrl.activeClass.proficiency_choices[0].choose;
-      $("input.limit-checkbox").on('change', function(evt) {
-        if ($(this).siblings(':checked').length >= limit) {
-          this.checked = false;
-        }
-      });
+    <script ng-if="ChCtrl.prof_limit">
+      // $("input.limit-checkbox").on('change', function(evt) {
+      //   console.log("Limit: " + {{ChCtrl.activeClass.proficiency_choices[0].choose}});
+      //   if ($(this).siblings(':checked').length >= {{ChCtrl.prof_limit}}) {
+      //     this.checked = false;
+      //   }
+      // });
     </script>
     <script src="js/request.js"></script>
     <script src="js/modal.js"></script>

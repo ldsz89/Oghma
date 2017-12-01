@@ -113,6 +113,23 @@ angular.module('creatorApp', [])
     $scope.hideform1 = true;
     $scope.hideform2 = true;
     $scope.hideform3 = true;
+
+    $scope.profSelection = [];
+
+    $scope.toggleSelection = function(skill) {
+      console.log(skill);
+      var idx = $scope.profSelection.indexOf(skill);
+
+      // Is currently selected
+      if (idx > -1) {
+        $scope.profSelection.splice(idx, 1);
+      }
+      else {
+        $scope.profSelection.push(skill);
+      }
+      console.log($scope.profSelection);
+    };
+
     // A utility function for creating a new character
     // with the given characterName
     var createCharacter = function(characterName) {
@@ -150,6 +167,7 @@ angular.module('creatorApp', [])
 
     // Grab the last active, or the first character
     $scope.activeCharacter = $scope.characters[Characters.getLastActiveIndex()];
+    console.log($scope.activeCharacter);
 
     $scope.remaining = function() {
       var count = 0;
@@ -257,15 +275,16 @@ angular.module('creatorApp', [])
       requestResource(url, function(results) {
         ChCtrl.activeClass = angular.fromJson(results);
         var jsonResults = angular.fromJson(results);
-        var i = 0;
-          angular.forEach(jsonResults.proficiency_choices[0].from, function(){
-            var skill = jsonResults.proficiency_choices[0].from[i].name;
-            var choice = skill.substring(7);
-            jsonResults.proficiency_choices[0].from[i].name = choice;
-            i++;
-          });
+        var index = 0;
+        angular.forEach(jsonResults.proficiency_choices[0].from, function(skill){
+          var choice = skill.name.substring(7);
+          jsonResults.proficiency_choices[0].from[index].name = choice;
+          // jsonResults.proficiency_choices[0].from[index].is_prof = false;
+          index++;
+        });
         ChCtrl.activeClass = jsonResults;
-          $scope.$apply();
+        console.log(ChCtrl.activeClass);
+        $scope.$apply();
       });
     };
 
@@ -277,11 +296,14 @@ angular.module('creatorApp', [])
         return;
       }
 
+      console.log(attrClass);
        $scope.activeCharacter.class = {
          class: ChCtrl.activeClass.name,
          proficiencies: ChCtrl.activeClass.proficiencies,
-         hit_die: ChCtrl.activeClass.hit_die
+         hit_die: ChCtrl.activeClass.hit_die,
+         proficiency_choices: $scope.profSelection
        }
+       $scope.profSelection = [];
 
       // Inefficient, but save all the projects
       console.log("Class info added");
