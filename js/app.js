@@ -237,6 +237,12 @@ angular.module('creatorApp', [])
 
       $("#attr_green_check").css("display", "inline");
 
+      
+      setTimeout(function(){
+        $("#attr_green_check").css("display:none");
+        $("#attr_green_check").fadeOut(1000);
+      },1000);
+      
       $scope.activeCharacter.basic.attributes = {
         strength: attributes.strength + $scope.activeCharacter.race.ability_bonuses[0],
         dexterity: attributes.dexterity + $scope.activeCharacter.race.ability_bonuses[1],
@@ -247,10 +253,6 @@ angular.module('creatorApp', [])
       };
       console.log($scope.activeCharacter.basic.attributes);
 
-      setTimeout(function(){
-        $("#attr_green_check").css("display:none");
-        $("#attr_green_check").fadeOut(1000);
-      },1000);
       Characters.save($scope.characters);
     };
 
