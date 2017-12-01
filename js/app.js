@@ -218,7 +218,6 @@ angular.module('creatorApp', [])
       }
 
       $("#attr_green_check").css("display", "inline");
-
       
       setTimeout(function(){
         $("#attr_green_check").css("display:none");
