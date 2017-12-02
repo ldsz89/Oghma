@@ -17,8 +17,11 @@
 
     <style>
       #class_image{
-        width: 255px;
+        width: 245px;
         height: auto;
+      }
+      h4 {
+        font-size: 15px;
       }
     </style>
   </head>
@@ -68,8 +71,8 @@
                   </div>
                   <div class="card-content">
                     <div class="col-lg-2 col-md-4">{{activeCharacter.class.class}}</div>
-                    <div class="col-lg-2 col-md-4">{{activeCharacter.basic.level}}</div>
-                    <div class="col-lg-2 col-md-4">{{activeCharacter.basic.background}}</div>
+                    <div class="col-lg-1 col-md-1">{{activeCharacter.basic.level}}</div>
+                    <div class="col-lg-3 col-md-4">{{activeCharacter.basic.background}}</div>
                     <div class="col-lg-2 col-md-4">{{activeCharacter.name}}</div>
                     <div class="col-lg-2 col-md-4">{{activeCharacter.race.race}}</div>
                     <div class="col-lg-2 col-md-4">{{activeCharacter.basic.alignment}}</div>
@@ -80,43 +83,43 @@
             </div>
             <div class="row">
               <!-- Attributes & Skills -->
-              <div class="col-lg-4 col-md-4">
+              <div class="col-lg-5 col-md-5">
                 <!-- Attributes -->
-                <div class="col-lg-5 col-md-5">
+                <div class="col-lg-6 col-md-6">
                   <div class="card">
                     <div class="card-content text-center">
                       <div>
-                        Strength: {{activeCharacter.basic.attributes.strength}}
+                        <h5><strong>Strength: </strong></h5>{{activeCharacter.basic.attributes.strength}}
                         <br />
                         mod: {{activeCharacter.basic.mods[0]}}
                       </div>
                       <hr />
                       <div>
-                        Dexterity: {{activeCharacter.basic.attributes.dexterity}}
+                        <h5><strong>Dexterity: </strong></h5>{{activeCharacter.basic.attributes.dexterity}}
                         <br />
                         mod: {{activeCharacter.basic.mods[1]}}
                       </div>
                       <hr />
                       <div>
-                        Constitution: {{activeCharacter.basic.attributes.constitution}}
+                        <h5><strong>Constitution: </strong></h5>{{activeCharacter.basic.attributes.constitution}}
                         <br />
                         mod: {{activeCharacter.basic.mods[2]}}
                       </div>
                       <hr />
                       <div>
-                        Intelligence: {{activeCharacter.basic.attributes.intelligence}}
+                        <h5><strong>Intelligence: </strong></h5>{{activeCharacter.basic.attributes.intelligence}}
                         <br />
                         mod: {{activeCharacter.basic.mods[3]}}
                       </div>
                       <hr />
                       <div>
-                        Wisdom: {{activeCharacter.basic.attributes.wisdom}}
+                        <h5><strong>Wisdom: </strong></h5>{{activeCharacter.basic.attributes.wisdom}}
                         <br />
                         mod: {{activeCharacter.basic.mods[4]}}
                       </div>
                       <hr />
                       <div>
-                        Charisma: {{activeCharacter.basic.attributes.charisma}}
+                        <h5><strong>Charisma: </strong></h5>{{activeCharacter.basic.attributes.charisma}}
                         <br />
                         mod: {{activeCharacter.basic.mods[5]}}
                       </div>
@@ -127,7 +130,8 @@
                 <div class="col-lg-6 col-md-6">
                   <div class="card">
                     <div class="card-content">
-                      <h4><strong>Inspiration: </strong></h4>
+                      <h4 style="display: inline"><strong>Inspiration: </strong></h4>
+                      <input style="margin-left: 8px;" id="inspiration" type="checkbox" ng-model="checkbox" ng-change="changeInspiration()">
                     </div>
                   </div>
                   <div class="card">
@@ -148,7 +152,7 @@
                 </div>
               </div>
               <!-- Life Info -->
-              <div class="col-lg-4 col-md-4">
+              <div class="col-lg-3 col-md-3">
                 <div class="card">
                   <div class="card-content">
                     <!-- Armor and initiative need here as well -->

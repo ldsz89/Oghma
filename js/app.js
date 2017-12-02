@@ -24,6 +24,7 @@ angular.module('creatorApp', [])
           race: {},
           class: {},
           abilities: {},
+          inspiration: false,
           remove: false
         };
       },
@@ -411,4 +412,10 @@ angular.module('creatorApp', [])
       },1000);
       Characters.save($scope.characters);
     };
+  
+    $scope.changeInspiration = function(){
+      console.log("Before: " + $scope.activeCharacter.inspiration);
+      $scope.activeCharacter.inspiration = !$scope.activeCharacter.inspiration;
+      console.log("After: " + $scope.activeCharacter.inspiration);
+    }
   })
