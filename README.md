@@ -14,24 +14,24 @@ Dungeons & Dragons is a fun and exciting game, but there are a lot of elements t
 
 ## The Solution
 
-The landing page of this site prompts you to create a new character, then directs you to the edit character page.
+To solve this problem we've created a website that automates much of the procress of creating a character for a player. We've cut out the lore and tedious details that would turn away new players and presented just the information that's relevant to them. This was accomplished using a single controller, information gathered from a D&D 5e API, and local storage to save each character created.
 
 ## Technologies
 
-AngularJS, SASS, D&D API, Bootstrap, jQuery
+AngularJS, SASS, [D&D API](http://www.dnd5eapi.co/), Bootstrap, jQuery
 
 ## Who did what?
 
-#### Dre: 
+#### Dre:
 Linking API, organizing where the content loads
-#### Julia: 
+#### Julia:
 Managing local storage and user input
-#### Sam: 
+#### Sam:
 Front end, styling
-#### Chaewon: 
+#### Chaewon:
 Showing/hiding modals, fixing bugs, adding funtionality
 
-#### All: 
+#### All:
 Integrating pages, fixing bugs, collaboration. We all worked on various parts of other team member areas, but these were the items we officiallly assigned at the beginning
 
 ## Notable Items in the Project
@@ -46,3 +46,26 @@ Integrating pages, fixing bugs, collaboration. We all worked on various parts of
   - We used AngularJS to load information based upon the information of the activeCharacter
   - On the character detail page for a character that has already been created, the image loads dynamically based upon the class
   - If a user doesn't have a class selected yet, an empty stock image displays
+
+## Tutorial
+![Landing Page](/image/Screenshots/DND1.png)
+
+After going to www.oghma.me/oghma/ click the GO! button to input the name of your first character.
+
+![Edit Character](/image/Screenshots/DND3.png)
+
+After confirming the name, you'll be taken to the Edit Character page that will allow you to input all of the relevent information about your new character including name, class, race, etc...
+
+![Class Selection](/image/Screenshots/DND4.png)
+![Race Selection](/image/Screenshots/DND5.png)
+
+After confirming all of the information, click the Done button in the sidebar on the left side of the screen.
+
+![Character Details 1](/image/Screenshots/DND7.png)
+![Character Details 2](/image/Screenshots/DND8.png)
+
+You will then be taken to your new characer's information page. From here you can see all of the information you've selected. If there is something you want to edit about that character, click the Edit Character link in the sidebar on the left side of the screen.
+
+![Character Dashboard](/image/Screenshots/DND6.png)
+
+To see all of your characters, click the Dashboard link at the top of the sidebar. From here you can access a character's information page by clicking their name. To edit a character, hover over their name and click the edit (pencil) button. To delete a character, hover over their name and click the delete (trash) button.
