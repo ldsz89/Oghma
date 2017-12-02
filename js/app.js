@@ -67,35 +67,24 @@ angular.module('creatorApp', [])
     ChCtrl.activeRace = {name: "none"};
 
     ChCtrl.skills = [
-      "acrobatics",
-      "animal_handling",
-      "arcana",
-      "athletics",
-      "deception",
-      "history",
-      "insight",
-      "intimidation",
-      "investigation",
-      "medicine",
-      "nature",
-      "perception",
-      "performance",
-      "persuasion",
-      "religion",
-      "sleight_of_hand",
-      "stealth",
-      "survival",
-      "armor_class",
-      "speed",
-      "hp",
-      "personality",
-      "ideals",
-      "bonds",
-      "flaws",
-      "feat",
-      "language",
-      "equipment",
-      "spell"
+      { "name": "Acrobatics", "url": "http://www.dnd5eapi.co/api/skills/1" },
+      { "name": "Animal Handling", "url": "http://www.dnd5eapi.co/api/skills/2" },
+      { "name": "Arcana", "url": "http://www.dnd5eapi.co/api/skills/3" },
+      { "name": "Athletics", "url": "http://www.dnd5eapi.co/api/skills/4" },
+      { "name": "Deception", "url": "http://www.dnd5eapi.co/api/skills/5" },
+      { "name": "History", "url": "http://www.dnd5eapi.co/api/skills/6" },
+      { "name": "Insight", "url": "http://www.dnd5eapi.co/api/skills/7" },
+      { "name": "Intimidation", "url": "http://www.dnd5eapi.co/api/skills/8" },
+      { "name": "Investigation", "url": "http://www.dnd5eapi.co/api/skills/9" },
+      { "name": "Medicine", "url": "http://www.dnd5eapi.co/api/skills/10" },
+      { "name": "Nature", "url": "http://www.dnd5eapi.co/api/skills/11" },
+      { "name": "Perception", "url": "http://www.dnd5eapi.co/api/skills/12" },
+      { "name": "Performance", "url": "http://www.dnd5eapi.co/api/skills/13" },
+      { "name": "Persuasion", "url": "http://www.dnd5eapi.co/api/skills/14" },
+      { "name": "Religion", "url": "http://www.dnd5eapi.co/api/skills/15" },
+      { "name": "Sleight of Hand", "url": "http://www.dnd5eapi.co/api/skills/16" },
+      { "name": "Stealth", "url": "http://www.dnd5eapi.co/api/skills/17" },
+      { "name": "Survival", "url": "http://www.dnd5eapi.co/api/skills/18" }
     ];
 
     ChCtrl.alignments = [
@@ -236,7 +225,7 @@ angular.module('creatorApp', [])
       }
 
       $("#attr_green_check").css("display", "inline");
-      
+
       setTimeout(function(){
         $("#attr_green_check").css("display:none");
         $("#attr_green_check").fadeOut(1000);
