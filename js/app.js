@@ -237,12 +237,12 @@ angular.module('creatorApp', [])
 
       $("#attr_green_check").css("display", "inline");
 
-      
+
       setTimeout(function(){
         $("#attr_green_check").css("display:none");
         $("#attr_green_check").fadeOut(1000);
       },1000);
-      
+
       $scope.activeCharacter.basic.attributes = {
         strength: attributes.strength + $scope.activeCharacter.race.ability_bonuses[0],
         dexterity: attributes.dexterity + $scope.activeCharacter.race.ability_bonuses[1],
@@ -251,10 +251,72 @@ angular.module('creatorApp', [])
         wisdom: attributes.wisdom + $scope.activeCharacter.race.ability_bonuses[4],
         charisma: attributes.charisma + $scope.activeCharacter.race.ability_bonuses[5],
       };
-      console.log($scope.activeCharacter.basic.attributes);
 
+      $scope.activeCharacter.basic.mods = [
+        calculateMod($scope.activeCharacter.basic.attributes.strength),
+        calculateMod($scope.activeCharacter.basic.attributes.dexterity),
+        calculateMod($scope.activeCharacter.basic.attributes.constitution),
+        calculateMod($scope.activeCharacter.basic.attributes.intelligence),
+        calculateMod($scope.activeCharacter.basic.attributes.wisdom),
+        calculateMod($scope.activeCharacter.basic.attributes.charisma)
+      ];
+
+      console.log($scope.activeCharacter.basic);
       Characters.save($scope.characters);
     };
+
+    function calculateMod(raw) {
+      var mod;
+      switch(raw) {
+        case 0:
+        case 1:
+          mod = -5;
+          break;
+        case 2:
+        case 3:
+          mod = -4;
+          break;
+        case 4:
+        case 5:
+          mod = -3;
+          break;
+        case 6:
+        case 7:
+          mod = -2;
+          break;
+        case 8:
+        case 9:
+          mod = -1;
+          break;
+        case 10:
+        case 11:
+          mod = -0;
+          break;
+        case 12:
+        case 13:
+          mod = 1;
+          break;
+        case 14:
+        case 15:
+          mod = 2;
+          break;
+        case 16:
+        case 17:
+          mod = 3;
+          break;
+        case 18:
+        case 19:
+          mod = 4;
+          break;
+        case 20:
+          mod = 5;
+          break;
+        default:
+          mod = 0;
+          break;
+      }
+      return mod;
+    }
 
     $scope.random = function(limit) {
       return Math.floor(Math.random() * limit);

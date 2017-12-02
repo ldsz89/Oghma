@@ -85,17 +85,41 @@
                 <div class="col-lg-5 col-md-5">
                   <div class="card">
                     <div class="card-content text-center">
-                      <div>Strength: {{activeCharacter.basic.attributes.strength}}</div>
+                      <div>
+                        Strength: {{activeCharacter.basic.attributes.strength}}
+                        <br />
+                        mod: {{activeCharacter.basic.mods[0]}}
+                      </div>
                       <hr />
-                      <div>Dexterity: {{activeCharacter.basic.attributes.dexterity}}</div>
+                      <div>
+                        Dexterity: {{activeCharacter.basic.attributes.dexterity}}
+                        <br />
+                        mod: {{activeCharacter.basic.mods[1]}}
+                      </div>
                       <hr />
-                      <div>Constitution: {{activeCharacter.basic.attributes.constitution}}</div>
+                      <div>
+                        Constitution: {{activeCharacter.basic.attributes.constitution}}
+                        <br />
+                        mod: {{activeCharacter.basic.mods[2]}}
+                      </div>
                       <hr />
-                      <div>Intelligence: {{activeCharacter.basic.attributes.intelligence}}</div>
+                      <div>
+                        Intelligence: {{activeCharacter.basic.attributes.intelligence}}
+                        <br />
+                        mod: {{activeCharacter.basic.mods[3]}}
+                      </div>
                       <hr />
-                      <div>Wisdom: {{activeCharacter.basic.attributes.wisdom}}</div>
+                      <div>
+                        Wisdom: {{activeCharacter.basic.attributes.wisdom}}
+                        <br />
+                        mod: {{activeCharacter.basic.mods[4]}}
+                      </div>
                       <hr />
-                      <div>Charisma: {{activeCharacter.basic.attributes.charisma}}</div>
+                      <div>
+                        Charisma: {{activeCharacter.basic.attributes.charisma}}
+                        <br />
+                        mod: {{activeCharacter.basic.mods[5]}}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -117,8 +141,8 @@
                     </div>
                   </div>
                   <div class="card">
-                    <div class="card-content" ng-repeat="skill in ChCtrl.skills track by $index">
-                      <div>{{skill}}</div>
+                    <div class="card-content">
+                      <div ng-repeat="skill in ChCtrl.skills track by $index">{{skill}}</div>
                     </div>
                   </div>
                 </div>
