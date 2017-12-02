@@ -46,6 +46,10 @@ Integrating pages, fixing bugs, collaboration. We all worked on various parts of
   - We used AngularJS to load information based upon the information of the activeCharacter
   - On the character detail page for a character that has already been created, the image loads dynamically based upon the class
   - If a user doesn't have a class selected yet, an empty stock image displays
+  
+## Tips
+- Utilize the documentation for libraries. Some errors are caused by not completely understanding some functionality in a library. After readng some information on an element or method it can be easier to solve your problem.
+- An important element to tackling this project was understanding the structure of the elements being returned from our calls to the Dungeons and Dragons API. A tip is to do a console.log of the element so you can examine the structure.
 
 ## Tutorial
 ![Landing Page](/image/Screenshots/DND1.png)
