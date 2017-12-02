@@ -127,17 +127,17 @@
                 <div class="col-lg-6 col-md-6">
                   <div class="card">
                     <div class="card-content">
-                      Inspiration:
+                      <h4><strong>Inspiration: </strong></h4>
                     </div>
                   </div>
                   <div class="card">
                     <div class="card-content">
-                      Proficiency Bonus
+                      <h4><strong>Proficiency Bonus: </strong></h4>
                     </div>
                   </div>
                   <div class="card">
                     <div class="card-content">
-                      Saving Throws
+                      <h4><strong>Saving Throws: </strong></h4>
                     </div>
                   </div>
                   <div class="card">
@@ -152,10 +152,18 @@
                 <div class="card">
                   <div class="card-content">
                     <!-- Armor and initiative need here as well -->
-                    Hit Point Maximum:
-                    <div>Current HP:</div>
+                    <h4><strong>Hit Point Maximum: </strong></h4>
+                    <h4><strong>Current HP: </strong></h4>
                     <hr />
-                    <div>Temporary HP:</div>
+                    <h4><strong>Temporary HP: </strong></h4>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-content">
+                    <!-- Equipment -->
+                    <h4><strong>Eqiupment</strong></h4>
+                    <hr />
+                    <div ng-repeat="equipment in activeCharacter.class.proficiencies">{{equipment.name}}</div>
                   </div>
                 </div>
               </div>
@@ -163,29 +171,29 @@
               <div class="col-lg-4 col-md-4">
                 <div class="card">
                   <div class="card-content">
-                    <strong>Personality:</strong> {{activeCharacter.personality.personality}}
+                    <h4><strong>Personality: </strong></h4> {{activeCharacter.personality.personality}}
                   </div>
                 </div>
                 <div class="card">
                   <div class="card-content">
-                    <strong>Ideals:</strong> {{activeCharacter.personality.ideals}}
+                    <h4><strong>Ideals: </strong></h4> {{activeCharacter.personality.ideals}}
                   </div>
                 </div>
                 <div class="card">
                   <div class="card-content">
-                    <strong>Bonds:</strong> {{activeCharacter.personality.bonds}}
+                    <h4><strong>Bonds: </strong></h4> {{activeCharacter.personality.bonds}}
                   </div>
                 </div>
                 <div class="card">
                   <div class="card-content">
-                    <strong>Flaws:</strong> {{activeCharacter.personality.flaws}}
+                    <h4><strong>Flaws: </strong></h4> {{activeCharacter.personality.flaws}}
                   </div>
                 </div>
 
                 <!-- Features -->
                 <div class="card">
                   <div class="card-content">
-                    Features
+                    <h4><strong>Features: </strong></h4>
                   </div>
                 </div>
               </div>
