@@ -217,10 +217,8 @@
                     <div class="card-content">
                       <h4><strong>Skills</strong></h4>
                       <div ng-repeat="skill in ChCtrl.skills track by $index">
-                        <!-- <p ng-if="activeCharacter.class.proficiency_choices.indexOf(skill) > -1" style="background-color: yellow;">{{skill.name}}</p>
-                        <p ng-if="activeCharacter.class.proficiency_choices.indexOf(skill) === -1">{{skill.name}}</p> -->
-                        <p ng-if="activeCharacter.class.proficiency_choices | contains:skill" style="background-color: yellow;">{{skill.name}}</p>
-                        <p ng-if="activeCharacter.class.proficiency_choices | contains:skill">{{skill.name}}</p>
+                        <p ng-if="isProficient(skill)" style="background-color: yellow;">{{skill.name}}</p>
+                        <p ng-if="!isProficient(skill)">{{skill.name}}</p>
                       </div>
                     </div>
                   </div>

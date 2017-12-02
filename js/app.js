@@ -401,10 +401,15 @@ angular.module('creatorApp', [])
       },1000);
       Characters.save($scope.characters);
     };
-  
+
     $scope.changeInspiration = function(){
       console.log("Before: " + $scope.activeCharacter.inspiration);
       $scope.activeCharacter.inspiration = !$scope.activeCharacter.inspiration;
       console.log("After: " + $scope.activeCharacter.inspiration);
-    }
+    };
+
+    $scope.isProficient = function(prof) {
+      return $scope.activeCharacter.class.proficiency_choices.indexOf(prof) !== -1;
+    };
+    // console.log($scope.activeCharacter.class.proficiency_choices.indexOf({"name": "Acrobatics", "url": "http://www.dnd5eapi.co/api/proficiencies/105"}) !== -1);
   })
